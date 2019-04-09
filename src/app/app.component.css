@@ -1,0 +1,21 @@
+.fill-remaining-space {
+   flex: 1 1 auto;
+ }
+
+ .link{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+ }
+ 
+ .buttonLink{
+   padding-left: 0rem;
+   padding-right: 0.5rem;
+}
+
+.line{
+   display: inline;
+}
+
+.whiteText{
+   color: white;
+}
