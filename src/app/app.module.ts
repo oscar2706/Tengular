@@ -11,6 +11,13 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +30,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatTableModule,
     NgbModule.forRoot()
   ],
   providers: [],
