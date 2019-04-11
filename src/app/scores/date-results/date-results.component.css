@@ -29,3 +29,7 @@
 .addBorder {
    border: 1px solid transparent;
 }
+
+.bgColor-Accent{
+   background-color: #EE8133;
+}
