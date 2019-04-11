@@ -1,0 +1,96 @@
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+  <mat-tab label="Torneos" mat-align->
+    <div class="example-small-box mat-elevation-z4" align="center">
+
+      <mat-form-field >
+          <mat-label>Modalidades</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let mod of mods" [value]="mod.value">
+              {{mod.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+  
+        <mat-form-field>
+          <mat-label>Categorias</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let cat of cats" [value]="cat.value">
+              {{cat.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-grid-list cols="3" rowHeight="3:3">
+            <mat-grid-tile> 
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-cards-torneos></app-cards-torneos>
+            </mat-grid-tile>
+        </mat-grid-list>
+          
+
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Jugadores">
+    <div class="example-large-box mat-elevation-z4" align="center">
+
+        <mat-form-field >
+            <mat-label>Genero</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let gen of gens" [value]="gen.value">
+                {{gen.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-grid-list cols="3" rowHeight="3:3">
+              <mat-grid-tile> 
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                  <app-cards-jugadores></app-cards-jugadores>
+              </mat-grid-tile>
+          </mat-grid-list>
+
+    </div>
+  </mat-tab>
+
+
+</mat-tab-group>
