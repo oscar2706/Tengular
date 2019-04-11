@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center mt-2">
+    <mat-tab-group color="accent">
+      <mat-tab label="Fechas">
+        <p></p>
+      </mat-tab>
+      <mat-tab label="Torneos">
+        <p></p>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <!-- Filtrado de los torneos -->
+  <div class="row justify-content-center">
+    <!-- <div class="col-3 m-3 justify-content-center"> -->
+    <mat-form-field color="accent" class="d-inline p-4">
+      <mat-label>Modalidad</mat-label>
+      <mat-select [(value)]="modalitySelected">
+        <mat-option value="option1">Ambas</mat-option>
+        <mat-option value="option2">Indivudual</mat-option>
+        <mat-option value="option3">Dobles</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- </div> -->
+    <!-- <div class="col-3 m-3"> -->
+    <mat-form-field color="accent" class="d-inline p-4">
+      <mat-label>Categoria</mat-label>
+      <mat-select [(value)]="categorySelected">
+        <mat-option value="option1">Todas</mat-option>
+        <mat-option value="option2">Masculino</mat-option>
+        <mat-option value="option3">Femenino</mat-option>
+        <mat-option value="option4">Mixto</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- </div> -->
+  </div>
+
+  <!-- Reusultados -->
+  <h3 class="text-center">Resultados</h3>
+  <app-date-results></app-date-results>
+  <app-date-results></app-date-results>
+  <app-date-results></app-date-results>
+  <app-date-results></app-date-results>
+  <app-date-results></app-date-results>
+  <app-date-results></app-date-results>
+
+</div>
