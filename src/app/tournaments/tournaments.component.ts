@@ -17,8 +17,8 @@ export interface Mod {
 
 @Component({
 
-  templateUrl: './torneos.component.html',
-  styleUrls: ['./torneos.component.css']
+  templateUrl: './tournaments.component.html',
+  styleUrls: ['./tournaments.component.css']
 })
 export class TorneosComponent implements OnInit {
   
