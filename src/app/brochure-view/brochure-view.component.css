@@ -11,3 +11,7 @@
     background-image: url('https://upload.wikimedia.org/wikipedia/an/9/90/ATP_250_Series_logo.png');
     background-size: cover;
   }
+
+  .bgColor-light{
+    background-color: #E6E6E5;
+ }
