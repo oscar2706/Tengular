@@ -73,7 +73,7 @@ const APP_ROUTES: Routes = [
     AngularFirestoreModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
