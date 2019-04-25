@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { UserInterface } from '../models/UserInterface';
+import { UserInterface } from '../models/user.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
- 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,19 +12,18 @@ export class UserService {
   Users: Observable<UserInterface[]>;
   UserDoc: AngularFirestoreDocument<UserInterface>;
 
-  constructor(public afs:AngularFirestore) { 
+  constructor (public afs: AngularFirestore) {
     this.UserCollection = this.afs.collection<UserInterface>('Usuarios');
     this.Users = this.UserCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as UserInterface;
         const id = a.payload.doc.id;
-        return {id, ...data };
+        return { id, ...data };
       }))
     );
   }
 
-  getUsers()
-  {
+  getUsers () {
     return this.Users;
   }
 }
