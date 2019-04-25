@@ -11,9 +11,9 @@ import { UserService } from './services/user.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { TorneosComponent } from './torneos/torneos.component';
-import { CardsTorneosComponent } from './torneos/cards-torneos/cards-torneos.component';
-import { CardsJugadoresComponent } from './torneos/cards-jugadores/cards-jugadores.component';
+import { TorneosComponent } from './tournaments/tournaments.component';
+import { CardsTorneosComponent } from './tournaments/cards-tournaments/cards-tournaments.component';
+import { CardsJugadoresComponent } from './tournaments/cards-players/cards-players.component';
 import { ScoresComponent } from './scores/scores.component';
 import { DateResultsComponent } from './scores/date-results/date-results.component';
 import { RankingsComponent } from './rankings/rankings.component';
