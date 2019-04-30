@@ -21,6 +21,18 @@ import { BrochureViewComponent } from './brochure-view/brochure-view.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { TournamentBracketComponent } from './tournament-bracket/tournament-bracket.component';
 import { MatchScoreComponent } from './tournament-bracket/match-score/match-score.component';
+import { SelectedTournamentComponent } from './selected-tournament/selected-tournament.component';
+import { TournamentInfoComponent } from './selected-tournament/tournament-info/tournament-info.component';
+import { TournamentBracketInfoComponent } from './selected-tournament/tournament-bracket-info/tournament-bracket-info.component';
+import { MatchScoreInfoComponent } from './tournament-bracket/match-score-info/match-score-info.component';
+import { PlayersTournamentInfoComponent } from './selected-tournament/players-tournament-info/players-tournament-info.component';
+import { SelectedPlayerComponent } from './selected-player/selected-player.component';
+import { PlayerInfoComponent } from './selected-player/player-info/player-info.component';
+import { TournamentManagementComponent } from './tournament-management/tournament-management.component';
+import { CardsTournamentsManagementComponent } from './tournament-management/cards-tournaments-management/cards-tournaments-management.component';
+import { CardsPlayersManagementComponent } from './tournament-management/cards-players-management/cards-players-management.component';
+import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
+import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
 
 //Material components
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -33,13 +45,31 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialElevationDirective } from './material-elevation.directive';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { PlayerLoggedComponent } from './player-logged/player-logged.component';
+import { MatCheckboxModule } from '@angular/material';
+import { MatListModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+
+//Tuberías
+import { MatchResultPipe } from './pipes/match-result.pipe';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'resultados', component: ScoresComponent },
   { path: 'rankings', component: RankingsComponent },
   { path: 'torneos', component: TorneosComponent },
+  { path: 'jugador-seleccionado', component: SelectedPlayerComponent },
+  { path: 'torneo-seleccionado', component: SelectedTournamentComponent },
   { path: 'convocatorias', component: BrochureViewComponent },
+  { path: 'jugador/:nombre', component: PlayerLoggedComponent },
+  { path: 'admin', component: TournamentManagementComponent },
+  { path: 'usuario', component: PlayerLoggedComponent },
+  { path: 'arbitro', component: TournamentBracketComponent },
 ];
 
 @NgModule({
@@ -55,7 +85,22 @@ const APP_ROUTES: Routes = [
     RankingsComponent,
     BrochureViewComponent,
     TournamentBracketComponent,
-    MatchScoreComponent
+    LoginComponent,
+    MatchScoreComponent,
+    PlayerLoggedComponent,
+    SelectedTournamentComponent,
+    TournamentInfoComponent,
+    TournamentBracketInfoComponent,
+    MatchScoreInfoComponent,
+    PlayersTournamentInfoComponent,
+    SelectedPlayerComponent,
+    PlayerInfoComponent,
+    CardsTournamentsManagementComponent,
+    TournamentManagementComponent,
+    CardsPlayersManagementComponent,
+    TournamentRegistrationComponent,
+    PlayerRegistrationComponent,
+    MatchResultPipe
   ],
   imports: [
     BrowserModule,
@@ -69,6 +114,14 @@ const APP_ROUTES: Routes = [
     MatSelectModule,
     MatGridListModule,
     MatTableModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),
@@ -78,6 +131,7 @@ const APP_ROUTES: Routes = [
     FormsModule
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent, AppComponent, TournamentRegistrationComponent, PlayerRegistrationComponent]
 })
 export class AppModule { }

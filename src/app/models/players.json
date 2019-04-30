@@ -1,0 +1,1195 @@
+{
+	"records": [
+		{
+			"current_rank": 1,
+			"player_country": "Serbia",
+			"player_name": "Novak Djokovic",
+			"player_points": 11070,
+			"prev_rank": 1,
+			"password": "123"
+		},
+		{
+			"current_rank": 2,
+			"player_country": "Spain",
+			"player_name": "Rafael Nadal",
+			"player_points": 8725,
+			"prev_rank": 2
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e174aabbba315984faf864d8ee1dcb5a32b04480",
+			"fields": {
+				"current_rank": 3,
+				"player_country": "Germany",
+				"player_name": "Alexander Zverev",
+				"player_points": 6040,
+				"prev_rank": 3
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "b4619d5f34e51da488f9fb19ebb8e88020d78df0",
+			"fields": {
+				"current_rank": 4,
+				"player_country": "Switzerland",
+				"player_name": "Roger Federer",
+				"player_points": 5590,
+				"prev_rank": 4
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "8044d0012efe2d813f54262ca021abcd4b28b165",
+			"fields": {
+				"current_rank": 5,
+				"player_country": "Austria",
+				"player_name": "Dominic Thiem",
+				"player_points": 4765,
+				"prev_rank": 5
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "08feaa8d3fc91960503876bba22cfa8e5524ae30",
+			"fields": {
+				"current_rank": 6,
+				"player_country": "Japan",
+				"player_name": "Kei Nishikori",
+				"player_points": 4200,
+				"prev_rank": 6
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "092c01c8b361c59bcf61f7da50f330ea3a2d0984",
+			"fields": {
+				"current_rank": 7,
+				"player_country": "South Africa",
+				"player_name": "Kevin Anderson",
+				"player_points": 4115,
+				"prev_rank": 7
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "ef84a05a565deb315228b079839095182c045f1f",
+			"fields": {
+				"current_rank": 8,
+				"player_country": "Greece",
+				"player_name": "Stefanos Tsitsipas",
+				"player_points": 3240,
+				"prev_rank": 8
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "278aa9df0906af6bc3cd29b5d3c3d9dd2e397ee8",
+			"fields": {
+				"current_rank": 9,
+				"player_country": "Argentina",
+				"player_name": "Juan Martin del Potro",
+				"player_points": 3225,
+				"prev_rank": 9
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "deb7d40bb70ad7ba12728ffbe5e46f37a12db723",
+			"fields": {
+				"current_rank": 10,
+				"player_country": "Usa",
+				"player_name": "John Isner",
+				"player_points": 3085,
+				"prev_rank": 10
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "82bfe9a537b6f67b814b617d7949b409081facda",
+			"fields": {
+				"current_rank": 11,
+				"player_country": "Croatia",
+				"player_name": "Marin Cilic",
+				"player_points": 3015,
+				"prev_rank": 11
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "301edb33dc7276e7346e6cab110788590396bda1",
+			"fields": {
+				"current_rank": 12,
+				"player_country": "Russia",
+				"player_name": "Karen Khachanov",
+				"player_points": 2810,
+				"prev_rank": 12
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "dd491fe18c23abd77bfc54553d233e0c1fb91bcc",
+			"fields": {
+				"current_rank": 13,
+				"player_country": "Croatia",
+				"player_name": "Borna Coric",
+				"player_points": 2345,
+				"prev_rank": 13
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "675ff6a8888591acc4fd5098af8c96601dd1562c",
+			"fields": {
+				"current_rank": 14,
+				"player_country": "Russia",
+				"player_name": "Daniil Medvedev",
+				"player_points": 2295,
+				"prev_rank": 14
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "a7d96746205e7ab71316b1504e6a895b60c1ef7f",
+			"fields": {
+				"current_rank": 15,
+				"player_country": "Canada",
+				"player_name": "Milos Raonic",
+				"player_points": 2140,
+				"prev_rank": 15
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "d1effd5dc2e4855742b6e9deebdfacb987854fbf",
+			"fields": {
+				"current_rank": 16,
+				"player_country": "Italy",
+				"player_name": "Marco Cecchinato",
+				"player_points": 2021,
+				"prev_rank": 16
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "504deb028297b81a3965a8fa4df959acc99530a9",
+			"fields": {
+				"current_rank": 17,
+				"player_country": "Georgia",
+				"player_name": "Nikoloz Basilashvili",
+				"player_points": 1930,
+				"prev_rank": 17
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "403196846449e9112ed35de44205f1c8480fb271",
+			"fields": {
+				"current_rank": 18,
+				"player_country": "Italy",
+				"player_name": "Fabio Fognini",
+				"player_points": 1885,
+				"prev_rank": 18
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "18b269166d31afbff1eaa73ca676067639cdbec7",
+			"fields": {
+				"current_rank": 19,
+				"player_country": "France",
+				"player_name": "Gael Monfils",
+				"player_points": 1875,
+				"prev_rank": 19
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "985b9680072408444b6e05524e66ad6c833206fe",
+			"fields": {
+				"current_rank": 20,
+				"player_country": "Canada",
+				"player_name": "Denis Shapovalov",
+				"player_points": 1820,
+				"prev_rank": 20
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "2d211ff0d2277ecaf5399a80e66917ec0197ed29",
+			"fields": {
+				"current_rank": 21,
+				"player_country": "Belgium",
+				"player_name": "David Goffin",
+				"player_points": 1765,
+				"prev_rank": 21
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "abd202002491bb30a4da32da56fba3df81c6627a",
+			"fields": {
+				"current_rank": 22,
+				"player_country": "Spain",
+				"player_name": "Roberto Bautista Agut",
+				"player_points": 1680,
+				"prev_rank": 23
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "3a2898bf67bc27a220580061867d977f9b17c708",
+			"fields": {
+				"current_rank": 23,
+				"player_country": "Great Britain",
+				"player_name": "Kyle Edmund",
+				"player_points": 1575,
+				"prev_rank": 22
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "03bd9f7320deca7e70c171d1a1a14224c446698b",
+			"fields": {
+				"current_rank": 24,
+				"player_country": "Argentina",
+				"player_name": "Diego Schwartzman",
+				"player_points": 1485,
+				"prev_rank": 24
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "6ffe00ce76302c0ca3447f0b0d4dde4110e80afc",
+			"fields": {
+				"current_rank": 25,
+				"player_country": "Australia",
+				"player_name": "Alex De Minaur",
+				"player_points": 1439,
+				"prev_rank": 25
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "a744d812cf8aec47de5486e312ee2a7c5651ea6a",
+			"fields": {
+				"current_rank": 26,
+				"player_country": "France",
+				"player_name": "Gilles Simon",
+				"player_points": 1385,
+				"prev_rank": 27
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e0676f038aea52b64945ef7be8b52c74ae89ba6f",
+			"fields": {
+				"current_rank": 27,
+				"player_country": "Spain",
+				"player_name": "Pablo  Carreno Busta",
+				"player_points": 1300,
+				"prev_rank": 28
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "9e6a869133647a8607f15021c18c5738065fdef7",
+			"fields": {
+				"current_rank": 28,
+				"player_country": "Bulgaria",
+				"player_name": "Grigor Dimitrov",
+				"player_points": 1300,
+				"prev_rank": 29
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "81cdd1ead280be51a8e0868793eb13118621056f",
+			"fields": {
+				"current_rank": 29,
+				"player_country": "United States",
+				"player_name": "Frances Tiafoe",
+				"player_points": 1290,
+				"prev_rank": 30
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "2f98f2e1ee73e414cf64bae428caa96ba114be23",
+			"fields": {
+				"current_rank": 30,
+				"player_country": "France",
+				"player_name": "Richard Gasquet",
+				"player_points": 1285,
+				"prev_rank": 26
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "77318b55b366a091f86257719649cddb47e492d7",
+			"fields": {
+				"current_rank": 31,
+				"player_country": "France",
+				"player_name": "Lucas Pouille",
+				"player_points": 1275,
+				"prev_rank": 31
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "1c40a51de3159c393595f182afeeedff35e73d8b",
+			"fields": {
+				"current_rank": 32,
+				"player_country": "Serbia",
+				"player_name": "Laslo Djere",
+				"player_points": 1246,
+				"prev_rank": 32
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "6a1204632d571db747359d5271f2e21958074bd2",
+			"fields": {
+				"current_rank": 33,
+				"player_country": "Canada",
+				"player_name": "Felix Auger-Aliassime",
+				"player_points": 1245,
+				"prev_rank": 33
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "17b3a9cf0392d52fc0ef93b3e377492268feff51",
+			"fields": {
+				"current_rank": 34,
+				"player_country": "Australia",
+				"player_name": "Nick Kyrgios",
+				"player_points": 1215,
+				"prev_rank": 35
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "256e3162a750634ac072e7f14a5b0149693581de",
+			"fields": {
+				"current_rank": 35,
+				"player_country": "Argentina",
+				"player_name": "Guido Pella",
+				"player_points": 1205,
+				"prev_rank": 34
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "88a7a80515c7c38acbcad232ad5754c43fb0bdca",
+			"fields": {
+				"current_rank": 36,
+				"player_country": "Switzerland",
+				"player_name": "Stan Wawrinka",
+				"player_points": 1185,
+				"prev_rank": 36
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "c9eed130a9344fb7f7ff73e28b8b9330344fff61",
+			"fields": {
+				"current_rank": 37,
+				"player_country": "Hungary",
+				"player_name": "Marton Fucsovics",
+				"player_points": 1180,
+				"prev_rank": 37
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "136da7988d7af63a5ddd83200ad5691f8b0c1a7f",
+			"fields": {
+				"current_rank": 38,
+				"player_country": "Spain",
+				"player_name": "Fernando Verdasco",
+				"player_points": 1155,
+				"prev_rank": 38
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "95abc0edc9a428a40fa0e2c50f2cdc79b3436211",
+			"fields": {
+				"current_rank": 39,
+				"player_country": "Australia",
+				"player_name": "John Millman",
+				"player_points": 1095,
+				"prev_rank": 40
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "da63c8df52d6533024dfc319ae339f8708eb6256",
+			"fields": {
+				"current_rank": 40,
+				"player_country": "Germany",
+				"player_name": "Philipp Kohlschreiber",
+				"player_points": 1090,
+				"prev_rank": 41
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "6d540b30f23f2b2d9d30729218991d2f432db89b",
+			"fields": {
+				"current_rank": 41,
+				"player_country": "France",
+				"player_name": "Jeremy Chardy",
+				"player_points": 1055,
+				"prev_rank": 42
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "789d1545184e14b263e0ccc50dbdf3c4b1bad8e0",
+			"fields": {
+				"current_rank": 42,
+				"player_country": "Kazakhstan",
+				"player_name": "Mikhail Kukushkin",
+				"player_points": 1025,
+				"prev_rank": 44
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "3f443706e549c832710c84005d00723d5a476544",
+			"fields": {
+				"current_rank": 43,
+				"player_country": "France",
+				"player_name": "Benoit Paire",
+				"player_points": 993,
+				"prev_rank": 69
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "5647b7a4c5b34682ef86a7d36291466dcc577952",
+			"fields": {
+				"current_rank": 44,
+				"player_country": "Germany",
+				"player_name": "Jan-Lennard Struff",
+				"player_points": 990,
+				"prev_rank": 45
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "98f9f2879dad585b4abc2ef8cad96ad79ef160fc",
+			"fields": {
+				"current_rank": 45,
+				"player_country": "Moldova",
+				"player_name": "Radu Albot",
+				"player_points": 977,
+				"prev_rank": 46
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "7de15452082546e19bfc8b7347bfb0cb16a70ec7",
+			"fields": {
+				"current_rank": 46,
+				"player_country": "Italy",
+				"player_name": "Andreas Seppi",
+				"player_points": 970,
+				"prev_rank": 47
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "dafc950d65ec51317aa65aaba7a12fb5a0cfc396",
+			"fields": {
+				"current_rank": 47,
+				"player_country": "Chile",
+				"player_name": "Christian Garin",
+				"player_points": 970,
+				"prev_rank": 73
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "a97e02aea6ed3d75b597722268f5fe29664d5a66",
+			"fields": {
+				"current_rank": 48,
+				"player_country": "Serbia",
+				"player_name": "Dusan Lajovic",
+				"player_points": 950,
+				"prev_rank": 48
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "c22dd5cb611f22ba66af305fdc67bd886a98e261",
+			"fields": {
+				"current_rank": 49,
+				"player_country": "France",
+				"player_name": "Pierre-Hugues Herbert",
+				"player_points": 948,
+				"prev_rank": 50
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "aead83b9344721c5c99e70a889b61c8d7550545d",
+			"fields": {
+				"current_rank": 50,
+				"player_country": "Slovakia",
+				"player_name": "Martin Klizan",
+				"player_points": 940,
+				"prev_rank": 49
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "f1d6a8c72a33b55c05e2a52d0a8c0cbfcac7cd6d",
+			"fields": {
+				"current_rank": 51,
+				"player_country": "Portugal",
+				"player_name": "Joao Sousa",
+				"player_points": 937,
+				"prev_rank": 43
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "717c72150e2715465078e36b61cdd7ce376e6904",
+			"fields": {
+				"current_rank": 53,
+				"player_country": "Australia",
+				"player_name": "Matthew Ebden",
+				"player_points": 931,
+				"prev_rank": 51
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "5bc1c5091428bb56801455343b0cd58fca8d4179",
+			"fields": {
+				"current_rank": 54,
+				"player_country": "Bosnia",
+				"player_name": "Damir Dzumhur",
+				"player_points": 930,
+				"prev_rank": 53
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "109068ede961983697d353e26d9f598979bf4525",
+			"fields": {
+				"current_rank": 55,
+				"player_country": "Italy",
+				"player_name": "Matteo Berrettini",
+				"player_points": 927,
+				"prev_rank": 54
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "2bfc2b1ceb6b8acd4faf42b59bf8d638d5f2ed2b",
+			"fields": {
+				"current_rank": 56,
+				"player_country": "United Kingdom",
+				"player_name": "Cameron Norrie",
+				"player_points": 925,
+				"prev_rank": 55
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "04938910f0eeac26baf907ec01989426a13f40dd",
+			"fields": {
+				"current_rank": 57,
+				"player_country": "United States",
+				"player_name": "Reilly Opelka",
+				"player_points": 919,
+				"prev_rank": 56
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "1af565d49aa9e2da37c517505c8e559e3720d232",
+			"fields": {
+				"current_rank": 58,
+				"player_country": "France",
+				"player_name": "Adrian Mannarino",
+				"player_points": 915,
+				"prev_rank": 57
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "57e3f6dfb550022b892dba19b4215ce6fad943d2",
+			"fields": {
+				"current_rank": 59,
+				"player_country": "Usa",
+				"player_name": "Steve Johnson",
+				"player_points": 875,
+				"prev_rank": 39
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "0a81b540aa22bf951696b1195c96fff1f3b06395",
+			"fields": {
+				"current_rank": 60,
+				"player_country": "United States",
+				"player_name": "Mackenzie McDonald",
+				"player_points": 871,
+				"prev_rank": 59
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e2d9f92d75985f49cf223ca7eeccbfb2c96f645b",
+			"fields": {
+				"current_rank": 61,
+				"player_country": "Spain",
+				"player_name": "Jaume Munar",
+				"player_points": 870,
+				"prev_rank": 60
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "472bccd287b300a87c414698bce77d2f5b7a939c",
+			"fields": {
+				"current_rank": 62,
+				"player_country": "Argentina",
+				"player_name": "Leonardo Mayer",
+				"player_points": 850,
+				"prev_rank": 61
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "00143ff4dd038d23160a1dd5d132490c10e587eb",
+			"fields": {
+				"current_rank": 63,
+				"player_country": "Netherlands",
+				"player_name": "Robin Haase",
+				"player_points": 835,
+				"prev_rank": 62
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "691d830cf53ede39a4f296bca05caed9ac3e5656",
+			"fields": {
+				"current_rank": 65,
+				"player_country": "United States",
+				"player_name": "Taylor  Fritz",
+				"player_points": 810,
+				"prev_rank": 58
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "6f55bf2493bbf51f0490ee50987490d05135c4e6",
+			"fields": {
+				"current_rank": 66,
+				"player_country": "Usa",
+				"player_name": "Sam Querrey",
+				"player_points": 805,
+				"prev_rank": 71
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "988367f71ebdf58b5ec5e78b2ff172b3e6c09484",
+			"fields": {
+				"current_rank": 67,
+				"player_country": "Australia",
+				"player_name": "Jordan Thompson",
+				"player_points": 803,
+				"prev_rank": 67
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "9f470801d04f09c949a0ee0cacae5de295dc15dc",
+			"fields": {
+				"current_rank": 68,
+				"player_country": "Norway",
+				"player_name": "Casper Ruud",
+				"player_points": 788,
+				"prev_rank": 95
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "1563ce813e69b524778fe3be2cedcab8dc4336db",
+			"fields": {
+				"current_rank": 69,
+				"player_country": "Japan",
+				"player_name": "Yoshihito Nishioka",
+				"player_points": 772,
+				"prev_rank": 64
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e7434051dfb6403a5e6fefe6879de5969030f5ae",
+			"fields": {
+				"current_rank": 70,
+				"player_country": "Great Britain",
+				"player_name": "Aljaz Bedene",
+				"player_points": 765,
+				"prev_rank": 68
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "9cb7765400f9e22cecf163cef850f85e8ada4f52",
+			"fields": {
+				"current_rank": 71,
+				"player_country": "Tunisia",
+				"player_name": "Malek Jaziri",
+				"player_points": 757,
+				"prev_rank": 65
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "83c098cf9baad4530d088d4931de5fc7868744a6",
+			"fields": {
+				"current_rank": 72,
+				"player_country": "Japan",
+				"player_name": "Taro Daniel",
+				"player_points": 753,
+				"prev_rank": 75
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "c59b622dc4e59ebcc3556aa101f9510055d76bee",
+			"fields": {
+				"current_rank": 73,
+				"player_country": "Australia",
+				"player_name": "Bernard Tomic",
+				"player_points": 724,
+				"prev_rank": 79
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "631670fe7d7119ee356002403c25f3a677b1862f",
+			"fields": {
+				"current_rank": 74,
+				"player_country": "Argentina",
+				"player_name": "Federico Delbonis",
+				"player_points": 721,
+				"prev_rank": 74
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "267aecef5841acf354f7b87ddcb4ee03c7638e57",
+			"fields": {
+				"current_rank": 75,
+				"player_country": "Bolivia",
+				"player_name": "Hugo Dellien",
+				"player_points": 713,
+				"prev_rank": 76
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "08f6a4b289a4f581eca23cc1ba45d022c93e3c55",
+			"fields": {
+				"current_rank": 76,
+				"player_country": "Latvia",
+				"player_name": "Ernests Gulbis",
+				"player_points": 707,
+				"prev_rank": 78
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "f626a2f47b4e69345b4b098c5428e64ac0a76eeb",
+			"fields": {
+				"current_rank": 77,
+				"player_country": "Germany",
+				"player_name": "Mischa Zverev",
+				"player_points": 706,
+				"prev_rank": 72
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "69945a654d057d941d16b96741e80400d0889939",
+			"fields": {
+				"current_rank": 78,
+				"player_country": "Romania",
+				"player_name": "Marius Copil",
+				"player_points": 698,
+				"prev_rank": 80
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "d3787d31f69c5339cb5b6379ab686389db0e0f96",
+			"fields": {
+				"current_rank": 79,
+				"player_country": "Argentina",
+				"player_name": "Juan Ignacio Londero",
+				"player_points": 697,
+				"prev_rank": 66
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "19af768c05dacf724aaa536881a519143efa6589",
+			"fields": {
+				"current_rank": 80,
+				"player_country": "India",
+				"player_name": "Prajnesh Gunneswaran",
+				"player_points": 688,
+				"prev_rank": 82
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "689164de54936dc2434b4ba4ee29241fa194da7d",
+			"fields": {
+				"current_rank": 81,
+				"player_country": "Uruguay",
+				"player_name": "Pablo Cuevas",
+				"player_points": 687,
+				"prev_rank": 83
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "51b30f64dd453782de0303b45b2ba32e054b4c87",
+			"fields": {
+				"current_rank": 82,
+				"player_country": "Spain",
+				"player_name": "Albert Ramos-Vinolas",
+				"player_points": 685,
+				"prev_rank": 84
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "0d74a0bf768fb22390816884b669241c6fe19b90",
+			"fields": {
+				"current_rank": 83,
+				"player_country": "Chile",
+				"player_name": "Nicolas Jarry",
+				"player_points": 675,
+				"prev_rank": 86
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "000c57bd6b02cc2149d73646b7aaefe19b708c03",
+			"fields": {
+				"current_rank": 84,
+				"player_country": "Argentina",
+				"player_name": "Guido Andreozzi",
+				"player_points": 668,
+				"prev_rank": 90
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "eab5f05c67fb7a42aaeea1acfab773c249227b32",
+			"fields": {
+				"current_rank": 85,
+				"player_country": "United States",
+				"player_name": "Denis Kudla",
+				"player_points": 663,
+				"prev_rank": 85
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "6c30940f562f14c405ce839e945c87ec4419c203",
+			"fields": {
+				"current_rank": 86,
+				"player_country": "Spain",
+				"player_name": "Pablo Andujar",
+				"player_points": 657,
+				"prev_rank": 70
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "3a4d235ba0c3d7a46784090519e9a80384cba3ca",
+			"fields": {
+				"current_rank": 87,
+				"player_country": "Germany",
+				"player_name": "Peter Gojowczyk",
+				"player_points": 655,
+				"prev_rank": 87
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "2aff4980cf4ff599dd1ac401bac51a68049d10ac",
+			"fields": {
+				"current_rank": 88,
+				"player_country": "Spain",
+				"player_name": "Feliciano Lopez",
+				"player_points": 655,
+				"prev_rank": 88
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e2005ba0c10d874e7c722de93157d6adb92f57bc",
+			"fields": {
+				"current_rank": 89,
+				"player_country": "Great Britain",
+				"player_name": "Daniel Evans",
+				"player_points": 655,
+				"prev_rank": 91
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "f68d283012c2dc704b3fb8fcb1557baddfe3abde",
+			"fields": {
+				"current_rank": 90,
+				"player_country": "Russia",
+				"player_name": "Andrey Rublev",
+				"player_points": 654,
+				"prev_rank": 92
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "a4c838ce99c51e427d5abf18dc92b5d0fe2a0b80",
+			"fields": {
+				"current_rank": 91,
+				"player_country": "Serbia",
+				"player_name": "Miomir Kecmanovic",
+				"player_points": 650,
+				"prev_rank": 89
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "1e5dd1a24ada92ff840ac18043c8adf48f3af693",
+			"fields": {
+				"current_rank": 92,
+				"player_country": "Usa",
+				"player_name": "Bradley Klahn",
+				"player_points": 648,
+				"prev_rank": 93
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "723289fe50c959f7e63d75b17870762aa8eaddd4",
+			"fields": {
+				"current_rank": 93,
+				"player_country": "Italy",
+				"player_name": "Thomas Fabbiano",
+				"player_points": 648,
+				"prev_rank": 94
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "12de53e63a0ae7550b07af704b8568bd9a18de34",
+			"fields": {
+				"current_rank": 94,
+				"player_country": "South Africa",
+				"player_name": "Lloyd Harris",
+				"player_points": 633,
+				"prev_rank": 96
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "39d98ae3c1baadbb103b016ebadd414a3e7427f1",
+			"fields": {
+				"current_rank": 95,
+				"player_country": "Czech Republic",
+				"player_name": "Jiri Vesely",
+				"player_points": 624,
+				"prev_rank": 101
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "810c292189422e556b7205c7d0aafd247a21eef1",
+			"fields": {
+				"current_rank": 96,
+				"player_country": "Italy",
+				"player_name": "Lorenzo Sonego",
+				"player_points": 622,
+				"prev_rank": 103
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "f0fa6058ad11ed23fb7d9898c546d1d376cda19a",
+			"fields": {
+				"current_rank": 97,
+				"player_country": "Croatia",
+				"player_name": "Ivo Karlovic",
+				"player_points": 619,
+				"prev_rank": 77
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "922427985a6d886aa735ca8181a0c6d8b62f6246",
+			"fields": {
+				"current_rank": 98,
+				"player_country": "Czech Republic",
+				"player_name": "Tomas Berdych",
+				"player_points": 605,
+				"prev_rank": 97
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "ce794d69154f5d81bd7845741332a522f836c743",
+			"fields": {
+				"current_rank": 99,
+				"player_country": "Lithuania",
+				"player_name": "Richard Berankis",
+				"player_points": 601,
+				"prev_rank": 98
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "7d59e538ad770fce77d8dd767daf4b1f4fcaeab4",
+			"fields": {
+				"current_rank": 100,
+				"player_country": "Kazakhstan",
+				"player_name": "Alexander Bublik",
+				"player_points": 600,
+				"prev_rank": 99
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "e40272412f3491d28fbb34a190623fecff8caa97",
+			"fields": {
+				"current_rank": 101,
+				"player_country": "Germany",
+				"player_name": "Maximilian Marterer",
+				"player_points": 594,
+				"prev_rank": 100
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		},
+		{
+			"datasetid": "atp-rankings",
+			"recordid": "8b60cc95eaeff78a519a9ea4282b3a09f2c12ccc",
+			"fields": {
+				"current_rank": 102,
+				"player_country": "France",
+				"player_name": "Jo-Wilfried Tsonga",
+				"player_points": 593,
+				"prev_rank": 116
+			},
+			"record_timestamp": "2019-04-18T09:10:11+00:00"
+		}
+	]
+}

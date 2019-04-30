@@ -12,11 +12,6 @@ export class HomeComponent implements OnInit {
 
   constructor (private userService: UserService) { }
 
-  ngOnInit () {
-    this.userService.getUsers().subscribe(users => {
-      this.users = users;
-      console.log(this.users);
-    });
-  }
+  ngOnInit () { }
   images = [1, 2, 3].map(() => `https://picsum.photos/1000/600?random&t=${Math.random()}`);
 }
