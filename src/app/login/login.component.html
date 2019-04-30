@@ -7,7 +7,7 @@
     <input type="password" (change)="updatePassword($event)"><span class="highlight"></span><span class="bar"></span>
     <label>Contraseña</label>
   </div>
-  <button type="button" class="button buttonBlue" (click)="loggUser()">Iniciar Sesión
+  <button type="button" class="button buttonBlue" (click)="loggUser()" (click)="closeDialog()">Iniciar Sesión
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
 </form>

@@ -18,4 +18,10 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+  
+  closeDialog() : void {
+    const dialogRef = this.dialog.closeAll();
+
+  }
+
 }
