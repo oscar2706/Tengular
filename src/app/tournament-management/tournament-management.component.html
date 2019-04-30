@@ -1,0 +1,104 @@
+<div class="container-12 mt-5 pt-4 bgColor-light">
+    <div class="container bg-white">
+
+        <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent">
+        <mat-tab label="Torneos" mat-align->
+          <br>
+          <div class="example-small-box " align="left">
+
+            <button mat-raised-button (click)="onCreateTournament()" color= "accent"><mat-icon>add</mat-icon>Nuevo</button> 
+            
+          </div>
+            <div class="example-small-box" align="center">
+            <mat-form-field color="accent">
+              <mat-label>Modalidades</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let mod of mods" [value]="mod.value">
+                  {{mod.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+      
+            <mat-form-field color="accent">
+              <mat-label>Categorias</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let cat of cats" [value]="cat.value">
+                  {{cat.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+      
+            <mat-grid-list cols="3" rowHeight="3:3.3">
+              <mat-grid-tile>
+                <app-cards-tournaments [routerLink]="['/torneo-seleccionado']"> </app-cards-tournaments>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-tournaments></app-cards-tournaments>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-tournaments></app-cards-tournaments>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-tournaments></app-cards-tournaments>
+              </mat-grid-tile>
+      
+            </mat-grid-list>
+          </div>
+        </mat-tab>
+      
+        <mat-tab label="Jugadores">
+            <br>
+            <div class="example-small-box " align="left">
+  
+              <button mat-raised-button (click)="onCreatePlayer()" color ="accent"><mat-icon>add</mat-icon>Nuevo</button> 
+              
+            </div>
+          <div class="example-large-box" align="center">
+      
+            <mat-form-field>
+              <mat-label>Genero</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let gen of gens" [value]="gen.value">
+                  {{gen.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+            <mat-grid-list cols="3" rowHeight="5:7.2">
+              <mat-grid-tile>
+                  <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+      
+              <mat-grid-tile>
+                <app-cards-players-management></app-cards-players-management>
+              </mat-grid-tile>
+            </mat-grid-list>
+      
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+  
+    </div>
+  </div>
+  

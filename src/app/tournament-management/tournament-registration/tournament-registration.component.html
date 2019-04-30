@@ -1,0 +1,54 @@
+<form class="example-form">
+
+    <input class="example-full-width" matInput placeholder="Favorite food" >
+
+    <mat-form-field>
+        <mat-label>Modalidades</mat-label>
+        <select matNativeControl required>
+          <option value="sencilo">Sencillo</option>
+          <option value="doble">Doble</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Categoria</mat-label>
+          <select matNativeControl required>
+            <option value="varonil">Varonil</option>
+            <option value="femenil">Femenil</option>
+            <option value="mixto">Mixto</option>
+          </select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Otras reglas"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker1" placeholder="Elige una fecha">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Premio">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Precio">
+              </mat-form-field>
+
+              <mat-form-field>
+                  <div class="example-button-row">
+                      <button mat-stroked-button color="primary">Aceptar</button>
+                      <button mat-stroked-button color="primary">Cancelar</button>
+                  </div>
+                </mat-form-field>
+ </form>
+
+  

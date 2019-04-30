@@ -1,0 +1,14 @@
+.bgColor-light{
+    background-color: #E6E6E5;
+ }
+
+ .mat-raised-button {
+
+    font-size: 20px;
+    padding: 12px 32px;
+    border-radius: 25px;
+    color: white;
+ }
+ .whiteText{
+    color: white;
+ }

@@ -1,0 +1,34 @@
+<div class="example-container">
+
+    <h5>Registrar jugador</h5>
+    
+      <h6>Nombre del jugador</h6>
+        <mat-form-field>
+          <input matInput placeholder="Nombre">
+        </mat-form-field>
+    
+        <h6>Fecha de nacimiento</h6>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker3" placeholder="Elige una fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    
+          <h6>Federación</h6>
+          <mat-form-field>
+              <mat-label>Categoria</mat-label>
+              <select matNativeControl required>
+                <option value="varonil">Varonil</option>
+                <option value="femenil">Femenil</option>
+                <option value="mixto">Mixto</option>
+              </select>
+            </mat-form-field>
+    
+            <h6>Licenciar</h6>
+            <mat-form-field>
+              <input matInput placeholder="Nombre">
+            </mat-form-field>
+        
+          
+            </div>
+                
