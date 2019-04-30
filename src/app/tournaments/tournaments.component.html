@@ -1,4 +1,5 @@
 <div class="container-12 mt-5 pt-4 bgColor-light">
+  
   <div class="container bg-white">
       <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent">
       <mat-tab label="Torneos" mat-align->
@@ -25,7 +26,7 @@
     
           <mat-grid-list cols="3" rowHeight="3:3.3">
             <mat-grid-tile>
-              <app-cards-tournaments></app-cards-tournaments>
+              <app-cards-tournaments [routerLink]="['/torneo-seleccionado']"> </app-cards-tournaments>
             </mat-grid-tile>
     
             <mat-grid-tile>
@@ -40,13 +41,6 @@
               <app-cards-tournaments></app-cards-tournaments>
             </mat-grid-tile>
     
-            <mat-grid-tile>
-              <app-cards-tournaments></app-cards-tournaments>
-            </mat-grid-tile>
-    
-            <mat-grid-tile>
-              <app-cards-tournaments></app-cards-tournaments>
-            </mat-grid-tile>
           </mat-grid-list>
     
     
@@ -67,7 +61,7 @@
     
           <mat-grid-list cols="3" rowHeight="5:5">
             <mat-grid-tile>
-              <app-cards-players></app-cards-players>
+              <app-cards-players [routerLink]="['/jugador-seleccionado']"></app-cards-players>
             </mat-grid-tile>
     
             <mat-grid-tile>
@@ -94,6 +88,6 @@
         </div>
       </mat-tab>
     </mat-tab-group>
-
   </div>
+
 </div>
