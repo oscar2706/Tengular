@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -130,7 +131,8 @@ const APP_ROUTES: Routes = [
     RouterModule.forRoot(APP_ROUTES),
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Tengular'),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
