@@ -1,34 +1,47 @@
-<div class="example-container">
 
-    <h5>Registrar jugador</h5>
-    
-      <h6>Nombre del jugador</h6>
-        <mat-form-field>
-          <input matInput placeholder="Nombre">
-        </mat-form-field>
-    
-        <h6>Fecha de nacimiento</h6>
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker3" placeholder="Elige una fecha">
+<form class="example-form">
+
+    <h6>Agregar jugador</h6>
+    <br>
+      <div>
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="Nombre del jugador" [(ngModel)]="value" name ="something">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+  
+    <div>
+        <mat-form-field class="example-full-width">
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha de inicio">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-    
-          <h6>Federación</h6>
-          <mat-form-field>
-              <mat-label>Categoria</mat-label>
-              <select matNativeControl required>
-                <option value="varonil">Varonil</option>
-                <option value="femenil">Femenil</option>
-                <option value="mixto">Mixto</option>
-              </select>
-            </mat-form-field>
-    
-            <h6>Licenciar</h6>
-            <mat-form-field>
-              <input matInput placeholder="Nombre">
-            </mat-form-field>
         
-          
-            </div>
-                
+    </div>
+  
+    <div>
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="Federación" [(ngModel)]="value" name ="something">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="Licencia" [(ngModel)]="value" name ="something">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+  
+  
+    <div class="example-button-row">
+        <button mat-stroked-button color="accent" class="botones">Aceptar</button>
+        <button mat-stroked-button color="accent" class="botones">Cancelar</button>
+    </div>
+  
+  </form>
+    

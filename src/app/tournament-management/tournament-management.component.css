@@ -5,10 +5,13 @@
  .mat-raised-button {
 
     font-size: 20px;
-    padding: 12px 32px;
-    border-radius: 25px;
+    padding: 6px 32px;
+    border-radius: 15px;
     color: white;
  }
  .whiteText{
     color: white;
+ }
+ mat-form-field {
+   margin-right: 12px;
  }

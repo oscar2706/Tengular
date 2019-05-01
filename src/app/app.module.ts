@@ -26,12 +26,8 @@ import { SelectedTournamentComponent } from './selected-tournament/selected-tour
 import { TournamentInfoComponent } from './selected-tournament/tournament-info/tournament-info.component';
 import { TournamentBracketInfoComponent } from './selected-tournament/tournament-bracket-info/tournament-bracket-info.component';
 import { MatchScoreInfoComponent } from './tournament-bracket/match-score-info/match-score-info.component';
-import { PlayersTournamentInfoComponent } from './selected-tournament/players-tournament-info/players-tournament-info.component';
 import { SelectedPlayerComponent } from './selected-player/selected-player.component';
-import { PlayerInfoComponent } from './selected-player/player-info/player-info.component';
 import { TournamentManagementComponent } from './tournament-management/tournament-management.component';
-import { CardsTournamentsManagementComponent } from './tournament-management/cards-tournaments-management/cards-tournaments-management.component';
-import { CardsPlayersManagementComponent } from './tournament-management/cards-players-management/cards-players-management.component';
 import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
 
@@ -55,6 +51,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+
 
 //Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
@@ -94,12 +91,8 @@ const APP_ROUTES: Routes = [
     TournamentInfoComponent,
     TournamentBracketInfoComponent,
     MatchScoreInfoComponent,
-    PlayersTournamentInfoComponent,
     SelectedPlayerComponent,
-    PlayerInfoComponent,
-    CardsTournamentsManagementComponent,
     TournamentManagementComponent,
-    CardsPlayersManagementComponent,
     TournamentRegistrationComponent,
     PlayerRegistrationComponent,
     MatchResultPipe,

@@ -1,14 +1,10 @@
-
-    <mat-card class="example-card" appMaterialElevation>
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Apellido</mat-card-title>
-          <mat-card-subtitle>Nombre</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Edad:      </p>
-          <p>Sexo:      </p>
-          <p>federación:      </p>
-          <p>Licencia:      </p>
-        </mat-card-content>
-    </mat-card>
+<div class="card" style="width: 19rem;"appMaterialElevation >
+  <img class="rounded mx-auto d-block"
+             src="https://cdn.24.co.za/files/Cms/General/d/4661/79f9bbbced4a48dc817dd1753aeeefd1.gif" alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{player.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Ranking: {{player.ranking}}</h6>
+    <p class="card-text">Edad: {{player.edad}}</p>
+    <p class="card-text">Lugar de origen: {{player.nacimiento}}</p>
+  </div>
+</div>

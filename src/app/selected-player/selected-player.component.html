@@ -1,9 +1,118 @@
-<div class="container-12 mt-5 pt-4 bgColor-light">
-  <div class="container bg-white" align="center">
+<div class="container mt-5 pt-4">
+  <div class="row justify-content-start">
+    <div class="col-sm-12 col-lg-4">
       <mat-card>
-          <mat-card-content>
-            <app-player-info></app-player-info>
-          </mat-card-content>
-      </mat-card>  
+        <mat-card-header>
+          <mat-card-title style="color:#EE8134;">Información personal</mat-card-title>
+        </mat-card-header>
+        <img class="rounded mx-auto d-block"
+             src="https://cdn.24.co.za/files/Cms/General/d/4661/79f9bbbced4a48dc817dd1753aeeefd1.gif" alt="">
+        <mat-card-content>
+          <div class="mt-3">
+            <div class="d-block m-2">
+              <h6 class="d-inline">Nombre: </h6>
+              <p class="d-inline pl-2">Roger Federer</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Edad:</h6>
+              <p class="d-inline pl-2">32</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Sexo:</h6>
+              <p class="d-inline pl-2">Masculino</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Federación:</h6>
+              <p class="d-inline pl-2">Federación Internacional de Tenis</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Número de Licencia:</h6>
+              <p class="d-inline pl-2">123456789</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Posición en ranking:</h6>
+              <p class="d-inline pl-2">3</p>
+            </div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+    <div class="col-sm-12 col-lg-8">
+      <mat-tab-group color="accent">
+        <mat-tab label="Próximos partidos">
+          <div class="m-3">
+            <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">
+              <!-- Position Column -->
+              <ng-container matColumnDef="opponentName">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Contrincante </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.opponentName}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="round">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Vuelta </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.round}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="tournament">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Torneo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.tournament}} </mat-cell>
+              </ng-container>
+
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="matchDate">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha - Hora </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.matchDate}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </mat-tab>
+        
+        <mat-tab label="Historial">
+          <div class="m-3">
+            <mat-table [dataSource]="sourceMatches" class="mat-elevation-z2">
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="result">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Resultado </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.result | matchResult}} </mat-cell>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="opponentName">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Contrincante </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.opponentName}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="round">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Vuelta </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.round}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="tournament">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Torneo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.tournament}} </mat-cell>
+              </ng-container>
+
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="matchDate">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha - Hora </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.matchDate}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+            </mat-table>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </div>

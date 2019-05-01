@@ -1,54 +1,76 @@
+
 <form class="example-form">
 
-    <input class="example-full-width" matInput placeholder="Favorite food" >
+  <h6 color="accent">Agregar torneo</h6>
+  <br>
+   <div>
+      <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="Nombre del torneo" [(ngModel)]="value" name ="something">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+  </div>
 
-    <mat-form-field>
-        <mat-label>Modalidades</mat-label>
-        <select matNativeControl required>
-          <option value="sencilo">Sencillo</option>
-          <option value="doble">Doble</option>
-        </select>
-      </mat-form-field>
-
+  <div>
       <mat-form-field>
-          <mat-label>Categoria</mat-label>
+          <mat-label>Modalidades</mat-label>
           <select matNativeControl required>
-            <option value="varonil">Varonil</option>
-            <option value="femenil">Femenil</option>
-            <option value="mixto">Mixto</option>
+            <option value="sencilo">Sencillo</option>
+            <option value="doble">Doble</option>
           </select>
         </mat-form-field>
-
+        
         <mat-form-field>
-            <textarea matInput placeholder="Otras reglas"></textarea>
+            <mat-label>Categoria</mat-label>
+            <select matNativeControl required>
+              <option value="varonil">Varonil</option>
+              <option value="femenil">Femenil</option>
+              <option value="mixto">Mixto</option>
+            </select>
+          </mat-form-field>
+  </div>
+
+  <div>
+      <mat-form-field>
+          <textarea matInput placeholder="Otras reglas"></textarea>
+        </mat-form-field>
+  </div>
+
+  <div>
+      <mat-form-field class="example-full-width">
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha de inicio">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha de fin">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-          <mat-form-field>
-              <input matInput [matDatepicker]="picker1" placeholder="Elige una fecha">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+        </div>
+  <div>
+      <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="Costo de inscripción" [(ngModel)]="value" name ="something">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
 
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker2" placeholder="Elige una fecha">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+      <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="Premiación" [(ngModel)]="value" name ="something">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+  </div>
 
-              <mat-form-field>
-                <input matInput placeholder="Premio">
-              </mat-form-field>
+  <div class="example-button-row">
+      <button mat-stroked-button color="accent" class="botones">Aceptar</button>
+      <button mat-stroked-button color="accent" class="botones">Cancelar</button>
+  </div>
 
-              <mat-form-field>
-                <input matInput placeholder="Precio">
-              </mat-form-field>
-
-              <mat-form-field>
-                  <div class="example-button-row">
-                      <button mat-stroked-button color="primary">Aceptar</button>
-                      <button mat-stroked-button color="primary">Cancelar</button>
-                  </div>
-                </mat-form-field>
- </form>
-
+</form>
   

@@ -47,6 +47,10 @@ export class TournamentManagementComponent implements OnInit {
     this.dialog.open(PlayerRegistrationComponent,dialogConfig2 );
   }
 
+  closeDialog() : void {
+    const dialogRef = this.dialog.closeAll();
+  }
+
   ngOnInit() {
   }
 
