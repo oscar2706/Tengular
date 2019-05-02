@@ -1,7 +1,46 @@
-<div class="container-12 mt-5 pt-4 bgColor-light">
-  <div class="container bg-white">
+<div class="container-12 mt-5 pt-4 pb-2 bgColor-light">
+
+  <div class="container bg-white pb-5">
     <div class="row justify-content-center">
-      <h1>Componente del arbitro</h1>
+      <mat-form-field color="accent" class="d-inline p-4">
+        <mat-label>Modalidad</mat-label>
+        <mat-select [(value)]="modalitySelected">
+          <mat-option value="option1">Ambas</mat-option>
+          <mat-option value="option2">Indivudual</mat-option>
+          <mat-option value="option3">Dobles</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field color="accent" class="d-inline p-4">
+        <mat-label>Categoria</mat-label>
+        <mat-select [(value)]="categorySelected">
+          <mat-option value="option1">Todas</mat-option>
+          <mat-option value="option2">Masculino</mat-option>
+          <mat-option value="option3">Femenino</mat-option>
+          <mat-option value="option4">Mixto</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+
+    <mat-grid-list cols="3" rowHeight="3.2:4.5">
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-cards-tournaments class="mx-4 my-4 px-2" (click)="onLoadTournament()"></app-cards-tournaments>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
+
 </div>

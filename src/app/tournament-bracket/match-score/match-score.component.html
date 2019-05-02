@@ -1,23 +1,29 @@
 <mat-card appMaterialElevation class="p-0 m-0" (mouseenter)="onInside()" (mouseleave)="onOutside()">
   <mat-card-content class="m-0 p-0">
-    <table class="matchResult">
+    <table class="matchResult" *ngIf="match.played || match.player.length >= 2; else pendiente">
       <tr>
-        <td class="player winner">Roger Federer</td>
-        <div class="pt-2">
-          <td class="setTop p-1">6</td>
-          <td class="setTop p-1">6</td>
-          <td class="setTop p-1">6</td>
+        <td class="player" [ngClass]="{winner: match.winner == match.player[0] }">{{match.player[0]}}</td>
+        <div class="pt-2" *ngIf="this.match.played">
+          <td class="setTop p-1" *ngFor="let set of match.score.team1">
+            {{set.points}}
+          </td>
         </div>
       </tr>
       <tr>
-        <td class="player">Rafael Nadal</td>
-        <div class="pb-2">
-          <td class="setBottom p-1">4</td>
-          <td class="setBottom p-1">4</td>
-          <td class="setBottom p-1">4</td>
+        <td class="player" [ngClass]="{winner: match.winner == match.player[1] }">{{match.player[1]}}</td>
+        <div class="pb-2" *ngIf="this.match.played">
+          <td class="setBottom p-1" *ngFor="let set of match.score.team2">
+            {{set.points}}
+          </td>
         </div>
       </tr>
     </table>
+    <ng-template #pendiente>
+      <div class="p-4">
+        <h5>Pendiente</h5>
+        <p *ngIf="match.date != ''">Se juega el: {{this.match.date}}</p>
+      </div>
+    </ng-template>
   </mat-card-content>
-  <button mat-button color="accent" class="mb-2" *ngIf="inside">Ingresar Marcador</button>
+  <button mat-button color="accent" class="mb-2" *ngIf="inside" (click)="openDialog()">Ingresar Marcador</button>
 </mat-card>

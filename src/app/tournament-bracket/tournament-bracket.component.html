@@ -1,222 +1,235 @@
-<div class="tournament-container">
-  <div class="tournament-headers">
-    <!-- <h3>Quarter-Finals</h3> -->
-    <h3>Quarter-Finals</h3>
-    <h3>Semi-Finals</h3>
-    <h3>Final</h3>
-  </div>
+<div class="container-12 mt-5 pt-4 pb-2 bgColor-light">
+  <div class="container bg-white p-2">
 
-  <div class="tournament-brackets">
+    <div class="row justify-content-center my-3">
+      <h2 class="d-inline text-center bgColor-Accent text-white px-2">{{tournament.name}}</h2>
+    </div>
 
-    <ul class="bracket bracket-1">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-2">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-3">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-  </div>
-</div>
+    <div class="tournament-container" *ngIf="this.tournament.numberOfPlayers == 8">
+      <div class="tournament-headers">
+        <h3>1/4 de final</h3>
+        <h3>Semifinales</h3>
+        <h3>Final</h3>
+      </div>
 
-<div class="tournament-container">
-  <div class="tournament-headers">
-    <h3>Round of 16</h3>
-    <h3>Quarter-Finals</h3>
-    <h3>Semi-Finals</h3>
-    <h3>Final</h3>
-  </div>
+      <div class="tournament-brackets">
 
-  <div class="tournament-brackets">
-    <ul class="bracket bracket-1">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-2">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-3">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-4">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-  </div>
-</div>
+        <ul class="bracket bracket-1">
+          <li class="team-item" *ngFor="let match of matches | slice:0:4">
+            <app-match-score [match]="match"></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-2">
+          <li class="team-item" *ngFor="let match of matches | slice:4:6">
+            <app-match-score [match]="match"></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-3">
+          <li class="team-item">
+            <app-match-score [match]="matches[6]"></app-match-score>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-<div class="tournament-container">
-  <div class="tournament-headers">
-    <h3>Round of 32
-      <p>01-01-2019</p>
-    </h3>
-    <h3>Round of 16</h3>
-    <h3>Quarter-Finals</h3>
-    <h3>Semi-Finals</h3>
-    <h3>Final</h3>
-  </div>
+    <div class="tournament-container" *ngIf="this.tournament.numberOfPlayers == 16">
+      <div class="tournament-headers">
+        <h3>Ronda de 16
+          <p>01-01-2019</p>
+        </h3>
+        <h3>1/4 de final
+          <p>01-01-2019</p>
+        </h3>
+        <h3>Semifinales
+          <p>01-01-2019</p>
+        </h3>
+        <h3>Final
+          <p>01-01-2019</p>
+        </h3>
+      </div>
 
-  <div class="tournament-brackets">
-    <ul class="bracket bracket-1">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-2">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-3">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-4">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
-    <ul class="bracket bracket-5">
-      <li class="team-item">
-        <app-match-score></app-match-score>
-      </li>
-    </ul>
+      <div class="tournament-brackets">
+        <ul class="bracket bracket-1">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-2">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-3">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-4">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tournament-container" *ngIf="this.tournament.numberOfPlayers == 32">
+      <div class="tournament-headers">
+        <h3>Ronda de 32
+          <p>01-01-2019</p>
+        </h3>
+        <h3>Ronda de 16
+          <p>01-01-2019</p>
+        </h3>
+        <h3>1/4 de final
+          <p>01-01-2019</p>
+        </h3>
+        <h3>Semifinales
+          <p>01-01-2019</p>
+        </h3>
+        <h3>Final
+          <p>01-01-2019</p>
+        </h3>
+      </div>
+
+      <div class="tournament-brackets">
+        <ul class="bracket bracket-1">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-2">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-3">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-4">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+        <ul class="bracket bracket-5">
+          <li class="team-item">
+            <app-match-score></app-match-score>
+          </li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>

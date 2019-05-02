@@ -9,14 +9,14 @@ export class DateResultsComponent implements OnInit {
   defaultElevation = 2;
   raisedElevation = 8;
   borderColor = '';
-  constructor() { 
+  constructor () {
     this.borderColor = '';
   }
 
-  getColor() {
+  getColor () {
     return this.borderColor === '' ? 'orange' : 'blue';
   }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 }

@@ -4,6 +4,8 @@ export interface Match {
 	player: Array<string>;
 	winner: Array<string>;
 	round: string;
+	played: boolean;
+	date: string;
 	susspended: boolean;
 	score: {
 		team1: Array<{ points: number, tiebreakPoints: number }>,

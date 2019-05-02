@@ -1,0 +1,74 @@
+<h3 class="text-center">Marcador</h3>
+<!-- <h1 mat-dialog-title>Marcador</h1> -->
+<div mat-dialog-content>
+  <div class="row justify-content-center">
+    <table class="matchResult">
+      <tr class="m-4 p-2">
+        <td class="player pt-4">Roger Federer</td>
+        <div class="pt-2">
+          <td class="setTop pt-4">
+            <input [(ngModel)]="score.team1[0].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team1[0].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[0].points >=7 || score.team2[0].points >= 7">
+          </td>
+          <td class="setTop pt-4">
+            <input [(ngModel)]="score.team1[1].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team1[1].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[1].points >=7 || score.team2[1].points >= 7">
+          </td>
+          <td class="setTop pt-4">
+            <input [(ngModel)]="score.team1[2].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team1[2].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[2].points >=7 || score.team2[2].points >= 7">
+          </td>
+          <td class="setTop pt-4" *ngIf="ronda == 'final'">
+            <input [(ngModel)]="score.team1[3].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team1[3].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[3].points >=7 || score.team2[3].points >= 7">
+          </td>
+          <td class="setTop pt-4" *ngIf="ronda == 'final'">
+            <input [(ngModel)]="score.team1[4].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team1[4].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[4].points >=7 || score.team2[4].points >= 7">
+          </td>
+        </div>
+      </tr>
+      <tr class="m-4 p-2">
+        <td class=" player pt-4">Rafael Nadal</td>
+        <div class="pb-2">
+          <td class="setBottom pt-4">
+            <input [(ngModel)]="score.team2[0].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team2[0].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[0].points >=7 || score.team2[0].points >= 7">
+          </td>
+          <td class="setBottom pt-4">
+            <input [(ngModel)]="score.team2[1].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team2[1].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[1].points >=7 || score.team2[1].points >= 7">
+          </td>
+          <td class="setBottom pt-4">
+            <input [(ngModel)]="score.team2[2].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team2[2].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[2].points >=7 || score.team2[2].points >= 7">
+          </td>
+          <td class="setBottom pt-4" *ngIf="ronda == 'final'">
+            <input [(ngModel)]="score.team2[3].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team2[3].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[3].points >=7 || score.team2[3].points >= 7">
+          </td>
+          <td class="setBottom pt-4" *ngIf="ronda == 'final'">
+            <input [(ngModel)]="score.team2[4].points" type="number" style="width: 40px;">
+            <input [(ngModel)]="score.team2[4].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
+                   *ngIf="score.team1[4].points >=7 || score.team2[4].points >= 7">
+          </td>
+        </div>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row justify-content-end">
+  <div mat-dialog-actions class="mt-4 mr-1">
+    <button mat-stroked-button color="accent" (click)="printScore()">Guardar</button>
+    <button mat-stroked-button class="ml-2" (click)="onNoClick()">Canelar</button>
+  </div>
+</div>

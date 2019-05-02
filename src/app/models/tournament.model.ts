@@ -8,6 +8,6 @@ export interface Tournament {
 	beginDate: string;
 	endDate: string;
 	numberOfPlayers: number;
-	enrolledPlayers: Array<string>[];
-	playedRounds: Array<boolean>[];
+	enrolledPlayers: Array<string>;
+	playedRounds: Array<boolean>;
 }
