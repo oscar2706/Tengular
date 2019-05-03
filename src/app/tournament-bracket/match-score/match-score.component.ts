@@ -47,6 +47,10 @@ export class MatchScoreComponent implements OnInit {
     });
   }
 
+  getWinnerCssClass (round: string): string {
+    return round == '1' ? 'winner' : 'champion';
+  }
+
   ngOnInit () {
   }
 
