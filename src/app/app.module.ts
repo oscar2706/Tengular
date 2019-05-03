@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
+// Componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TorneosComponent } from './tournaments/tournaments.component';
@@ -30,8 +31,9 @@ import { SelectedPlayerComponent } from './selected-player/selected-player.compo
 import { TournamentManagementComponent } from './tournament-management/tournament-management.component';
 import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
+import { ScoreDialogComponent } from './tournament-bracket/score-dialog/score-dialog.component';
 
-//Material components
+// Material components
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -52,8 +54,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 
-
-//Tuberías
+// Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
 import { RefereeComponent } from './referee/referee.component';
 
@@ -69,6 +70,7 @@ const APP_ROUTES: Routes = [
   { path: 'admin', component: TournamentManagementComponent },
   { path: 'usuario', component: PlayerLoggedComponent },
   { path: 'arbitro', component: RefereeComponent },
+  { path: 'arbitro/:idTorneoSeleccionado', component: TournamentBracketComponent },
 ];
 
 @NgModule({
@@ -96,7 +98,8 @@ const APP_ROUTES: Routes = [
     TournamentRegistrationComponent,
     PlayerRegistrationComponent,
     MatchResultPipe,
-    RefereeComponent
+    RefereeComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -129,6 +132,12 @@ const APP_ROUTES: Routes = [
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent, AppComponent, TournamentRegistrationComponent, PlayerRegistrationComponent]
+  entryComponents: [
+    LoginComponent,
+    AppComponent,
+    TournamentRegistrationComponent,
+    PlayerRegistrationComponent,
+    ScoreDialogComponent
+  ]
 })
 export class AppModule { }
