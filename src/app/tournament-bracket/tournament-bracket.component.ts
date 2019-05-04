@@ -36,14 +36,14 @@ export class TournamentBracketComponent implements OnInit {
       susspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
       }
     },
@@ -146,14 +146,14 @@ export class TournamentBracketComponent implements OnInit {
       susspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
       }
     },

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, OnChanges } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { Match } from '../../models/match-single.model'
 import { ScoreDialogComponent } from "../score-dialog/score-dialog.component";
@@ -8,7 +8,7 @@ import { ScoreDialogComponent } from "../score-dialog/score-dialog.component";
   templateUrl: './match-score.component.html',
   styleUrls: ['./match-score.component.css']
 })
-export class MatchScoreComponent implements OnInit {
+export class MatchScoreComponent implements OnInit, OnChanges {
 
   @Input() match = <Match>{
     id: '',
@@ -33,6 +33,8 @@ export class MatchScoreComponent implements OnInit {
     }
   }
 
+  dialogData: any;
+
   constructor (public dialog: MatDialog) { }
 
   openDialog (): void {
@@ -40,11 +42,26 @@ export class MatchScoreComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.width = '35rem';
     dialogConfig.height = '17rem';
+    dialogConfig.data = this.match;
+
     const dialogRef = this.dialog.open(ScoreDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe(
+      data => {
+        if (data != undefined) {
+          this.match = data;
+          console.log(this.match);
+        }
+        else {
+          console.log('Dialogo cerrado sin guardar');
+        }
+      }
+    );
+  }
+
+  updateMatch (newMatch) {
+    console.log('updateMatch Called!');
+    this.match = newMatch;
   }
 
   getWinnerCssClass (round: string): string {
@@ -52,6 +69,11 @@ export class MatchScoreComponent implements OnInit {
   }
 
   ngOnInit () {
+  }
+
+  ngOnChanges () {
+    console.log('Se cambio el resultado!! :D');
+    // console.log('Partido = ' + this.match);
   }
 
   inside = false;
