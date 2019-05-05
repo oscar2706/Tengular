@@ -6,8 +6,9 @@
             [ngClass]="{winner: match.winner == match.player[0] && match.round != '1', champion:match.winner == match.player[0] && match.round == '1'}">
           {{match.player[0]}}</td>
         <div class="pt-2" *ngIf="this.match.played">
-          <td class="setTop p-1" *ngFor="let set of match.score.team1">
-            {{set.points}}
+          <td class="setTop p-1" *ngFor="let set of match.score.team1; index as i;">
+            {{set.points | points}}
+            <sup>{{set.tiebreakPoints | points}}</sup>
           </td>
         </div>
       </tr>
@@ -17,8 +18,9 @@
           {{match.player[1]}}
         </td>
         <div class="pb-2" *ngIf="this.match.played">
-          <td class="setBottom p-1" *ngFor="let set of match.score.team2">
-            {{set.points}}
+          <td class="setBottom p-1" *ngFor="let set of match.score.team2; index as i;">
+            {{set.points | points}}
+            <sup>{{set.tiebreakPoints | points}}</sup>
           </td>
         </div>
       </tr>

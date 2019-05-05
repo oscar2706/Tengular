@@ -50,10 +50,12 @@ export class MatchScoreComponent implements OnInit, OnChanges {
       data => {
         if (data != undefined) {
           this.match = data;
+          this.match.played = true;
           console.log(this.match);
         }
         else {
           console.log('Dialogo cerrado sin guardar');
+          // data = null; No mantiene los sets en la referencia
         }
       }
     );
@@ -62,10 +64,6 @@ export class MatchScoreComponent implements OnInit, OnChanges {
   updateMatch (newMatch) {
     console.log('updateMatch Called!');
     this.match = newMatch;
-  }
-
-  getWinnerCssClass (round: string): string {
-    return round == '1' ? 'winner' : 'champion';
   }
 
   ngOnInit () {

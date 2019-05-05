@@ -57,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material';
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
 import { RefereeComponent } from './referee/referee.component';
+import { PointsPipe } from './pipes/points.pipe';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -99,7 +100,8 @@ const APP_ROUTES: Routes = [
     PlayerRegistrationComponent,
     MatchResultPipe,
     RefereeComponent,
-    ScoreDialogComponent
+    ScoreDialogComponent,
+    PointsPipe
   ],
   imports: [
     BrowserModule,

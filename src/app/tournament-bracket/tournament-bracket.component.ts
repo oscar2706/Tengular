@@ -19,7 +19,7 @@ export class TournamentBracketComponent implements OnInit {
     tournamentStatus: 'Dispotandose',
     beginDate: '01/02/2019',
     endDate: '01/04/2019',
-    numberOfPlayers: 8,
+    numberOfPlayers: 16,
     enrolledPlayers: ['Ana', 'Pablo'],
     playedRounds: [true, true, false, false]
   }
