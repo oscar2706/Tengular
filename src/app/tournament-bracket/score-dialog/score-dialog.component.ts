@@ -43,16 +43,16 @@ export class ScoreDialogComponent implements OnInit {
     console.log(this.match);
   }
 
-  wonWithTiebreak (event: any, set: number, team: number) {
-    if (event.target.value == '7') {
-      if (team == 1) {
-        this.match.score.team2[set].points = 6;
-        console.log(this.match.score.team2);
-      }
-      else {
-        this.match.score.team1[set].points = 6;
-        console.log(this.match.score.team1);
-      }
+  onPointChange (event: any, set: number, team: number) {
+    let valueAsNumber = +event.target.value;
+    if (valueAsNumber < 0) 
+      team == 1 ? this.match.score.team1[set].points = 0 : this.match.score.team2[set].points = 0;
+    if (valueAsNumber > 7) 
+      team == 1 ? this.match.score.team1[set].points = 7 : this.match.score.team2[set].points = 7;
+    if (valueAsNumber == 7) {
+      team == 1 ? this.match.score.team2[set].points = 6 : this.match.score.team2[set].points = 6;
+      // console.log('team1: ' + this.match.score.team1);
+      // console.log('team2: ' + this.match.score.team2);
     }
   }
 

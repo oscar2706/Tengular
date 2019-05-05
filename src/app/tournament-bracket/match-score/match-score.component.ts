@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Inject, OnChanges } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { Match } from '../../models/match-single.model'
 import { ScoreDialogComponent } from "../score-dialog/score-dialog.component";
 
@@ -33,9 +33,7 @@ export class MatchScoreComponent implements OnInit, OnChanges {
     }
   }
 
-  dialogData: any;
-
-  constructor (public dialog: MatDialog) { }
+  constructor (public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   openDialog (): void {
     const dialogConfig = new MatDialogConfig();
@@ -43,22 +41,45 @@ export class MatchScoreComponent implements OnInit, OnChanges {
     dialogConfig.width = '35rem';
     dialogConfig.height = '17rem';
     dialogConfig.data = this.match;
-
-    const dialogRef = this.dialog.open(ScoreDialogComponent, dialogConfig);
+    let dialogRef = this.dialog.open(ScoreDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
       data => {
         if (data != undefined) {
-          this.match = data;
           this.match.played = true;
-          console.log(this.match);
+          this.openSnackBar('Marcador guardado!', 'Deshacer');
         }
         else {
           console.log('Dialogo cerrado sin guardar');
-          // data = null; No mantiene los sets en la referencia
         }
       }
     );
+  }
+
+  openSnackBar (message: string, action: string) {
+    let snackBarRef = this.snackBar.open(message, action, {
+      duration: 5000,
+    });
+    snackBarRef.onAction().subscribe(() => {
+      this.resetScore();
+      // console.log('Deshacer Called!');
+      // console.log(this.match);
+    });
+  }
+
+  resetScore () {
+    this.match.score.team1.forEach(element => {
+      element.points = 0;
+      element.tiebreakPoints = 0;
+    });
+    this.match.score.team2.forEach(element => {
+      element.points = 0;
+      element.tiebreakPoints = 0;
+    });
+    this.match.played = false;
+    for (let i = 0; i < this.match.winner.length; i++) {
+      this.match.winner.pop();
+    }
   }
 
   updateMatch (newMatch) {
@@ -70,8 +91,6 @@ export class MatchScoreComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges () {
-    console.log('Se cambio el resultado!! :D');
-    // console.log('Partido = ' + this.match);
   }
 
   inside = false;

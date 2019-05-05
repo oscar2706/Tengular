@@ -7,33 +7,42 @@
         <td class="player pt-4">{{match.player[0]}}</td>
         <div class="pt-2">
           <td class="setTop pt-4">
-            <input (change)="wonWithTiebreak($event,0,1)"
+            <input (change)="onPointChange($event,0,1)"
                    [(ngModel)]="match.score.team1[0].points" type="number"
+                   min="0" max="7"
                    style="width: 40px;">
             <input [(ngModel)]="match.score.team1[0].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[0].points >=7 || match.score.team2[0].points >= 7">
           </td>
           <td class="setTop pt-4">
-            <input (change)="wonWithTiebreak($event,1,1)"
-                   [(ngModel)]="match.score.team1[1].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,1,1)"
+                   [(ngModel)]="match.score.team1[1].points" type="number"
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team1[1].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[1].points >=7 || match.score.team2[1].points >= 7">
           </td>
           <td class="setTop pt-4">
-            <input (change)="wonWithTiebreak($event,2,1)"
-                   [(ngModel)]="match.score.team1[2].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,2,1)"
+                   [(ngModel)]="match.score.team1[2].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team1[2].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[2].points >=7 || match.score.team2[2].points >= 7">
           </td>
           <td class="setTop pt-4" *ngIf="match.round == 'final'">
-            <input [(change)="wonWithTiebreak($event,3,1)"
-                   (ngModel)]="match.score.team1[3].points" type="number" style="width: 40px;">
+            <input [(change)="onPointChange($event,3,1)"
+                   (ngModel)]="match.score.team1[3].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team1[3].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[3].points >=7 || match.score.team2[3].points >= 7">
           </td>
           <td class="setTop pt-4" *ngIf="match.round == 'final'">
-            <input (change)="wonWithTiebreak($event,4,1)"
-                   [(ngModel)]="match.score.team1[4].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,4,1)"
+                   [(ngModel)]="match.score.team1[4].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team1[4].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[4].points >=7 || match.score.team2[4].points >= 7">
           </td>
@@ -43,32 +52,42 @@
         <td class=" player pt-4">{{match.player[1]}}</td>
         <div class="pb-2">
           <td class="setBottom pt-4">
-            <input (change)="wonWithTiebreak($event,0,2)"
-                   [(ngModel)]="match.score.team2[0].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,0,2)"
+                   [(ngModel)]="match.score.team2[0].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team2[0].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[0].points >=7 || match.score.team2[0].points >= 7">
           </td>
           <td class="setBottom pt-4">
-            <input (change)="wonWithTiebreak($event,1,2)"
-                   [(ngModel)]="match.score.team2[1].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,1,2)"
+                   [(ngModel)]="match.score.team2[1].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team2[1].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[1].points >=7 || match.score.team2[1].points >= 7">
           </td>
           <td class="setBottom pt-4">
-            <input (change)="wonWithTiebreak($event,2,2)"
-                   [(ngModel)]="match.score.team2[2].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,2,2)"
+                   [(ngModel)]="match.score.team2[2].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team2[2].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[2].points >=7 || match.score.team2[2].points >= 7">
           </td>
           <td class="setBottom pt-4" *ngIf="match.round == 'final'">
-            <input (change)="wonWithTiebreak($event,3,2)"
-                   [(ngModel)]="match.score.team2[3].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,3,2)"
+                   [(ngModel)]="match.score.team2[3].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team2[3].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[3].points >=7 || match.score.team2[3].points >= 7">
           </td>
           <td class="setBottom pt-4" *ngIf="match.round == 'final'">
-            <input (change)="wonWithTiebreak($event,4,2)"
-                   [(ngModel)]="match.score.team2[4].points" type="number" style="width: 40px;">
+            <input (change)="onPointChange($event,4,2)"
+                   [(ngModel)]="match.score.team2[4].points" type="number" 
+                   min="0" max="7"
+                   style="width: 40px;">
             <input [(ngModel)]="match.score.team2[4].tiebreakPoints" type="number" style="width: 40px;" class="tiebreak"
                    *ngIf="match.score.team1[4].points >=7 || match.score.team2[4].points >= 7">
           </td>

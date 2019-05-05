@@ -32,7 +32,6 @@ import { TournamentManagementComponent } from './tournament-management/tournamen
 import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
 import { ScoreDialogComponent } from './tournament-bracket/score-dialog/score-dialog.component';
-
 // Material components
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -53,6 +52,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { MatSnackBarModule } from "@angular/material";
 
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
@@ -123,6 +123,7 @@ const APP_ROUTES: Routes = [
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),
