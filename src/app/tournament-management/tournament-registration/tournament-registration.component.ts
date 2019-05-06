@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {MatInputModule} from '@angular/material'
+import {MatInputModule, MatDialog} from '@angular/material';
+import { TournamentService } from '../../services/tournament.service';
+import { Tournament } from '../../models/tournament.model';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
+
 @Component({
   selector: 'app-tournament-registration',
   templateUrl: './tournament-registration.component.html',
@@ -10,11 +17,66 @@ export class TournamentRegistrationComponent implements OnInit {
   value = ' ';
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
-  constructor() { }
+  bufferValue = 75;
 
-
+  tournamentIn: Tournament = {
+	  name: '',
+	  modality: '',
+	  category: '',
+	  announcementStatus: '',
+	  tournamentStatus: '',
+	  beginDate: '',
+	  endDate: '',
+	  numberOfPlayers: 0,
+	  enrolledPlayers: ['', ''],
+    playedRounds: [false, false, false],
+    imageT: ''
+  } 
+  constructor(private tournamentService: TournamentService, private storage: AngularFireStorage, private dialog: MatDialog) { }
+ //private storage: AngularFireStorage
+ uploadPercent: Observable<number>;
+ urlImage: Observable<string>;
 
   ngOnInit() {
+  }
+
+  onGuardarT(myForm: NgForm){
+    if(myForm.valid == true)
+    {
+    //  let imgUrl : string = document.getElementById("imagenT").innerHTML.toString();
+  //    console.log("Imagen:"+ unit);
+    //  this.curso.imagen = imgUrl;
+    this.tournamentIn.announcementStatus = 'Publicada';
+    this.tournamentIn.tournamentStatus = 'Proximo';
+    let imgUrl : string = document.getElementById("imagenT").innerHTML.toString();
+    this.tournamentIn.imageT = imgUrl;
+    this.tournamentService.addTournament(this.tournamentIn);
+      myForm.resetForm();
+      this.dialog.closeAll();
+    }
+    else{
+      console.log("Formulario no valido");
+    }
+  }
+
+  onUpload(e)
+  {
+    const id = Math.random().toString(36).substring(2);
+    const file = e.target.files[0];
+    const filePath = `uploads/torneo_${id}`;
+    const ref = this.storage.ref(filePath);
+  //  const imgr = ref.getDownloadURL();
+    const task = this.storage.upload(filePath, file);
+    this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges().pipe( finalize(() => this.urlImage = ref.getDownloadURL())).subscribe(); 
+      //console.log('subir', e.target.files[0]);
+  //    console.log("IMAGEN: "+imgr.);
+  console.log(this.urlImage);
+  }
+
+  closeDialog() : void {
+    const dialogRef = this.dialog.closeAll();
+
   }
 
 }

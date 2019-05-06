@@ -32,11 +32,19 @@ mat-form-field {
   width: 100%;
 
   width: 480px;
-
-
-
 }
 
 .botones{
   margin-right: 30px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
 }

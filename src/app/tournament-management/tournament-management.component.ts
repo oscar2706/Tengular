@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { TournamentRegistrationComponent } from './tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './player-registration/player-registration.component';
+import { Tournament } from '../models/tournament.model';
+import { TournamentService } from '../services/tournament.service';
 
 export interface Cat {
   value: string;
@@ -29,9 +31,10 @@ export interface DialogData {
   styleUrls: ['./tournament-management.component.css']
 })
 export class TournamentManagementComponent implements OnInit {
+tournaments: Tournament[];
 
  
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private tournamentService: TournamentService) { }
   
   onCreateTournament(){
     const dialogConfig1= new MatDialogConfig();
@@ -52,6 +55,10 @@ export class TournamentManagementComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tournamentService.getTournament().subscribe(tournaments => {
+      this.tournaments = tournaments;
+      console.log(this.tournaments);
+    });
   }
 
 }

@@ -8,7 +8,7 @@
   }
 
   .example-header-image-single{
-    background-image: url('https://upload.wikimedia.org/wikipedia/an/9/90/ATP_250_Series_logo.png');
+    background-image: url('/assets/icons/convocatoria.svg');
     background-size: cover;
   }
 

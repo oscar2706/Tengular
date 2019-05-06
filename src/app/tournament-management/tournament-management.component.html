@@ -30,24 +30,33 @@
             </mat-form-field>
             <br>
       
-            <mat-grid-list cols="3" rowHeight="2.2:3.3">
-              <mat-grid-tile>
-                <app-cards-tournaments [routerLink]="['/torneo-seleccionado']"> </app-cards-tournaments>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-tournaments></app-cards-tournaments>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-tournaments></app-cards-tournaments>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-tournaments></app-cards-tournaments>
-              </mat-grid-tile>
-      
-            </mat-grid-list>
+            <div class="container">
+                <div class="row">
+                <div *ngFor="let tournament of tournaments" class="col-4" style="padding: 20px">
+                <mat-card [routerLink]="['/torneo-seleccionado', tournament.imageT]" appMaterialElevation class="addBorder" class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image-single"></div>
+                    <mat-card-title>{{tournament.name}}</mat-card-title>
+                    <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image
+                    [src]="tournament.imageT" style="padding: 10px">
+                  <mat-card-content>
+                    <h2 style="text-align: center"><strong>{{tournament.name}}</strong></h2>
+                    <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
+                    <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
+                    <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
+                    <br><label><strong>Modalidad: </strong>{{tournament.modality}}</label>
+                    <br><label><strong>Categoria: </strong>{{tournament.category}}</label>
+                  </mat-card-content>
+                  <!--  <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                      </mat-card-actions> -->
+                </mat-card>
+                </div>
+                </div>
+        </div>
           </div>
         </mat-tab>
       
