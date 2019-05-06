@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -32,7 +32,6 @@ import { TournamentManagementComponent } from './tournament-management/tournamen
 import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
 import { ScoreDialogComponent } from './tournament-bracket/score-dialog/score-dialog.component';
-
 // Material components
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -53,6 +52,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { MatSnackBarModule } from "@angular/material";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
@@ -123,6 +124,8 @@ const APP_ROUTES: Routes = [
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
+    MatTooltipModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),
@@ -130,6 +133,7 @@ const APP_ROUTES: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Tengular'),
     AngularFirestoreModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [UserService],

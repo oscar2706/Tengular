@@ -4,23 +4,33 @@
       <tr>
         <td class="player"
             [ngClass]="{winner: match.winner == match.player[0] && match.round != '1', champion:match.winner == match.player[0] && match.round == '1'}">
-          {{match.player[0]}}</td>
+          <mat-icon class="d-inline float-left pr-2"
+                    *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[0]">looks_one
+          </mat-icon>
+          {{match.player[0]}}
+        </td>
         <div class="pt-2" *ngIf="this.match.played">
-          <td class="setTop p-1" *ngFor="let set of match.score.team1; index as i;">
-            {{set.points | points}}
-            <sup>{{set.tiebreakPoints | points}}</sup>
+          <td
+              [ngClass]="{setTop: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
+              *ngFor="let set of match.score.team1; index as i;">
+            {{set.points | points: match.score.team2[i].points}}
+            <sup class="tiebreak">{{set.tiebreakPoints | points: match.score.team2[i].tiebreakPoints}}</sup>
           </td>
         </div>
       </tr>
       <tr>
         <td class="player"
             [ngClass]="{winner: match.winner == match.player[1] && match.round != '1', champion:match.winner == match.player[1] && match.round == '1'}">
-          {{match.player[1]}}
+          <mat-icon class="d-inline float-left pr-2"
+                    *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[1]">looks_one
+          </mat-icon>{{match.player[1]}}
         </td>
         <div class="pb-2" *ngIf="this.match.played">
-          <td class="setBottom p-1" *ngFor="let set of match.score.team2; index as i;">
-            {{set.points | points}}
-            <sup>{{set.tiebreakPoints | points}}</sup>
+          <td
+              [ngClass]="{setBottom: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
+              *ngFor="let set of match.score.team2; index as i;">
+            {{set.points | points: match.score.team1[i].points}}
+            <sup class="tiebreak">{{set.tiebreakPoints | points: match.score.team1[i].tiebreakPoints}}</sup>
           </td>
         </div>
       </tr>
@@ -32,5 +42,7 @@
       </div>
     </ng-template>
   </mat-card-content>
-  <button mat-button color="accent" class="mb-2" *ngIf="inside" (click)="openDialog()">Ingresar Marcador</button>
+  <button mat-stroked-button color="accent" class="mb-2"
+          *ngIf="this.match.played == false && this.match.player.length != 0 "
+          (click)="openDialog()">Ingresar Marcador</button>
 </mat-card>

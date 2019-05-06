@@ -9,8 +9,6 @@ body {
 	height     : 100%;
 }
 
-.tournament-container {}
-
 .tournament-headers {
 	flex-grow         : 1;
 	display           : flex;
@@ -54,14 +52,14 @@ body {
 }
 
 .team-item {
-	background-color: #f4f4f4;
-	padding         : .5rem;
-	display         : block;
-	margin          : .5rem 10px;
-	position        : relative;
-	vertical-align  : middle;
-	line-height     : 2;
-	text-align      : center;
+	background-color   : #f4f4f4;
+	// padding         : .25rem;
+	display            : block;
+	margin             : .5rem 10px;
+	position           : relative;
+	vertical-align     : middle;
+	line-height        : 2;
+	text-align         : center;
 }
 
 .team-item:after {
