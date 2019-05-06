@@ -9,6 +9,8 @@ import { AngularFireModule } from 'angularfire2';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -54,6 +56,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatSnackBarModule } from "@angular/material";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
@@ -66,7 +69,7 @@ const APP_ROUTES: Routes = [
   { path: 'rankings', component: RankingsComponent },
   { path: 'torneos', component: TorneosComponent },
   { path: 'jugador-seleccionado', component: SelectedPlayerComponent },
-  { path: 'torneo-seleccionado', component: SelectedTournamentComponent },
+  { path: 'torneo-seleccionado/:imageT', component: SelectedTournamentComponent },
   { path: 'convocatorias', component: BrochureViewComponent },
   { path: 'jugador/:nombre', component: PlayerLoggedComponent },
   { path: 'admin', component: TournamentManagementComponent },
@@ -134,7 +137,9 @@ const APP_ROUTES: Routes = [
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
+    AngularFireStorageModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
