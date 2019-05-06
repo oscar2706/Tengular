@@ -19,7 +19,7 @@ export class TournamentBracketComponent implements OnInit {
     tournamentStatus: 'Dispotandose',
     beginDate: '01/02/2019',
     endDate: '01/04/2019',
-    numberOfPlayers: 16,
+    numberOfPlayers: 8,
     enrolledPlayers: ['Ana', 'Pablo'],
     playedRounds: [true, true, false, false]
   }
@@ -28,7 +28,7 @@ export class TournamentBracketComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
-      player: ['Juan', 'Oscar'],
+      player: ['Stefanos Tsitsipas', 'Joao Domingues'],
       winner: [],
       round: '1/4',
       played: false,
@@ -160,26 +160,26 @@ export class TournamentBracketComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
-      player: ['Sodoma', 'Gomorra'],
-      winner: ['Sodoma'],
+      player: ['Pierre-Hugues Herbert', 'Roberto Carballes Baena'],
+      winner: [],
       round: '1',
-      played: true,
+      played: false,
       date: '01/01/2020',
       susspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
       }
     },
@@ -714,22 +714,26 @@ export class TournamentBracketComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
-      player: [],
+      player: ['Adrian Mannarino', 'Martin Kližan'],
       winner: [],
       round: '1',
       played: false,
-      date: '',
+      date: '01/01/2019',
       susspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
       }
     },

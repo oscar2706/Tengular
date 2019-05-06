@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -53,6 +53,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatSnackBarModule } from "@angular/material";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
@@ -124,6 +125,7 @@ const APP_ROUTES: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatSnackBarModule,
+    MatTooltipModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),
@@ -131,6 +133,7 @@ const APP_ROUTES: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Tengular'),
     AngularFirestoreModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [UserService],

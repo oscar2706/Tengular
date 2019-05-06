@@ -11,32 +11,33 @@ export class MaterialElevationDirective implements OnChanges {
   @Input()
   raisedElevation = 8;
 
-  constructor(
+  constructor (
     private element: ElementRef,
     private renderer: Renderer2
   ) {
     this.setElevation(this.defaultElevation);
+    this.renderer.setStyle(this.element.nativeElement, 'border', '1px solid transparent');
   }
 
-  ngOnChanges(_changes: SimpleChanges) {
+  ngOnChanges (_changes: SimpleChanges) {
     this.setElevation(this.defaultElevation);
   }
 
   @HostListener('mouseenter')
-  onMouseEnter() {
+  onMouseEnter () {
     // this.element.nativeElement.style.border = '1px solid orange';s
     this.renderer.setStyle(this.element.nativeElement, 'border', '1px solid orange');
     this.setElevation(this.raisedElevation);
   }
 
   @HostListener('mouseleave')
-  onMouseLeave() {
+  onMouseLeave () {
     // this.element.nativeElement.style.border = '1px solid transparent';
     this.renderer.setStyle(this.element.nativeElement, 'border', '1px solid transparent');
     this.setElevation(this.defaultElevation);
   }
 
-  setElevation(amount: number) {
+  setElevation (amount: number) {
     // remove all elevation classes
     const classesToRemove = Array.from((<HTMLElement>this.element.nativeElement).classList).filter(c => c.startsWith('mat-elevation-z'));
     classesToRemove.forEach((c) => {
@@ -45,6 +46,6 @@ export class MaterialElevationDirective implements OnChanges {
 
     // add the given elevation class
     const newClass = `mat-elevation-z${amount}`;
-    this.renderer.addClass(this.element.nativeElement, newClass); 
+    this.renderer.addClass(this.element.nativeElement, newClass);
   }
 }

@@ -38,8 +38,8 @@ export class MatchScoreComponent implements OnInit, OnChanges {
   openDialog (): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '35rem';
-    dialogConfig.height = '17rem';
+    this.match.round != '1' ? dialogConfig.width = '37rem' : dialogConfig.width = '52rem';
+    dialogConfig.height = '22rem';
     dialogConfig.data = this.match;
     let dialogRef = this.dialog.open(ScoreDialogComponent, dialogConfig);
 
