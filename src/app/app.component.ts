@@ -3,6 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from './login/login.component';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -24,4 +25,9 @@ export class AppComponent {
 
   }
 
+  ngOnInit(){
+    AOS.init({
+      duration: 1500,
+    });
+  }
 }

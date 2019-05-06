@@ -1,13 +1,13 @@
 <div class="container mt-5 pt-4">
   <div class="row justify-content-start">
     <div class="col-sm-12 col-lg-4">
-      <mat-card>
+      <mat-card data-aos="fade-right">
         <mat-card-header>
           <mat-card-title style="color:#EE8134;">Información personal</mat-card-title>
         </mat-card-header>
         <img class="rounded mx-auto d-block"
              src="https://cdn.24.co.za/files/Cms/General/d/4661/79f9bbbced4a48dc817dd1753aeeefd1.gif" alt="">
-        <mat-card-content>
+        <mat-card-content data-aos="fade-down">
           <div class="mt-3">
             <div class="d-block m-2">
               <h6 class="d-inline">Nombre: </h6>
@@ -39,7 +39,7 @@
       </mat-card>
     </div>
     <div class="col-sm-12 col-lg-8">
-      <mat-tab-group color="accent">
+      <mat-tab-group color="accent" data-aos="fade-left">
         <mat-tab label="Próximos partidos">
           <div class="m-3">
             <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">

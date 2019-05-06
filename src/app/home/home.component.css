@@ -1,0 +1,33 @@
+#backimage {
+    background-image: url('https://images7.alphacoders.com/734/734192.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    
+}
+#backimage2 {
+    background-image: url('https://images5.alphacoders.com/436/436417.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    
+}
+#backimage-overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    /*z-index: -5;*/
+}
+
+.whiteText{
+    color: white;
+  }

@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       default:
         break;
     }
+    this.dialog.closeAll();
   }
   constructor (private dialog: MatDialog, private router: Router, private userService: UserService) { }
 

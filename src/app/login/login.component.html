@@ -1,23 +1,22 @@
 <form>
-  <div class="group">
+  <div class="group" data-aos="fade-down-right">
     <input type="email" (change)="updateName($event)"><span class="highlight"></span><span class="bar"></span>
     <label>Nombre</label>
   </div>
-  <div class="group">
+  <div class="group" data-aos="fade-down-left">
     <input type="password" (change)="updatePassword($event)"><span class="highlight"></span><span class="bar"></span>
     <label>Contraseña</label>
   </div>
   
-  <button type="button" class="form button" (click)="loggUser" (click)="closeDialog()"
+  <button type="button" class="form button" (click)="loggUser"
   style="
     height: 44px;
     border-bottom-width: 3px;
-    padding-top: 3px;">
+    padding-top: 3px;" data-aos="flip-up">
     <!--<button class="buttonLink" mat-flat-button color="accent" >-->
       <h2 class="whiteText">Iniciar Sesión</h2>
       </button>
   </form>
-
 
 <!-- <footer>
         <img class="buttonLink" src="assets/icons/tengular.svg">  
