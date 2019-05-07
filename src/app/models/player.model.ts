@@ -1,8 +1,15 @@
 export interface Player {
-	readonly id: string;
+	id?: string;
 	name?: string;
 	age?: number;
 	tournamentsEnrolled?: Array<string>;
+	currentRank?: number;
+	playerCountry?: string;
+	playerPoints?: number;
+	imageP?: string;
+	federation?: string;
+	license?: string;
+	gender?: string;
 }
 
 export interface PlayerFromAPI {

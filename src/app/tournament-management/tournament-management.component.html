@@ -40,7 +40,7 @@
                     <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image
-                    [src]="tournament.imageT" style="padding: 10px">
+                    [src]="tournament.imageT" style="padding: 10px; height: 225px; width: 315px">
                   <mat-card-content>
                     <h2 style="text-align: center"><strong>{{tournament.name}}</strong></h2>
                     <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
@@ -78,32 +78,31 @@
               </mat-select>
             </mat-form-field>
       
-            <mat-grid-list cols="3" rowHeight="3.2:4.5">
-              <mat-grid-tile>
-                  <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-      
-              <mat-grid-tile>
-                <app-cards-players></app-cards-players>
-              </mat-grid-tile>
-            </mat-grid-list>
-      
+            <div class="container">
+              <div class="row">
+              <div *ngFor="let player of players" class="col-4" style="padding: 20px">
+              <mat-card [routerLink]="['/jugador-seleccionado', player.imageP]" appMaterialElevation class="addBorder" class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image-singleP"></div>
+                  <mat-card-title>{{player.name}}</mat-card-title>
+                  <mat-card-subtitle>({{player.gender}})</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image
+                  [src]="player.imageP" style="padding: 5px; height: 225px; width: 300px">
+                <mat-card-content>
+                  <h2 style="text-align: center"><strong>{{player.name}}</strong></h2>
+                  <br><label><strong>Ranking: </strong>{{player.currentRank}}°</label>
+                  <br><label><strong>Puntos: </strong>{{player.playerPoints}}</label>
+                  <br><label><strong>Edad: </strong>{{player.age}} años</label>
+                </mat-card-content>
+                <!--  <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions> -->
+              </mat-card>
+              </div>
+              </div>
+      </div>
           </div>
         </mat-tab>
       </mat-tab-group>

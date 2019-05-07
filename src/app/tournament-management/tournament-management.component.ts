@@ -4,6 +4,8 @@ import { TournamentRegistrationComponent } from './tournament-registration/tourn
 import { PlayerRegistrationComponent } from './player-registration/player-registration.component';
 import { Tournament } from '../models/tournament.model';
 import { TournamentService } from '../services/tournament.service';
+import { Player } from '../models/player.model';
+import { PlayerService } from '../services/player.service';
 
 export interface Cat {
   value: string;
@@ -32,9 +34,10 @@ export interface DialogData {
 })
 export class TournamentManagementComponent implements OnInit {
 tournaments: Tournament[];
+players: Player[];
 
  
-  constructor(public dialog: MatDialog, private tournamentService: TournamentService) { }
+  constructor(public dialog: MatDialog, private tournamentService: TournamentService, private playerService: PlayerService) { }
   
   onCreateTournament(){
     const dialogConfig1= new MatDialogConfig();
@@ -58,6 +61,11 @@ tournaments: Tournament[];
     this.tournamentService.getTournament().subscribe(tournaments => {
       this.tournaments = tournaments;
       console.log(this.tournaments);
+    });
+
+    this.playerService.getPlayer().subscribe(players => {
+      this.players = players;
+      console.log(this.players);
     });
   }
 

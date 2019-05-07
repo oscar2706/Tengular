@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Player } from '../models/player.model';
+import { PlayerService } from '../services/player.service';
 
 export interface Match {
   result?: boolean;
@@ -27,14 +30,20 @@ const MATCHES: Match[] = [
   styleUrls: ['./selected-player.component.css']
 })
 export class SelectedPlayerComponent implements OnInit {
+  players: Player[];
   displayedColumns: string[] = ['opponentName', 'round', 'tournament', 'matchDate'];
   sourceNextMatches = NEXT_MATCHES;
   displayedColumns2: string[] = ['result', 'opponentName', 'round', 'tournament', 'matchDate'];
   sourceMatches = MATCHES;
   
-  constructor() { }
+  constructor(private _route: ActivatedRoute, private playerService: PlayerService) { }
 
   ngOnInit() {
+    let nameP = this._route.snapshot.paramMap.get('imageP');
+    this.playerService.getPlayerSelect(nameP).subscribe(players => {
+      this.players = players;
+      console.log(this.players);
+    });
   }
 
 }
