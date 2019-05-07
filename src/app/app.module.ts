@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -34,6 +34,7 @@ import { TournamentManagementComponent } from './tournament-management/tournamen
 import { TournamentRegistrationComponent } from './tournament-management/tournament-registration/tournament-registration.component';
 import { PlayerRegistrationComponent } from './tournament-management/player-registration/player-registration.component';
 import { ScoreDialogComponent } from './tournament-bracket/score-dialog/score-dialog.component';
+
 // Material components
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -48,7 +49,7 @@ import { MaterialElevationDirective } from './material-elevation.directive';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { PlayerLoggedComponent } from './player-logged/player-logged.component';
-import { MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule, MatPaginatorModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -57,11 +58,15 @@ import { MatNativeDateModule } from '@angular/material';
 import { MatSnackBarModule } from "@angular/material";
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 // Tuberías
 import { MatchResultPipe } from './pipes/match-result.pipe';
 import { RefereeComponent } from './referee/referee.component';
 import { PointsPipe } from './pipes/points.pipe';
+import { MatchScoreAdminComponent } from './tournament-bracket/match-score-admin/match-score-admin.component';
+import { TournamentBracketAdminComponent } from './tournament-management/tournament-bracket-admin/tournament-bracket-admin.component';
+import { SusspendedPipe } from './pipes/susspended.pipe';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -69,10 +74,12 @@ const APP_ROUTES: Routes = [
   { path: 'rankings', component: RankingsComponent },
   { path: 'torneos', component: TorneosComponent },
   { path: 'jugador-seleccionado', component: SelectedPlayerComponent },
+  { path: 'jugador-seleccionado/:imageP', component: SelectedTournamentComponent },
   { path: 'torneo-seleccionado/:imageT', component: SelectedTournamentComponent },
   { path: 'convocatorias', component: BrochureViewComponent },
   { path: 'jugador/:nombre', component: PlayerLoggedComponent },
   { path: 'admin', component: TournamentManagementComponent },
+  { path: 'admin/torneo/:nombreTorneo', component: TournamentBracketAdminComponent },
   { path: 'usuario', component: PlayerLoggedComponent },
   { path: 'arbitro', component: RefereeComponent },
   { path: 'arbitro/:idTorneoSeleccionado', component: TournamentBracketComponent },
@@ -105,7 +112,10 @@ const APP_ROUTES: Routes = [
     MatchResultPipe,
     RefereeComponent,
     ScoreDialogComponent,
-    PointsPipe
+    PointsPipe,
+    MatchScoreAdminComponent,
+    TournamentBracketAdminComponent,
+    SusspendedPipe
   ],
   imports: [
     BrowserModule,
@@ -129,6 +139,8 @@ const APP_ROUTES: Routes = [
     MatNativeDateModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatMenuModule,
+    MatPaginatorModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),

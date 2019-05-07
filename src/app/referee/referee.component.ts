@@ -7,14 +7,18 @@ import { Router } from '@angular/router';
 })
 export class RefereeComponent implements OnInit {
   selectedTournamentId = 'wJH4HC8cSJs6ArEmFuGF';
+  tournamentName = 'Primavera 2019';
   modalitySelected = 'option1';
   categorySelected = 'option1';
 
   constructor (private router: Router) { }
   ngOnInit () { }
 
-  onLoadTournament (event: Event) {
+  onLoadTournament () {
     this.router.navigate(['arbitro', this.selectedTournamentId]);
   }
 
+  onLoadTournamentManagment () {
+    this.router.navigate(['admin/torneo/', this.tournamentName]);
+  }
 }

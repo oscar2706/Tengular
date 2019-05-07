@@ -4,6 +4,7 @@ export interface Match {
 	player: Array<string>;
 	winner: Array<string>;
 	round: string;
+	firstRound?: boolean;
 	played: boolean;
 	date: string;
 	susspended: boolean;
