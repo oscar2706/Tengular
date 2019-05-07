@@ -47,6 +47,7 @@ export class TournamentService {
     );
     return this.tournamentObser;
   }
+  
   addTournament(tournamentIn: Tournament){
     console.log('Nuevo Torneo');
     this.TournamentCollection.add(tournamentIn);

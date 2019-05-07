@@ -29,3 +29,8 @@
    background-image: url('/assets/icons/torneo.svg');
    background-size: cover;
  }
+
+ .example-header-image-singleP{
+  background-image: url('/assets/icons/atp.png');
+  background-size: cover;
+}
