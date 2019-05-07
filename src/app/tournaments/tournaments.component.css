@@ -4,3 +4,6 @@
  mat-form-field {
     margin-right: 12px;
   }
+  .whiteText {
+   color: white;
+}
