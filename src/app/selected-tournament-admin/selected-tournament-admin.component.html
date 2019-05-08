@@ -1,0 +1,63 @@
+<div class="container-12 mt-5 pt-4 pb-2 bgColor-light">
+
+  <div class="container bg-white" align="center">
+    <div class="pt-4"></div>
+    <h1 class="d-inline px-3 py-1">Torneo Tengular</h1>
+    <div class="pt-4"></div>
+    <div class="container mt-0 pt-2">
+      <div class="row justify-content-start">
+        <div class="col-sm-12 col-lg-4">
+          <mat-card [class.mat-elevation-z3]="!isActive" *ngFor="let tournament of tournaments" class="addBorder"
+                    class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image-single"></div>
+              <mat-card-title>{{tournament.name}}</mat-card-title>
+              <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+                 [src]="tournament.imageT" style="padding: 10px">
+            <mat-card-content>
+              <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
+              <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
+              <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
+              <br><label><strong>Modalidad: </strong>{{tournament.modality}}</label>
+              <br><label><strong>Categoría: </strong>{{tournament.category}}</label>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-sm-12 col-lg-8">
+          <div class="m-3">
+            <h4 class="">Jugadores inscritos</h4>
+            <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+              <!-- LastName Column -->
+              <ng-container matColumnDef="lastname">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Apellido </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Posición</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-tournament-bracket-admin></app-tournament-bracket-admin>
+
+</div>

@@ -162,11 +162,11 @@
   </div>
   <mat-dialog-content>
     <div class="row justify-content-center">
-      <p>Se <strong *ngIf="!match.susspended else reanudara"> suspenderá</strong></p>
+      <p *ngIf="!match.susspended else reanudara">Se <strong>suspenderá</strong></p>
       <ng-template #reanudara>
-        <strong> reanudará</strong>
+        <p>Se <strong>reanudará</strong></p>
       </ng-template>
-      <p>el partido de <strong> {{match.player[0]}} vs {{match.player[1]}} </strong></p>
+      <p>&nbsp; el partido de <strong> {{match.player[0]}} vs {{match.player[1]}} </strong></p>
     </div>
   </mat-dialog-content>
   <div class="row justify-content-end">

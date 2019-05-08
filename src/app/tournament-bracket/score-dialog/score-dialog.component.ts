@@ -228,7 +228,6 @@ export class ScoreDialogComponent implements OnInit {
   }
 
   calculateWinner (): number {
-    // TODO: Agregar cuando un jugador abandona deshabilitar el minimo de ganados y por al contrincante como ganador
     let calculatedWinner = 0;
     let winner = this.match.winner;
     let team1WonSets = 0;

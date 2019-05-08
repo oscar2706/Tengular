@@ -67,19 +67,21 @@ import { PointsPipe } from './pipes/points.pipe';
 import { MatchScoreAdminComponent } from './tournament-bracket/match-score-admin/match-score-admin.component';
 import { TournamentBracketAdminComponent } from './tournament-management/tournament-bracket-admin/tournament-bracket-admin.component';
 import { SusspendedPipe } from './pipes/susspended.pipe';
+import { SelectedTournamentAdminComponent } from './selected-tournament-admin/selected-tournament-admin.component';
+import { TournamentBracketAdmin2Component } from './tournament-bracket-admin2/tournament-bracket-admin2.component';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'resultados', component: ScoresComponent },
   { path: 'rankings', component: RankingsComponent },
   { path: 'torneos', component: TorneosComponent },
-  { path: 'jugador-seleccionado', component: SelectedPlayerComponent },
-  { path: 'jugador-seleccionado/:imageP', component: SelectedTournamentComponent },
+  // { path: 'jugador-seleccionado', component: SelectedPlayerComponent },
+  { path: 'jugador-seleccionado/:imageP', component: SelectedPlayerComponent },
   { path: 'torneo-seleccionado/:imageT', component: SelectedTournamentComponent },
+  { path: 'admin-torneo/:imageT', component: SelectedTournamentAdminComponent },
   { path: 'convocatorias', component: BrochureViewComponent },
   { path: 'jugador/:nombre', component: PlayerLoggedComponent },
   { path: 'admin', component: TournamentManagementComponent },
-  { path: 'admin/torneo/:nombreTorneo', component: TournamentBracketAdminComponent },
   { path: 'usuario', component: PlayerLoggedComponent },
   { path: 'arbitro', component: RefereeComponent },
   { path: 'arbitro/:idTorneoSeleccionado', component: TournamentBracketComponent },
@@ -115,7 +117,9 @@ const APP_ROUTES: Routes = [
     PointsPipe,
     MatchScoreAdminComponent,
     TournamentBracketAdminComponent,
-    SusspendedPipe
+    SusspendedPipe,
+    SelectedTournamentAdminComponent,
+    TournamentBracketAdmin2Component
   ],
   imports: [
     BrowserModule,
