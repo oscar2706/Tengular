@@ -8,9 +8,9 @@ describe('TournamentBracketAdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TournamentBracketAdminComponent ]
+      declarations: [TournamentBracketAdminComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

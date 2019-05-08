@@ -65,10 +65,9 @@ import { MatchResultPipe } from './pipes/match-result.pipe';
 import { RefereeComponent } from './referee/referee.component';
 import { PointsPipe } from './pipes/points.pipe';
 import { MatchScoreAdminComponent } from './tournament-bracket/match-score-admin/match-score-admin.component';
-import { TournamentBracketAdminComponent } from './tournament-management/tournament-bracket-admin/tournament-bracket-admin.component';
+import { TournamentBracketAdminComponent } from './tournament-bracket-admin/tournament-bracket-admin.component';
 import { SusspendedPipe } from './pipes/susspended.pipe';
 import { SelectedTournamentAdminComponent } from './selected-tournament-admin/selected-tournament-admin.component';
-import { TournamentBracketAdmin2Component } from './tournament-bracket-admin2/tournament-bracket-admin2.component';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -119,7 +118,6 @@ const APP_ROUTES: Routes = [
     TournamentBracketAdminComponent,
     SusspendedPipe,
     SelectedTournamentAdminComponent,
-    TournamentBracketAdmin2Component
   ],
   imports: [
     BrowserModule,
