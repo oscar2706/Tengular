@@ -64,7 +64,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatchResultPipe } from './pipes/match-result.pipe';
 import { RefereeComponent } from './referee/referee.component';
 import { PointsPipe } from './pipes/points.pipe';
-import { MatchScoreAdminComponent } from './tournament-bracket/match-score-admin/match-score-admin.component';
+import { MatchScoreAdminComponent } from './tournament-bracket-admin/match-score-admin/match-score-admin.component';
 import { TournamentBracketAdminComponent } from './tournament-bracket-admin/tournament-bracket-admin.component';
 import { SusspendedPipe } from './pipes/susspended.pipe';
 import { SelectedTournamentAdminComponent } from './selected-tournament-admin/selected-tournament-admin.component';
