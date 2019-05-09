@@ -18,7 +18,7 @@ export class MatchScoreComponent implements OnInit, OnChanges {
     round: '1/4',
     played: true,
     date: '01/01/2020',
-    susspended: false,
+    suspended: false,
     score: {
       team1: [
         { points: 6, tiebreakPoints: 0 },

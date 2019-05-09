@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 export class MatchScoreAdminComponent implements OnInit {
   @ViewChild('playersDialog') playersDialog: TemplateRef<any>;
   @ViewChild('dateDialog') dateDialog: TemplateRef<any>;
-  @ViewChild('susspendDialog') susspendDialog: TemplateRef<any>;
+  @ViewChild('suspendDialog') suspendDialog: TemplateRef<any>;
 
   @Output() playersAssigned: EventEmitter<string[]> = new EventEmitter<string[]>();
 
@@ -26,7 +26,7 @@ export class MatchScoreAdminComponent implements OnInit {
     firstRound: false,
     played: true,
     date: '01/01/2020',
-    susspended: false,
+    suspended: false,
     score: {
       team1: [
         { points: 6, tiebreakPoints: 0 },
@@ -109,25 +109,25 @@ export class MatchScoreAdminComponent implements OnInit {
     this.openedDialogRef.close();
   }
 
-  // susspendDialog
-  openSusspendDialog () {
+  // suspendDialog
+  opensuspendDialog () {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.height = '11rem';
     dialogConfig.width = '36rem';
-    this.openedDialogRef = this.dialog.open(this.susspendDialog, dialogConfig);
+    this.openedDialogRef = this.dialog.open(this.suspendDialog, dialogConfig);
     this.openedDialogRef.afterClosed().subscribe(
       data => {
       }
     );
   }
 
-  saveSusspendDialog () {
-    this.match.susspended ? this.match.susspended = false : this.match.susspended = true;
+  savesuspendDialog () {
+    this.match.suspended ? this.match.suspended = false : this.match.suspended = true;
     this.openedDialogRef.close();
   }
 
-  closeSusspendDialog () {
+  closesuspendDialog () {
     this.openedDialogRef.close();
   }
 
