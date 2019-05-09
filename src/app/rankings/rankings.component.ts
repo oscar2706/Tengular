@@ -37,6 +37,12 @@ export class RankingsComponent implements OnInit {
   displayedColumns2: string[] = ['current_rank','player_country','player_name', 'player_points', 'prev_rank'];
   sourcewta = new MatTableDataSource<ranking>(ranking_wta);
 
+  //FILTRADO DE JUGADORES
+  applyFilter(filterValue: string)
+  {
+    this.sourceatp.filter = filterValue.trim().toLowerCase();
+    this.sourcewta.filter = filterValue.trim().toLowerCase();
+  }
 //SI SIRVEN Problema con WTA
   @ViewChild(MatPaginator) paginatorA: MatPaginator;
   //@ViewChild(MatPaginator) paginatorW: MatPaginator;
