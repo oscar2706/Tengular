@@ -24,7 +24,7 @@ export class ScoreDialogComponent implements OnInit {
     round: '',
     played: false,
     date: '',
-    susspended: false,
+    suspended: false,
     score: {
       team1: [
         { points: 0, tiebreakPoints: 0 },

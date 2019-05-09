@@ -66,7 +66,7 @@ import { RefereeComponent } from './referee/referee.component';
 import { PointsPipe } from './pipes/points.pipe';
 import { MatchScoreAdminComponent } from './tournament-bracket-admin/match-score-admin/match-score-admin.component';
 import { TournamentBracketAdminComponent } from './tournament-bracket-admin/tournament-bracket-admin.component';
-import { SusspendedPipe } from './pipes/susspended.pipe';
+import { SuspendedPipe } from './pipes/suspended.pipe';
 import { SelectedTournamentAdminComponent } from './selected-tournament-admin/selected-tournament-admin.component';
 
 const APP_ROUTES: Routes = [
@@ -116,7 +116,7 @@ const APP_ROUTES: Routes = [
     PointsPipe,
     MatchScoreAdminComponent,
     TournamentBracketAdminComponent,
-    SusspendedPipe,
+    SuspendedPipe,
     SelectedTournamentAdminComponent,
   ],
   imports: [
