@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Match } from '../../models/match-single.model'
 @Component({
   selector: 'app-date-results',
@@ -14,7 +14,7 @@ export class DateResultsComponent implements OnInit {
     round: '1/4',
     played: true,
     date: '01/01/2020',
-    susspended: false,
+    suspended: false,
     score: {
       team1: [
         { points: 6, tiebreakPoints: 0 },

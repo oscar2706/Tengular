@@ -11,8 +11,8 @@ import { Tournament } from '../models/tournament.model'
 export class ScoresComponent implements OnInit {
   modalitySelected = 'option1';
   categorySelected = 'option1';
-  constructor() { }
-  
+  constructor () { }
+
   tournament = <Tournament>{
     id: '',
     name: 'Primavera 2019',
@@ -36,7 +36,7 @@ export class ScoresComponent implements OnInit {
       round: '1/4',
       played: false,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
@@ -58,7 +58,7 @@ export class ScoresComponent implements OnInit {
       round: '1/4',
       played: true,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 4, tiebreakPoints: 0 },
@@ -80,7 +80,7 @@ export class ScoresComponent implements OnInit {
       round: '1/4',
       played: true,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 4, tiebreakPoints: 0 },
@@ -102,7 +102,7 @@ export class ScoresComponent implements OnInit {
       round: '1/4',
       played: true,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 4, tiebreakPoints: 0 },
@@ -124,7 +124,7 @@ export class ScoresComponent implements OnInit {
       round: '1/2',
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 4, tiebreakPoints: 0 },
@@ -146,7 +146,7 @@ export class ScoresComponent implements OnInit {
       round: '1/4',
       played: false,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
@@ -168,7 +168,7 @@ export class ScoresComponent implements OnInit {
       round: '1',
       played: false,
       date: '01/01/2020',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
@@ -187,7 +187,7 @@ export class ScoresComponent implements OnInit {
       }
     },
   ]
-  ngOnInit() {
+  ngOnInit () {
   }
 
 }
