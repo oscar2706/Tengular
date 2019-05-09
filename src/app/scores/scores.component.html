@@ -22,11 +22,8 @@
     </div>
 
     <h3 class="text-center">Resultados</h3>
-    <app-date-results></app-date-results>
-    <app-date-results></app-date-results>
-    <app-date-results></app-date-results>
-    <app-date-results></app-date-results>
-    <app-date-results></app-date-results>
-    <app-date-results></app-date-results>
+    <div class="team-item" *ngFor="let match of matches | slice:0:16">
+        <app-date-results [match]="match"></app-date-results>
+    </div>
   </div>
 </div>
