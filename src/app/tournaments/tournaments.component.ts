@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Tournament } from '../models/tournament.model';
 import { TournamentService } from '../services/tournament.service';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
-import { MockResourceLoader } from '@angular/compiler/testing';
+
+import { Player } from '../models/player.model';
+import { PlayerService } from '../services/player.service';
 
 export interface Cat {
   value: string;
@@ -32,7 +33,9 @@ export interface More {
 export class TorneosComponent implements OnInit {
  
   tournaments: Tournament[];
-  
+
+  players: Player[];
+
   cats: Cat[] = [
     {value: 'varonil-0', viewValue: 'Varonil'},
     {value: 'femenil-1', viewValue: 'Femenil'},
@@ -53,19 +56,32 @@ export class TorneosComponent implements OnInit {
     value:3
   }
 
+  more2:More={
+    value:3
+  }
+
   constructor(
     private tournamentService: TournamentService,
-
+    private playerService: PlayerService,
     ) { }
 
   onClick(){
     this.more.value=this.more.value+3;
   }
 
+  onClick2(){
+    this.more2.value=this.more2.value+3;
+  }
+
   ngOnInit() {
     this.tournamentService.getTournament().subscribe(tournaments => {
       this.tournaments = tournaments;
       console.log(this.tournaments);
+    });
+
+    this.playerService.getPlayer().subscribe(players => {
+      this.players = players;
+      console.log(this.players);
     });
   }
 

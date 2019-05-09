@@ -34,7 +34,7 @@
 
           <div class="container">
             <div class="row">
-              <div *ngFor="let tournament of tournaments" class="col-4" style="padding: 20px">
+              <div *ngFor="let tournament of tournaments| slice:0:more.value" class="col-4" style="padding: 20px">
                 <mat-card [routerLink]="['/admin-torneo', tournament.imageT]" appMaterialElevation
                           class="addBorder" class="example-card">
                   <mat-card-header>
@@ -55,6 +55,7 @@
                 </mat-card>
               </div>
             </div>
+            <button mat-raised-button color="accent" class ="whiteText" (click)="onClick()">Mostrar más</button>
           </div>
         </div>
       </mat-tab>
@@ -81,7 +82,7 @@
 
           <div class="container">
             <div class="row">
-              <div *ngFor="let player of players" class="col-4" style="padding: 20px">
+              <div *ngFor="let player of players | slice:0:more2.value" class="col-4" style="padding: 20px">
                 <mat-card [routerLink]="['/jugador-seleccionado', player.imageP]" appMaterialElevation class="addBorder"
                           class="example-card">
                   <mat-card-header>
@@ -104,6 +105,7 @@
                 </mat-card>
               </div>
             </div>
+            <button mat-raised-button color="accent" class ="whiteText" (click)="onClick2()">Mostrar más</button>
           </div>
         </div>
       </mat-tab>

@@ -7,6 +7,9 @@ import { TournamentService } from '../services/tournament.service';
 import { Player } from '../models/player.model';
 import { PlayerService } from '../services/player.service';
 
+export interface More {
+  value:number;
+}
 export interface Cat {
   value: string;
   viewValue: string;
@@ -35,9 +38,22 @@ export interface DialogData {
 export class TournamentManagementComponent implements OnInit {
 tournaments: Tournament[];
 players: Player[];
+more:More={
+  value:3
+}
 
- 
+more2:More={
+  value:3
+}
   constructor(public dialog: MatDialog, private tournamentService: TournamentService, private playerService: PlayerService) { }
+  
+  onClick(){
+    this.more.value=this.more.value+3;
+  }
+
+  onClick2(){
+    this.more2.value=this.more2.value+3;
+  }
   
   onCreateTournament(){
     const dialogConfig1= new MatDialogConfig();
