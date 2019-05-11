@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tournament } from '../models/tournament.model'
 import { Match } from '../models/match-single.model'
@@ -12,6 +12,7 @@ import { MatchService } from "../services/match-single.service";
 export class TournamentBracketAdminComponent implements OnInit {
 
   constructor (private route: ActivatedRoute, private matchService: MatchService) { }
+  @Input() tournamentName: string;
 
   tournament = <Tournament>{
     name: 'Primavera 2019',
@@ -228,19 +229,20 @@ export class TournamentBracketAdminComponent implements OnInit {
 
   addMatchesToFirebase () {
     let matchesFirebase: Match[];
-    console.log(this.tournament);
-    // this.matchService.addTournamentMatches(this.tournament);
-    let tournamentName: string = this.tournament.name;
-    this.matchService.getMatchesFromTournament(this.tournament).subscribe(match => {
-      matchesFirebase = match;
-      console.log(matchesFirebase);
-    });
+
+    let matchId: any;
+    // console.log(this.tournament);
+    this.matchService.getMatch('0ctS8xXUJiz3JCmDgMhM').subscribe(match => {
+      matchId = match;
+      console.log(matchId);
+    })
   }
 
   ngOnInit () {
-    this.tournament.id = this.route.snapshot.params['idTorneoSeleccionado'];
+    // this.tournament.id = this.route.snapshot.params['idTorneoSeleccionado'];
     // this.rolledPlayers = this.tournament.enrolledPlayers;
-    // console.log(this.rolledPlayers);
+    // console.log(this.rolledPlayers);    
+    console.log(this.tournamentName);
   }
 
 }
