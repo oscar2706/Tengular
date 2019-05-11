@@ -18,6 +18,8 @@ export class TournamentRegistrationComponent implements OnInit {
   minDate = new Date(2000, 0, 1);
   maxDate = new Date(2020, 0, 1);
   bufferValue = 75;
+  selectedDateBegin = '';
+  selectedDateEnd = '';
 
   tournamentIn: Tournament = {
 	  name: '',
@@ -28,7 +30,7 @@ export class TournamentRegistrationComponent implements OnInit {
 	  beginDate: '',
 	  endDate: '',
 	  numberOfPlayers: 0,
-	  enrolledPlayers: ['', ''],
+	  enrolledPlayers: [],
     playedRounds: [false, false, false],
     imageT: ''
   } 
@@ -50,6 +52,8 @@ export class TournamentRegistrationComponent implements OnInit {
     this.tournamentIn.tournamentStatus = 'Proximo';
     let imgUrl : string = document.getElementById("imagenT").innerHTML.toString();
     this.tournamentIn.imageT = imgUrl;
+    this.tournamentIn.beginDate = this.selectedDateBegin.toString();
+    this.tournamentIn.endDate = this.selectedDateEnd.toString();
     this.tournamentService.addTournament(this.tournamentIn);
       myForm.resetForm();
       this.dialog.closeAll();
@@ -72,6 +76,20 @@ export class TournamentRegistrationComponent implements OnInit {
       //console.log('subir', e.target.files[0]);
   //    console.log("IMAGEN: "+imgr.);
   console.log(this.urlImage);
+  }
+
+  onUpdateDate (event, typeDate) {
+    let date = (new Date(event.target.value));
+    if(typeDate == 0){
+    this.selectedDateBegin = date.toLocaleDateString();
+    console.log(this.selectedDateBegin);
+    }
+    else{
+      if(typeDate == 1){
+      this.selectedDateEnd = date.toLocaleDateString();
+      console.log(this.selectedDateEnd);
+      }
+    }
   }
 
   closeDialog() : void {

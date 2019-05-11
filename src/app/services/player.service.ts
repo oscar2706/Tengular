@@ -46,6 +46,19 @@ export class PlayerService {
     return this.playerObser;
   }
 
+  getPlayerSelectName(name)
+  {
+    this.playerCollection = this.afs.collection<Player>('Player', ref => ref.where("name", "==", name));
+    this.playerObser = this.playerCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Player;
+        const id = a.payload.doc.id;
+        return {id, ...data };
+      }))
+    );
+    return this.playerObser;
+  }
+
   addPlayer(playerIn: Player){
     console.log('Nuevo Jugador');
     this.playerCollection.add(playerIn);

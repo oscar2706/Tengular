@@ -52,4 +52,10 @@ export class TournamentService {
     console.log('Nuevo Torneo');
     this.TournamentCollection.add(tournamentIn);
   }
+
+  updateTournament(tournament: Tournament){
+    console.log('Actualizar Torneo');
+    this.tournamentDoc = this.afs.doc(`Tournaments/${tournament.id}`);
+    this.tournamentDoc.update(tournament);
+  }
 }

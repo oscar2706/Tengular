@@ -14,27 +14,42 @@
         <div class="example-small-box" align="center">
           <mat-form-field color="accent">
             <mat-label>Modalidades</mat-label>
-            <mat-select>
-              <!-- <mat-option *ngFor="let mod of mods" [value]="mod.value">
-                {{mod.viewValue}}
-              </mat-option> -->
+            <mat-select [(value)]="mod" (selectionChange)="onFilter()"> 
+                <mat-option value="todas">
+                    Todas
+                </mat-option>
+              <mat-option value="sencillo">
+               Sencillo
+              </mat-option>
+              <mat-option value="doble">
+                  Doble
+                 </mat-option>
             </mat-select>
           </mat-form-field>
 
 
           <mat-form-field color="accent">
             <mat-label>Categorias</mat-label>
-            <mat-select>
-              <!-- <mat-option *ngFor="let cat of cats" [value]="cat.value">
-                {{cat.viewValue}}
-              </mat-option> -->
+            <mat-select [(value)]="cat" (selectionChange)="onFilter()">
+                <mat-option value="todas">
+                    Todas
+                </mat-option>
+                <mat-option value="varonil">
+                   Varonil
+                   </mat-option>
+                   <mat-option value="femenil">
+                    Femenil
+                    </mat-option>
+                    <mat-option value="mixto">
+                      Mixto
+                    </mat-option>
             </mat-select>
           </mat-form-field>
           <br>
 
-          <div class="container">
+          <div *ngIf="tournamentsFilter?.length > 0; else noTournaments" class="container">
             <div class="row">
-              <div *ngFor="let tournament of tournaments" class="col-4" style="padding: 20px">
+              <div *ngFor="let tournament of tournamentsFilter" class="col-4" style="padding: 20px">
                 <mat-card [routerLink]="['/admin-torneo', tournament.imageT]" appMaterialElevation
                           class="addBorder" class="example-card">
                   <mat-card-header>
@@ -56,6 +71,10 @@
               </div>
             </div>
           </div>
+          <ng-template #noTournaments>
+              <br>
+              <h5>No existen Torneos</h5>
+            </ng-template>
         </div>
       </mat-tab>
 

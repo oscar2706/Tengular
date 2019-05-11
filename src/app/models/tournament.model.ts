@@ -7,7 +7,7 @@ export interface Tournament {
 	tournamentStatus?: string;
 	beginDate?: string;
 	endDate?: string;
-	numberOfPlayers?: number;
+	numberOfPlayers?: any;
 	enrolledPlayers?: Array<string>;
 	playedRounds?: Array<boolean>;
 	imageT?: string;

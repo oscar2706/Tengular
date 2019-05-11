@@ -35,6 +35,11 @@ export interface DialogData {
 export class TournamentManagementComponent implements OnInit {
 tournaments: Tournament[];
 players: Player[];
+tournamentsFilter: Tournament[] = [];
+tamFilter: number = 0;
+
+cat: string = "todas";
+mod: string = "todas";
 
  
   constructor(public dialog: MatDialog, private tournamentService: TournamentService, private playerService: PlayerService) { }
@@ -60,6 +65,9 @@ players: Player[];
   ngOnInit() {
     this.tournamentService.getTournament().subscribe(tournaments => {
       this.tournaments = tournaments;
+      if(this.mod == "todas" && this.cat == "todas"){
+      this.tournamentsFilter = tournaments;
+      }
       console.log(this.tournaments);
     });
 
@@ -67,6 +75,52 @@ players: Player[];
       this.players = players;
       console.log(this.players);
     });
+  }
+
+  onFilter()
+  {
+  //  console.log("modalidad: "+this.mod)
+  this.tournamentsFilter = [];
+  this.tamFilter = 0;
+  if(this.mod != "todas" && this.cat != "todas"){
+    for(let i = 0; i<this.tournaments.length; i++)
+    {
+      if(this.tournaments[i].modality == this.mod && this.tournaments[i].category == this.cat)
+      {
+        this.tournamentsFilter[this.tamFilter] = this.tournaments[i];
+        this.tamFilter++;
+        console.log(this.tournamentsFilter[0]);
+      }
+    }
+  }
+
+  if(this.mod == "todas"){
+    for(let i = 0; i<this.tournaments.length; i++)
+    {
+      if(this.tournaments[i].category == this.cat)
+      {
+        this.tournamentsFilter[this.tamFilter] = this.tournaments[i];
+        this.tamFilter++;
+        console.log(this.tournamentsFilter[0]);
+      }
+    }
+  }
+
+  if(this.cat == "todas"){
+    for(let i = 0; i<this.tournaments.length; i++)
+    {
+      if(this.tournaments[i].modality == this.mod)
+      {
+        this.tournamentsFilter[this.tamFilter] = this.tournaments[i];
+        this.tamFilter++;
+        console.log(this.tournamentsFilter[0]);
+      }
+    }
+  }
+
+  if(this.mod == "todas" && this.cat == "todas"){
+    this.tournamentsFilter = this.tournaments;
+  }
   }
 
 }

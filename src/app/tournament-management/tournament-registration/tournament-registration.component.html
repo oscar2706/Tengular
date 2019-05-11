@@ -5,21 +5,28 @@
   <br>
    <div>
       <mat-form-field class="example-form-field">
-          <input matInput [(ngModel)]="tournamentIn.name" #name="ngModel" name="name" id="name" type="text" placeholder="Nombre del torneo">
+          <input matInput [(ngModel)]="tournamentIn.name" #name="ngModel" name="name" id="name" type="text" placeholder="Nombre del torneo" minlength="7" maxlength="50" required>
           <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
+        <div *ngIf="name.touched && !name.valid">
+          <div *ngIf="name.errors.required" style="color: red;">Nombre es requerido</div>
+          <div *ngIf="name.errors.minlength" style="color: red;">Nombre muy corto</div>
+        </div>
   </div>
 
   <div>
       <mat-form-field>
           <mat-label>Modalidades</mat-label>
           <select matNativeControl [(ngModel)]="tournamentIn.modality" #modality="ngModel" name="modality" id="modality" required>
-            <option value="sencilo">Sencillo</option>
+            <option value="sencillo">Sencillo</option>
             <option value="doble">Doble</option>
           </select>
         </mat-form-field>
+        <div *ngIf="modality.touched && !modality.valid">
+          <div *ngIf="modality.errors.required" style="color: red;">Modalidad es requerido</div>
+        </div>
         
         <mat-form-field>
             <mat-label>Categoria</mat-label>
@@ -29,26 +36,34 @@
               <option value="mixto">Mixto</option>
             </select>
           </mat-form-field>
+          <div *ngIf="category.touched && !category.valid">
+            <div *ngIf="category.errors.required" style="color: red;">Categoria es requerido</div>
+          </div>
   </div>
 
   <div>
-  <!--    <mat-form-field>
-          <textarea matInput placeholder="Otras reglas"></textarea>
-        </mat-form-field> -->
-        <mat-form-field>
-          <input matInput type="number" [(ngModel)]="tournamentIn.numberOfPlayers" #numberOfPlayers="ngModel" name="numberOfPlayers" id="numberOfPlayers" placeholder="numero de Jugadores">
+      <mat-form-field>
+          <mat-label>Competidores</mat-label>
+          <select matNativeControl [(ngModel)]="tournamentIn.numberOfPlayers" #numberOfPlayers="ngModel" name="numberOfPlayers" id="numberOfPlayers" required>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="32">32</option>
+          </select>
         </mat-form-field>
+        <div *ngIf="numberOfPlayers.touched && !numberOfPlayers.valid">
+            <div *ngIf="numberOfPlayers.errors.required" style="color: red;">Competidores es requerido</div>
+          </div>
   </div>
 
   <div>
       <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="tournamentIn.beginDate" #beginDate="ngModel" name="beginDate" id="beginDate" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha de inicio">
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha de inicio" (dateChange)="onUpdateDate($event, 0)" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      
+
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="tournamentIn.endDate" #endDate="ngModel" name="endDate" id="endDate" [min]="minDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha de fin">
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Fecha de fin" (dateChange)="onUpdateDate($event, 1)" required>
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
@@ -85,12 +100,11 @@
   </div>
   <label #imagenT id="imagenT" style="visibility: hidden; font-size: 0px">{{urlImage | async}}</label>
   <div class="example-button-row">
-      <button *ngIf="urlImage | async; else btnDisabled" mat-stroked-button type="submit" color="accent" class="botones">Aceptar</button>
+      <button  mat-stroked-button *ngIf="urlImage | async; else btnDisabled" type="submit" color="accent" class="botones">Aceptar</button>
       <ng-template #btnDisabled>
       <button mat-stroked-button type="submit" disabled=true color="accent" class="botones">Aceptar</button>
       </ng-template>
       <button mat-stroked-button color="accent" type="button" class="botones" (click)="closeDialog()">Cancelar</button>
   </div>
-
 </form>
   
