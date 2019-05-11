@@ -42,17 +42,18 @@ export class LoginComponent implements OnInit {
       default:
         break;
     }
+    
     this.dialog.closeAll();
-  }
+    }
   constructor (private dialog: MatDialog, private router: Router, private userService: UserService) { }
 
-  closeDialog() : void {
+  /*closeDialog() : void {
     const dialogRef = this.dialog.closeAll();
 
   }
-  
+  */
   ngOnInit () {
-    this.loggUser();
+   // this.loggUser();
   }
 
 
