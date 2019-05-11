@@ -143,6 +143,11 @@ export class MatchService {
     }
   }
 
+  getMatch (id: string) {
+    this.MatchCollection = this.afs.collection<Match>('Match');
+    return this.MatchCollection.doc(id).valueChanges();
+  }
+
   getPlayedMatchesFromPlayer (player: string): Observable<Match[]> {
     this.MatchCollection = this.afs.collection<Match>('Match');
     this.matchObservable = this.MatchCollection.snapshotChanges().pipe(
