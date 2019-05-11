@@ -17,29 +17,7 @@ export class MatchScoreAdminComponent implements OnInit {
 
   @Input() tournamentPlayers: string[] = [];
 
-  @Input() match = <Match>{
-    id: '',
-    tournamentId: '',
-    player: [],
-    winner: [],
-    round: '1/4',
-    firstRound: false,
-    played: true,
-    date: '01/01/2020',
-    suspended: false,
-    score: {
-      team1: [
-        { points: 6, tiebreakPoints: 0 },
-        { points: 4, tiebreakPoints: 0 },
-        { points: 6, tiebreakPoints: 0 }
-      ],
-      team2: [
-        { points: 4, tiebreakPoints: 0 },
-        { points: 6, tiebreakPoints: 0 },
-        { points: 4, tiebreakPoints: 0 }
-      ],
-    }
-  }
+  @Input() match: Match;
 
   selectedPlayer: string[] = ['', ''];
   selectedDate = '';

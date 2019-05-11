@@ -16,44 +16,59 @@ export class TournamentService {
   tournamentDoc: AngularFirestoreDocument<Tournament>;
   startDate = new Date();
 
-  constructor(public afs:AngularFirestore) { 
+  constructor (public afs: AngularFirestore) {
     this.TournamentCollection = this.afs.collection<Tournament>('Tournaments');
   }
 
-  getTournament()
-  {
-  //  this.cursosCollection = this.afs.collection<CursoInterface>('cursos', ref => ref.where("tecnologia", "==", tec).where("precio", ">", "500"));
- // this.cursosCollection = this.afs.collection<CursoInterface>('cursos', ref => ref.where("tecnologia", "==", tec));  
-  this.TournamentCollection = this.afs.collection<Tournament>('Tournaments');
+  getTournament () {
+    //  this.cursosCollection = this.afs.collection<CursoInterface>('cursos', ref => ref.where("tecnologia", "==", tec).where("precio", ">", "500"));
+    // this.cursosCollection = this.afs.collection<CursoInterface>('cursos', ref => ref.where("tecnologia", "==", tec));  
+    this.TournamentCollection = this.afs.collection<Tournament>('Tournaments');
     this.tournamentObser = this.TournamentCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Tournament;
         const id = a.payload.doc.id;
-        return {id, ...data };
+        return { id, ...data };
       }))
     );
     return this.tournamentObser;
   }
 
-  getTournamentSelect(imageT)
-  {
+  getTournamentSelect (imageT) {
     this.TournamentCollection = this.afs.collection<Tournament>('Tournaments', ref => ref.where("imageT", "==", imageT));
     this.tournamentObser = this.TournamentCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Tournament;
         const id = a.payload.doc.id;
-        return {id, ...data };
+        return { id, ...data };
       }))
     );
     return this.tournamentObser;
   }
-  
-  addTournament(tournamentIn: Tournament){
+
+  getTournamentFromName (name: string) {
+    this.TournamentCollection = this.afs.collection<Tournament>('Tournaments', ref => ref.where("name", "==", name));
+    this.tournamentObser = this.TournamentCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Tournament;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+    return this.tournamentObser;
+  }
+
+  getTournamentFromId (id: string) {
+    this.TournamentCollection = this.afs.collection<Tournament>('Tournaments');
+    return this.TournamentCollection.doc(id).valueChanges();
+  }
+
+  addTournament (tournamentIn: Tournament) {
     console.log('Nuevo Torneo');
     this.TournamentCollection.add(tournamentIn);
   }
 
-  updateTournament(tournament: Tournament){
+  updateTournament (tournament: Tournament) {
     console.log('Actualizar Torneo');
     this.tournamentDoc = this.afs.doc(`Tournaments/${tournament.id}`);
     this.tournamentDoc.update(tournament);
