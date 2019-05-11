@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tournament } from '../models/tournament.model'
 import { Match } from '../models/match-single.model'
+import { MatchService } from "../services/match-single.service";
 
 @Component({
   selector: 'app-tournament-bracket-admin',
@@ -10,15 +11,14 @@ import { Match } from '../models/match-single.model'
 })
 export class TournamentBracketAdminComponent implements OnInit {
 
-  constructor (private route: ActivatedRoute) { }
+  constructor (private route: ActivatedRoute, private matchService: MatchService) { }
 
   tournament = <Tournament>{
-    id: '',
     name: 'Primavera 2019',
     modality: 'Individual',
     category: 'Varonil',
     announcementStatus: 'Cerrada',
-    tournamentStatus: 'Dispotandose',
+    tournamentStatus: 'Disputándose',
     beginDate: '01/02/2019',
     endDate: '01/04/2019',
     numberOfPlayers: 8,
@@ -48,22 +48,23 @@ export class TournamentBracketAdminComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: ['Lilias	Benninger', 'Manon	Didsbury'],
       winner: [],
       round: '1/4',
       firstRound: true,
       played: false,
       date: '01/01/2019',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
-          { points: 6, tiebreakPoints: 0 },
           { points: 0, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
           { points: 0, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
           { points: 0, tiebreakPoints: 0 }
         ],
       }
@@ -71,81 +72,85 @@ export class TournamentBracketAdminComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
       round: '1/4',
       firstRound: true,
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
       }
     },
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
       round: '1/4',
       firstRound: true,
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
       }
     },
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
       round: '1/4',
       firstRound: true,
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
         team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 }
         ],
       }
     },
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
       round: '1/2',
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
@@ -162,12 +167,13 @@ export class TournamentBracketAdminComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
-      round: '',
+      round: '1/2',
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
@@ -184,576 +190,31 @@ export class TournamentBracketAdminComponent implements OnInit {
     {
       id: '',
       tournamentId: this.tournament.id,
+      tournamentName: '',
       player: [],
       winner: [],
-      round: '',
+      round: '1',
       played: false,
       date: '',
-      susspended: false,
+      suspended: false,
       score: {
         team1: [
           { points: 0, tiebreakPoints: 0 },
           { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
         team2: [
           { points: 0, tiebreakPoints: 0 },
           { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
+          { points: 0, tiebreakPoints: 0 },
         ],
       }
     },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '',
-      firstRound: false,
-      played: false,
-      date: '',
-      susspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
+
   ]
 
   onPlayersAssigned (selectedPlayers: string[]) {
@@ -765,10 +226,20 @@ export class TournamentBracketAdminComponent implements OnInit {
     console.log(this.availablePlayers);
   }
 
+  addMatchesToFirebase () {
+    let matchesFirebase: Match[];
+    console.log(this.tournament);
+    // this.matchService.addTournamentMatches(this.tournament);
+    let tournamentName: string = this.tournament.name;
+    this.matchService.getMatchesFromTournament(this.tournament).subscribe(match => {
+      matchesFirebase = match;
+      console.log(matchesFirebase);
+    });
+  }
+
   ngOnInit () {
     this.tournament.id = this.route.snapshot.params['idTorneoSeleccionado'];
     // this.rolledPlayers = this.tournament.enrolledPlayers;
-    // console.log(this.tournament);
     // console.log(this.rolledPlayers);
   }
 

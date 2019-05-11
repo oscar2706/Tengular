@@ -30,6 +30,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   font-weight: lighter;
   margin: 8px 0;
   height: 104px;
+
 }
 
 .example-element-symbol {
@@ -49,3 +50,14 @@ tr.example-element-row:not(.example-expanded-row):active {
 .bgColor-light{
   background-color: #E6E6E5;
 }
+
+.mat-form-field{
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  width: 100;
+}
+
+
+

@@ -17,14 +17,14 @@
       <span>Asignar fecha</span>
     </button>
     <button mat-menu-item style="outline:none;" (mouseover)="hover2=true" (mouseleave)="hover2=false"
-            [ngStyle]="{display: match.date != '' && !match.susspended ? 'inline' : 'none'}"
-            (click)="openSusspendDialog()">
+            [ngStyle]="{display: match.date != '' && !match.suspended ? 'inline' : 'none'}"
+            (click)="opensuspendDialog()">
       <mat-icon [ngStyle]="{color: hover2  ? '#EE8134' : '#757575' }">stop</mat-icon>
       <span>Suspender</span>
     </button>
     <button mat-menu-item style="outline:none;" (mouseover)="hover3=true" (mouseleave)="hover3=false"
-            [ngStyle]="{display: this.match.susspended ? 'inline' : 'none'}"
-            (click)="openSusspendDialog()">
+            [ngStyle]="{display: this.match.suspended ? 'inline' : 'none'}"
+            (click)="opensuspendDialog()">
       <mat-icon [ngStyle]="{color: hover3  ? '#EE8134' : '#757575' }">play_circle_outline</mat-icon>
       <span>Reanudar</span>
     </button>
@@ -77,8 +77,8 @@
       </div>
     </ng-template>
     <p class="text-black-50 d-inline-block" *ngIf="match.date != ''">{{this.match.date}}</p>
-    <!-- <mat-icon class="ml-2 d-inline-block text-accent" *ngIf="match.susspended">cancel</mat-icon> -->
-    <p class="ml-2 text-accent d-inline-block" *ngIf="match.susspended">({{this.match.susspended | susspended}})</p>
+    <!-- <mat-icon class="ml-2 d-inline-block text-accent" *ngIf="match.suspended">cancel</mat-icon> -->
+    <p class="ml-2 text-accent d-inline-block" *ngIf="match.suspended">({{this.match.suspended | suspended}})</p>
   </mat-card-content>
 </mat-card>
 
@@ -153,16 +153,16 @@
 </ng-template>
 
 <!-- Dialogo confirma suspensión o reanudar -->
-<ng-template #susspendDialog>
+<ng-template #suspendDialog>
   <div class="row justify-content-center">
-    <h1 matDialogTitle *ngIf="!match.susspended else reanudar">Suspensión de partido</h1>
+    <h1 matDialogTitle *ngIf="!match.suspended else reanudar">Suspensión de partido</h1>
     <ng-template #reanudar>
       <h1 matDialogTitle>Reanudar partido</h1>
     </ng-template>
   </div>
   <mat-dialog-content>
     <div class="row justify-content-center">
-      <p *ngIf="!match.susspended else reanudara">Se <strong>suspenderá</strong></p>
+      <p *ngIf="!match.suspended else reanudara">Se <strong>suspenderá</strong></p>
       <ng-template #reanudara>
         <p>Se <strong>reanudará</strong></p>
       </ng-template>
@@ -172,9 +172,9 @@
   <div class="row justify-content-end">
     <div mat-dialog-actions class="mt-0 mr-1">
       <button mat-raised-button color="accent" class="text-white" style="outline:none;"
-              (click)="saveSusspendDialog()">Aceptar</button>
+              (click)="savesuspendDialog()">Aceptar</button>
       <div class="m-1"></div>
-      <button mat-raised-button style="outline:none;" (click)="closeSusspendDialog()">Cancelar</button>
+      <button mat-raised-button style="outline:none;" (click)="closesuspendDialog()">Cancelar</button>
     </div>
   </div>
 </ng-template>

@@ -2,6 +2,8 @@
 
   <div class="row justify-content-center my-3">
     <h4 class="d-inline text-center px-2">Rol del torneo</h4>
+    <button mat-raised-button color="accent" class="text-white" (click)="addMatchesToFirebase()">Registrar
+      Partidos</button>
   </div>
 
   <div class="tournament-container" *ngIf="this.tournament.numberOfPlayers == 8">
