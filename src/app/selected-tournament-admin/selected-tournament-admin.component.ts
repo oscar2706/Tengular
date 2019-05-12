@@ -7,20 +7,6 @@ import { Player } from '../models/player.model';
 import { TournamentService } from '../services/tournament.service';
 import { PlayerService } from '../services/player.service';
 
-export interface Match {
-  name: string;
-  lastname: string;
-  position: string;
-}
-
-const NEXT_MATCHES: Match[] = [
-  { name: "Rafael ", lastname: 'Nadal', position: "2" },
-  { name: "Novak ", lastname: 'Djokovic', position: "1" },
-  { name: "Alexander ", lastname: 'Zverev', position: "5" },
-  { name: "Alexander ", lastname: 'Zverev', position: "9" },
-  { name: "Alexander ", lastname: 'Zverev', position: "3" },
-];
-
 @Component({
   selector: 'app-selected-tournament-admin',
   templateUrl: './selected-tournament-admin.component.html',
@@ -70,12 +56,13 @@ export class SelectedTournamentAdminComponent implements OnInit {
           this.double = true;
         }
       }
-      // console.log(this.tournaments);
     });
 
     this.playerService.getPlayer().subscribe(players => {
       this.players = players;
-      // console.log(this.players);
+      this.availablePlayers1 = this.players;
+      this.availablePlayers2 = this.players;
+      console.log(this.players);
     });
   }
 

@@ -2,27 +2,24 @@
 
   <div class="container bg-white" align="center">
     <div class="pt-4"></div>
-    <h1 class="d-inline px-3 py-1">Torneo Tengular</h1>
+    <h1 class="d-inline px-3 py-1" *ngIf="selectedTournament != undefined"> {{selectedTournament.name}} </h1>
     <div class="pt-4"></div>
     <div class="container mt-0 pt-2">
       <div class="row justify-content-start">
         <div class="col-sm-12 col-lg-4">
           <mat-card [class.mat-elevation-z3]="!isActive" *ngFor="let tournament of tournaments" class="addBorder"
                     class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image-single"></div>
-              <mat-card-title>{{tournament.name}}</mat-card-title>
-              <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
-            </mat-card-header>
+            <h4>Información</h4>
             <img mat-card-image
                  [src]="tournament.imageT" style="padding: 10px">
             <mat-card-content>
               <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
               <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
-              <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
+              <br><label><strong>Estado Torneo: </strong>{{tournament.tournamentStatus}}</label>
+              <br><label><strong>Estado Convocatoria: </strong>{{tournament.announcementStatus}}</label>
               <br><label><strong>Numero Competidores: </strong>{{tournament.numberOfPlayers}}</label>
-              <br><label><strong>Modalidad: </strong>{{tournament.modality}}</label>
-              <br><label><strong>Categoría: </strong>{{tournament.category}}</label>
+              <br><label><strong>Modalidad: </strong>{{tournament.modality | titlecase}}</label>
+              <br><label><strong>Categoría: </strong>{{tournament.category | titlecase}}</label>
             </mat-card-content>
           </mat-card>
         </div>
