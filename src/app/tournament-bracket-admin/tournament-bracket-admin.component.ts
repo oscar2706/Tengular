@@ -23,7 +23,6 @@ export class TournamentBracketAdminComponent implements OnInit, OnChanges {
 
   availablePlayers = [];
 
-  matches32: Match[];
   matches16: Match[];
   matches8: Match[];
   matches4: Match[];
@@ -53,7 +52,6 @@ export class TournamentBracketAdminComponent implements OnInit, OnChanges {
       this.matchService.getMatchesFromTournament(this.tournament).subscribe(matches => {
         this.matches = matches;
         console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
-        this.matches32 = this.matches.filter(element => element.round == '1/32');
         this.matches16 = this.matches.filter(element => element.round == '1/16');
         this.matches8 = this.matches.filter(element => element.round == '1/8');
         this.matches4 = this.matches.filter(element => element.round == '1/4');

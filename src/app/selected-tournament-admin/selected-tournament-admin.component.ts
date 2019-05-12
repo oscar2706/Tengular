@@ -60,8 +60,18 @@ export class SelectedTournamentAdminComponent implements OnInit {
 
     this.playerService.getPlayer().subscribe(players => {
       this.players = players;
-      this.availablePlayers1 = this.players;
-      this.availablePlayers2 = this.players;
+      if (this.selectedTournament.category == 'varonil') {
+        this.availablePlayers1 = this.players.filter(player => player.gender == 'Masculino');
+        this.availablePlayers2 = this.players.filter(player => player.gender == 'Masculino');
+      }
+      else if (this.selectedTournament.category == 'femenil') {
+        this.availablePlayers1 = this.players.filter(player => player.gender == 'Femenino');
+        this.availablePlayers2 = this.players.filter(player => player.gender == 'Femenino');
+      }
+      else {
+        this.availablePlayers1 = this.players.filter(player => player.gender == 'Masculino');
+        this.availablePlayers2 = this.players.filter(player => player.gender == 'Femenino');
+      }
       console.log(this.players);
     });
   }
