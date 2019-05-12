@@ -29,11 +29,11 @@ export class TournamentBracketComponent implements OnInit {
   winners4: string[] = [];
   winners2: string[] = [];
 
-  matches16: Match[];
-  matches8: Match[];
-  matches4: Match[];
-  matches2: Match[];
-  matches1: Match[];
+  matches16: Match[] = [];
+  matches8: Match[] = [];
+  matches4: Match[] = [];
+  matches2: Match[] = [];
+  matches1: Match[] = [];
 
   matches: Array<Match> = [
     {
@@ -373,35 +373,35 @@ export class TournamentBracketComponent implements OnInit {
   onWinnerSelected (round: number, player: string[]) {
     console.log('Ganador recibido = ', player);
     let eights0Played = false;
-    if (this.matches8[0].played || this.matches8[1].played)
-      eights0Played = true;
-
-    let eights1Played = false;
-    if (this.matches8[2].played || this.matches8[3].played)
-      eights1Played = true;
-
-    let eights2Played = false;
-    if (this.matches8[4].played || this.matches8[5].played)
-      eights2Played = true;
-
-    let eights3Played = false;
-    if (this.matches8[6].played || this.matches8[7].played)
-      eights3Played = true;
-    let eightsPlayed = false;
-    if (eights0Played && eights1Played && eights2Played && eights3Played)
-      eightsPlayed = true;
-
-
-    let quartes0Played = false;
-    if (this.matches4[0].played || this.matches4[1].played)
-      quartes0Played = true;
-
-    let quartes1Played = false;
-    if (this.matches4[2].played || this.matches4[3].played)
-      quartes1Played = true;
-
     switch (round) {
       case 16: {
+        if (this.matches8[0].played || this.matches8[1].played)
+          eights0Played = true;
+
+        let eights1Played = false;
+        if (this.matches8[2].played || this.matches8[3].played)
+          eights1Played = true;
+
+        let eights2Played = false;
+        if (this.matches8[4].played || this.matches8[5].played)
+          eights2Played = true;
+
+        let eights3Played = false;
+        if (this.matches8[6].played || this.matches8[7].played)
+          eights3Played = true;
+        let eightsPlayed = false;
+        if (eights0Played && eights1Played && eights2Played && eights3Played)
+          eightsPlayed = true;
+
+
+        let quartes0Played = false;
+        if (this.matches4[0].played || this.matches4[1].played)
+          quartes0Played = true;
+
+        let quartes1Played = false;
+        if (this.matches4[2].played || this.matches4[3].played)
+          quartes1Played = true;
+
         this.winners16.push(player[0]);
         if (this.winners16.length <= 2) {
           this.matches8[0].player.push(player[0])
@@ -429,6 +429,32 @@ export class TournamentBracketComponent implements OnInit {
         }
       }
       case 8: {
+        if (this.matches8[0].played || this.matches8[1].played)
+          eights0Played = true;
+
+        let eights1Played = false;
+        if (this.matches8[2].played || this.matches8[3].played)
+          eights1Played = true;
+
+        let eights2Played = false;
+        if (this.matches8[4].played || this.matches8[5].played)
+          eights2Played = true;
+
+        let eights3Played = false;
+        if (this.matches8[6].played || this.matches8[7].played)
+          eights3Played = true;
+        let eightsPlayed = false;
+        if (eights0Played && eights1Played && eights2Played && eights3Played)
+          eightsPlayed = true;
+
+
+        let quartes0Played = false;
+        if (this.matches4[0].played || this.matches4[1].played)
+          quartes0Played = true;
+
+        let quartes1Played = false;
+        if (this.matches4[2].played || this.matches4[3].played)
+          quartes1Played = true;
 
         if (eights0Played || eights1Played || eights2Played || eights3Played) {
           this.winners8.push(player[0]);
@@ -467,14 +493,41 @@ export class TournamentBracketComponent implements OnInit {
           console.log(element.player + ' ', element.played);
         });
 
-        if (quartes0Played || quartes1Played && eightsPlayed) {
+        if (this.tournament.numberOfPlayers == 8) {
           this.winners4.push(player[0]);
           this.winners4.length <= 2 ? this.matches2[0].player.push(player[0]) : this.matches2[1].player.push(player[0]);
         }
 
-        if (this.matches4.length == 0) {
-          this.winners4.push(player[0]);
-          this.winners4.length <= 2 ? this.matches2[0].player.push(player[0]) : this.matches2[1].player.push(player[0]);
+
+        if (this.matches4.length > 0) {
+          let eights1Played = false;
+          if (this.matches8[2].played || this.matches8[3].played)
+            eights1Played = true;
+
+          let eights2Played = false;
+          if (this.matches8[4].played || this.matches8[5].played)
+            eights2Played = true;
+
+          let eights3Played = false;
+          if (this.matches8[6].played || this.matches8[7].played)
+            eights3Played = true;
+          let eightsPlayed = false;
+          if (eights0Played && eights1Played && eights2Played && eights3Played)
+            eightsPlayed = true;
+
+
+          let quartes0Played = false;
+          if (this.matches4[0].played || this.matches4[1].played)
+            quartes0Played = true;
+
+          let quartes1Played = false;
+          if (this.matches4[2].played || this.matches4[3].played)
+            quartes1Played = true;
+
+          if (quartes0Played || quartes1Played && eightsPlayed) {
+            this.winners4.push(player[0]);
+            this.winners4.length <= 2 ? this.matches2[0].player.push(player[0]) : this.matches2[1].player.push(player[0]);
+          }
         }
       }
         break;
