@@ -28,12 +28,11 @@
             <mat-card-header data-aos="fade-up">
               <div mat-card-avatar class="example-header-image-single"></div>
               <mat-card-title>{{tournament.name}}</mat-card-title>
-              <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
+              <mat-card-subtitle></mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image
               [src]="tournament.imageT" style="padding: 10px" data-aos="fade-down">
             <mat-card-content data-aos="zoom-in">
-              <h2 style="text-align: center"><strong>{{tournament.name}}</strong></h2>
               <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
               <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
               <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
