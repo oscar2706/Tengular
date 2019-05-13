@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './services/user.service';
+import { UsersService } from "./services/users.service";
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
@@ -79,7 +79,7 @@ const APP_ROUTES: Routes = [
   { path: 'torneo-seleccionado/:imageT', component: SelectedTournamentComponent },
   { path: 'admin-torneo/:imageT', component: SelectedTournamentAdminComponent },
   { path: 'convocatorias', component: BrochureViewComponent },
-  { path: 'jugador/:nombre', component: PlayerLoggedComponent },
+  { path: 'jugador/:password', component: PlayerLoggedComponent },
   { path: 'admin', component: TournamentManagementComponent },
   { path: 'usuario', component: PlayerLoggedComponent },
   { path: 'arbitro', component: RefereeComponent },
@@ -155,7 +155,7 @@ const APP_ROUTES: Routes = [
     MatProgressBarModule,
     AngularFireStorageModule
   ],
-  providers: [UserService],
+  providers: [UsersService],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent,

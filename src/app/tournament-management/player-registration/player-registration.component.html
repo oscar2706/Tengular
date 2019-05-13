@@ -7,8 +7,8 @@
     <div>
         <mat-form-field class="example-form-field">
           
-            <input matInput [(ngModel)]="playerIn.name"  #name="ngModel" name="name" id="name" type="text" placeholder="Nombre del jugador"minlength="10" maxlength="40" required>
-            
+            <input matInput [(ngModel)]="playerIn.name"  [(ngModel)]="UsersIn.name"  #name="ngModel" name="name" id="name" type="text" placeholder="Nombre del jugador"minlength="10" maxlength="40" required>
+           
             <div *ngIf="name.touched && !name.valid"> 
               <div *ngIf="name.errors.required" style="color: red;font-size: 10px;">Nombre es requerido</div>
               <div *ngIf="name.errors.minlength" style="color: red; font-size: 10px;">Nombre debe ser de al menos {{name.errors.minlength.requiredLength}} caracteres.</div>
@@ -71,7 +71,7 @@
         </mat-form-field>
 
         <mat-form-field class="example-form-field">
-            <input matInput [(ngModel)]="playerIn.license" #license="ngModel" name="license" id="license" type="text" placeholder="Licencia" minlength="8" maxlength="10" required>
+            <input matInput [(ngModel)]="playerIn.license"  [(ngModel)]="UsersIn.password" #license="ngModel" name="license" id="license" type="text" placeholder="Licencia" minlength="8" maxlength="10" required>
             <div *ngIf="license.touched && !license.valid"> 
                 <div *ngIf="license.errors.required" style="color: red;font-size: 10px;">Licencia es requerida</div>
                 <div *ngIf="license.errors.minlength" style="color: red; font-size: 10px;">Licencia debe ser de al menos {{name.errors.minlength.requiredLength}} caracteres.</div>
@@ -79,7 +79,9 @@
         </mat-form-field>
     </div>
 
-    <input matInputFile type="file" accept=".png, .jpg, .jpge" (change)="onUpload($event)">
+
+
+    <input matInputFile type="file" accept=".png, .jpg, .jpge" (change)="onUpload($event)" class="botones">
       <section class="example-section">
       <mat-progress-bar
           class="example-margin"
@@ -92,7 +94,7 @@
       </section>
 
       <label #imagenP id="imagenP" style="visibility: hidden; font-size: 0px">{{urlImage | async}}</label>
-      
+
       <div class="example-button-row">
         <button *ngIf="urlImage | async; else btnDisabled" mat-stroked-button type="submit" color="accent" class="botones">Aceptar</button>
         <ng-template #btnDisabled>
@@ -100,6 +102,8 @@
           </ng-template>
         <button mat-stroked-button color="accent" type="button" class="botones" (click)="closeDialog()">Cancelar</button>
       </div>
+
+
     
   </form>
     

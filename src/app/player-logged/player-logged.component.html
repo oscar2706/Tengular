@@ -1,48 +1,68 @@
 <div class="container mt-5 pt-4">
   <div class="row justify-content-start">
     <div class="col-sm-12 col-lg-4">
-      <mat-card>
+      <mat-card *ngFor="let player of players" data-aos="fade-right">
         <mat-card-header>
           <mat-card-title style="color:#EE8134;">Información personal</mat-card-title>
         </mat-card-header>
         <img class="rounded mx-auto d-block"
-             src="https://cdn.24.co.za/files/Cms/General/d/4661/79f9bbbced4a48dc817dd1753aeeefd1.gif" alt="">
-        <mat-card-content>
+        [src]="player.imageP" alt="" style="height: 225px; width: 300px">
+        <mat-card-content data-aos="fade-down">
           <div class="mt-3">
             <div class="d-block m-2">
               <h6 class="d-inline">Nombre: </h6>
-              <p class="d-inline pl-2">Roger Federer</p>
+              <p class="d-inline pl-2">{{player.name}}</p>
             </div>
             <div class="d-block m-2">
               <h6 class="d-inline">Edad:</h6>
-              <p class="d-inline pl-2">32</p>
+              <p class="d-inline pl-2">{{player.age}}</p>
             </div>
             <div class="d-block m-2">
               <h6 class="d-inline">Sexo:</h6>
-              <p class="d-inline pl-2">Masculino</p>
+              <p class="d-inline pl-2">{{player.gender}}</p>
             </div>
             <div class="d-block m-2">
               <h6 class="d-inline">Federación:</h6>
-              <p class="d-inline pl-2">Federación Internacional de Tenis</p>
+              <p class="d-inline pl-2">{{player.federation}}</p>
             </div>
             <div class="d-block m-2">
               <h6 class="d-inline">Número de Licencia:</h6>
-              <p class="d-inline pl-2">123456789</p>
+              <p class="d-inline pl-2">{{player.license}}</p>
             </div>
             <div class="d-block m-2">
               <h6 class="d-inline">Posición en ranking:</h6>
-              <p class="d-inline pl-2">3</p>
+              <p class="d-inline pl-2">{{player.currentRank}}°</p>
+            </div>
+            <div class="d-block m-2">
+              <h6 class="d-inline">Lugar de Nacimiento:</h6>
+              <p class="d-inline pl-2">{{player.playerCountry}}</p>
             </div>
           </div>
+
+          <div class="d-block m-2">
+              <h6 class="d-inline">Actualizar imagen del perfil:</h6>
+            <input matInputFile type="file" accept=".png, .jpg, .jpge" (change)="onUpload($event)">
+            <section class="example-section">
+            </section>
+          </div>
+
+            <label #imagenP id="imagenP" style="visibility: hidden; font-size: 0px">{{urlImage | async}}</label>
+
+        <div class="d-block m-2">
+          <div class="example-button-row">
+            <button *ngIf="urlImage | async; else btnDisabled" mat-stroked-button type="submit" color="accent" class="botones">Aceptar</button>
+            <ng-template #btnDisabled>
+              <button mat-stroked-button type="submit" disabled=true color="accent" class="botones">Aceptar</button>
+              </ng-template>
+            <button mat-stroked-button color="accent" type="button" class="botones" (click)="closeDialog()">Cancelar</button>
+          </div>
+        </div>
+
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button class="mr-2">Actualizar foto</button>
-          <!-- <button mat-stroked-button color="primary">Modificar información</button> -->
-        </mat-card-actions>
       </mat-card>
     </div>
     <div class="col-sm-12 col-lg-8">
-      <mat-tab-group color="accent">
+      <mat-tab-group color="accent" data-aos="fade-left">
         <mat-tab label="Próximos partidos">
           <div class="m-3">
             <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">
@@ -75,6 +95,7 @@
             </mat-table>
           </div>
         </mat-tab>
+        
         <mat-tab label="Historial">
           <div class="m-3">
             <mat-table [dataSource]="sourceMatches" class="mat-elevation-z2">

@@ -14,7 +14,9 @@ export class PlayerService {
   playerObser: Observable<Player[]>;
   playerF: Observable<Player[]>;
   playerDoc: AngularFirestoreDocument<Player>;
-  constructor (private http: HttpClient, public afs:AngularFirestore) { 
+
+  constructor (private http: HttpClient, public afs:AngularFirestore) 
+  { 
     this.playerCollection = this.afs.collection<Player>('Player');
   }
 
@@ -46,6 +48,20 @@ export class PlayerService {
     return this.playerObser;
   }
 
+  getPlayerSelectLicense(license)
+  {
+    this.playerCollection = this.afs.collection<Player>('Player', ref => ref.where("license", "==", license));
+    this.playerObser = this.playerCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Player;
+        const id = a.payload.doc.id;
+        return {id, ...data };
+      }))
+    );
+    return this.playerObser;
+  }
+
+
   getPlayerSelectName(name)
   {
     this.playerCollection = this.afs.collection<Player>('Player', ref => ref.where("name", "==", name));
@@ -76,4 +92,10 @@ export class PlayerService {
   public getWtaRanking (): Observable<any> {
     return this.http.get(this.urlWTA).pipe(map(this.extractData));
   }
+/*
+  updateCurso(url){
+    console.log('Actualizar Imagen');
+    this.cursoDoc = this.afs.doc(`cursos/${curso.id}`);
+    this.cursoDoc.update(curso);
+  }*/
 }

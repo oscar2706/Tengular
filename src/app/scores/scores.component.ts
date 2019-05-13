@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Match } from '../models/match-single.model'
 import { Tournament } from '../models/tournament.model'
+import {MatchService} from '../services/match-single.service';
+import { Player } from '../models/player.model';
+
+export interface More {
+  value:number;
+}
 
 @Component({
   selector: 'app-scores',
@@ -9,185 +15,25 @@ import { Tournament } from '../models/tournament.model'
 })
 
 export class ScoresComponent implements OnInit {
+  matches:Match[];
   modalitySelected = 'option1';
   categorySelected = 'option1';
-  constructor () { }
 
-  tournament = <Tournament>{
-    id: '',
-    name: 'Primavera 2019',
-    modality: 'Individual',
-    category: 'Varonil',
-    announcementStatus: 'Cerrada',
-    tournamentStatus: 'Dispotandose',
-    beginDate: '01/02/2019',
-    endDate: '01/04/2019',
-    numberOfPlayers: 8,
-    enrolledPlayers: ['Ana', 'Pablo'],
-    playedRounds: [true, true, false, false]
+  more2:More={
+    value:3
   }
 
-  matches: Array<Match> = [
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Stefanos Tsitsipas', 'Joao Domingues'],
-      winner: [],
-      round: '1/4',
-      played: false,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Pedro', 'Pepe'],
-      winner: ['Pepe'],
-      round: '1/4',
-      played: true,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Roger Federer', 'Rafael Nadal'],
-      winner: ['Roger Federer'],
-      round: '1/4',
-      played: true,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Pablo Morales', 'Leonardo Amador'],
-      winner: ['Leonardo Amador'],
-      round: '1/4',
-      played: true,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: [],
-      winner: [],
-      round: '1/2',
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 6, tiebreakPoints: 0 },
-          { points: 4, tiebreakPoints: 0 },
-          { points: 6, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Roger Federer', 'Leonardo Amador'],
-      winner: [],
-      round: '1/4',
-      played: false,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      player: ['Pierre-Hugues Herbert', 'Roberto Carballes Baena'],
-      winner: [],
-      round: '1',
-      played: false,
-      date: '01/01/2020',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-        ],
-      }
-    },
-  ]
+  constructor (private matchService: MatchService ) { }
+  
+  onClick2(){
+    this.more2.value=this.more2.value+3;
+  }
+  
   ngOnInit () {
+    this.matchService.getPlayedMatches().subscribe(matches => {
+      this.matches = matches;
+      console.log(this.matches);
+    });
   }
 
 }

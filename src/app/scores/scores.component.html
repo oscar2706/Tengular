@@ -22,8 +22,68 @@
     </div>
 
     <h3 class="text-center">Resultados</h3>
-    <div class="team-item" *ngFor="let match of matches | slice:0:16">
-        <app-date-results [match]="match"></app-date-results>
+
+    <div class="container">
+      <div class="row" >
+        <div *ngFor="let match of matches | slice:0:more2.value " class="col-4 pl-4 pr-4" style="padding: 20px">
+          <mat-card appMaterialElevation class="addBorder">
+            <h6 class="text-center">{{match.tournamentName}}</h6>
+            <p class="text-center">{{match.round}}</p>
+            <hr color="orange">
+            <mat-card-content>
+              <table class="matchResult">
+                <tr>
+                  <td class="player winner">{{match.winner}}</td>
+                  <td class="setTop">6</td>
+                  <td class="setTop">6</td>
+                  <td class="setTop">6</td>
+                </tr>
+                <tr>
+                  <td class="player">{{match.player}}</td>
+                  <td class="setBottom">4</td>
+                  <td class="setBottom">4</td>
+                  <td class="setBottom">4</td>
+                </tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <button mat-raised-button color="accent" class ="whiteText" (click)="onClick2()">Mostrar más</button>
+        </div>
+      </div>
+
+    <!--
+    <div class="tournament-brackets">
+      <ul class="bracket bracket-1">
+        <li class="team-item" *ngFor="let match of matches | slice:0:8">
+          <app-match-score [match]="match"></app-match-score>
+        </li>
+      </ul>
+      <ul class="bracket bracket-2">
+        <li class="team-item" *ngFor="let match of matches | slice:8:12">
+          <app-match-score [match]="match"></app-match-score>
+        </li>
+      </ul>
+      <ul class="bracket bracket-3">
+        <li class="team-item" *ngFor="let match of matches | slice:12:14">
+          <app-match-score [match]="match"></app-match-score>
+        </li>
+      </ul>
+      <ul class="bracket bracket-4">
+        <li class="team-item">
+          <app-match-score [match]="matches[14]"></app-match-score>
+        </li>
+      </ul>
     </div>
+
+-->
+
+
+    <!--<app-date-results></app-date-results>
+    <app-date-results></app-date-results>
+    <app-date-results></app-date-results>
+    <app-date-results></app-date-results>
+    <app-date-results></app-date-results>
+    <app-date-results></app-date-results>-->
   </div>
 </div>

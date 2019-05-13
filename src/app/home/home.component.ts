@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user.model';
-import { UserService } from '../services/user.service';
+import { Users } from '../models/user.model';
+import { UsersService } from "../services/users.service";
 import { TournamentService } from '../services/tournament.service';
 import { Tournament } from '../models/tournament.model';
 import { Cat, Mod, Gen, More } from '../tournaments/tournaments.component';
@@ -32,7 +32,7 @@ export interface More {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  users: User[];
+  users: Users[];
   
   tournaments: Tournament[];
 
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
   }
   //
 
-  constructor (private userService: UserService, private tournamentService: TournamentService) { }
+  constructor (private userService: UsersService, private tournamentService: TournamentService) { }
 /*
   onClick(){
       this.more.value=this.more.value+3;

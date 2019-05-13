@@ -39,11 +39,15 @@ export class SelectedPlayerComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private playerService: PlayerService) { }
 
   ngOnInit() {
+
+
     let nameP = this._route.snapshot.paramMap.get('imageP');
     this.playerService.getPlayerSelect(nameP).subscribe(players => {
       this.players = players;
       console.log(this.players);
     });
+
+    
   }
 
 }

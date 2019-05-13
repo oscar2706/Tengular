@@ -6,6 +6,8 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
+import { UsersService } from "../../services/users.service";
+import{Users} from '../../models/user.model'
 
 @Component({
   selector: 'app-player-registration',
@@ -31,7 +33,15 @@ export class PlayerRegistrationComponent implements OnInit {
     federation: '',
     gender: ''
   } 
-  constructor(private playerService: PlayerService, private storage: AngularFireStorage, private dialog: MatDialog) { }
+
+  UsersIn: Users={
+      name: '',
+      password: '',
+      userType:2
+
+  }
+
+  constructor(private playerService: PlayerService, private storage: AngularFireStorage, private dialog: MatDialog, private usersService: UsersService) { }
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
@@ -41,12 +51,10 @@ export class PlayerRegistrationComponent implements OnInit {
   onGuardarP(myForm: NgForm){
     if(myForm.valid == true)
     {
-    //  let imgUrl : string = document.getElementById("imagenT").innerHTML.toString();
-  //    console.log("Imagen:"+ unit);
-    //  this.curso.imagen = imgUrl;
     let imgUrl : string = document.getElementById("imagenP").innerHTML.toString();
     this.playerIn.imageP = imgUrl;
     this.playerService.addPlayer(this.playerIn);
+    this.usersService.addUsers(this.UsersIn);
       myForm.resetForm();
       this.dialog.closeAll();
     }

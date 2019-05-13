@@ -1,26 +1,14 @@
 <form>
   <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
 <div class="group" data-aos="fade-down-right">
-  <input type="email" (change)="updateName($event)"><span class="highlight"></span><span class="bar"></span>
+  <input type="text" (change)="updateName($event)"><span class="highlight"></span><span class="bar"></span>
   <label>Nombre</label>
 </div>
-<div class="group" data-aos="fade-down-left">
+<div class="password" data-aos="fade-down-left">
   <input type="password" (change)="updatePassword($event)"><span class="highlight"></span><span class="bar"></span>
   <label>Contraseña</label>
 </div>
-
-<!--<button type="button" class="form button" (click)="loggUser"
-style="
-  height: 44px;
-  border-bottom-width: 3px;
-  padding-top: 3px;" data-aos="flip-up">
-    <h2 class="whiteText">Iniciar Sesión</h2>
-    </button>
-  -->
   <button class="link" mat-flat-button color="accent" class ="whiteText" (click)="loggUser()">Iniciar Sesión</button>
 </form>
 
-<!-- <footer>
-      <img class="buttonLink" src="assets/icons/tengular.svg">  
-</footer>
--->
+

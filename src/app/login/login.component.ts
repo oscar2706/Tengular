@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { Router } from '@angular/router';
-import { User } from '../models/user.model'
-import { UserService } from '../services/user.service';
+import { Users } from '../models/user.model'
+import { UsersService } from "../services/users.service";
+
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -10,7 +11,7 @@ import { UserService } from '../services/user.service';
 
 export class LoginComponent implements OnInit {
   userTypeReturned: number;
-  user: User = {
+  user: Users = {
     name: '',
     password: ''
   }
@@ -33,19 +34,21 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['admin']);
         break;
       case 1:
-        this.router.navigate(['usuario']);
+        this.router.navigate(['arbitro']);
         break;
       case 2:
-        this.router.navigate(['arbitro']);
+        this.router.navigate(['jugador',this.user.password]);
         break;
 
       default:
         break;
     }
     
+
+
     this.dialog.closeAll();
     }
-  constructor (private dialog: MatDialog, private router: Router, private userService: UserService) { }
+  constructor (private dialog: MatDialog, private router: Router, private userService: UsersService) { }
 
   /*closeDialog() : void {
     const dialogRef = this.dialog.closeAll();

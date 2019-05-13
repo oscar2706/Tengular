@@ -1,11 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Match } from '../../models/match-single.model'
+
 @Component({
   selector: 'app-date-results',
   templateUrl: './date-results.component.html',
   styleUrls: ['./date-results.component.css']
 })
 export class DateResultsComponent implements OnInit {
+
   @Input() match = <Match>{
     id: '',
     tournamentId: '',
@@ -28,6 +30,8 @@ export class DateResultsComponent implements OnInit {
       ],
     }
   }
+
+
 
   defaultElevation = 2;
   raisedElevation = 8;
