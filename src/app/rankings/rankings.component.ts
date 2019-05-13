@@ -44,8 +44,12 @@ export class RankingsComponent implements OnInit {
     this.sourcewta.filter = filterValue.trim().toLowerCase();
   }
 //SI SIRVEN Problema con WTA
-  @ViewChild(MatPaginator) paginatorA: MatPaginator;
+  //@ViewChild(MatPaginator) paginatorA: MatPaginator;
   //@ViewChild(MatPaginator) paginatorW: MatPaginator;
+  
+  //Prueba
+  @ViewChild('paginatorA') paginatorA: MatPaginator;
+  @ViewChild('paginatorW') paginatorW: MatPaginator;
 
   flagURL = "https://assets.thebasetrip.com/api/v2/countries/flags/";
   constructor (private atpRankingService: PlayerService) { }
@@ -79,18 +83,33 @@ export class RankingsComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  _setDataSource(indexNumber) {
+    setTimeout(() => {
+      switch (indexNumber) {
+        case 0:
+          !this.sourceatp.paginator ? this.sourceatp.paginator = this.paginatorA : null;
+          break;
+        case 1:
+          !this.sourcewta.paginator ? this.sourceatp.paginator = this.paginatorW : null;
+      }
+    });
+  }
+  ngAfterViewInit() {
     this.sourceatp.paginator = this.paginatorA;
+    this.sourcewta.paginator = this.paginatorW;
+  }
+  ngOnInit() {
+    //this.sourceatp.paginator = this.paginatorA;
     //this.sourcewta.paginator = this.paginatorW;
        //this.getRanking();
     //Prueba
-    this.playersATP=[{
+    /*this.playersATP=[{
       "current_rank":1,
       "player_country":"Serbia",
       "player_name":"Novak Djokovic",
       "player_points":11070,
       "prev_rank":1
-    }]
+    }]*/
   }
 
 }
@@ -288,35 +307,35 @@ const ranking_atp: ranking[] = [
     "current_rank":1,
     "player_country":"Serbia",
     "player_name":"Novak Djokovic",
-    "player_points":11070,
+    "player_points":12115,
     "prev_rank":1
   },
   {
     "current_rank":2,
   "player_country":"Spain",
   "player_name":"Rafael Nadal",
-  "player_points":8725,
+  "player_points":7945,
   "prev_rank":2 },
   {
     "current_rank":3,
-    "player_country":"Germany",
-    "player_name":"Alexander Zverev",
-    "player_points":6040,
-    "prev_rank":3
-    },
-    {
-    "current_rank":4,
     "player_country":"Switzerland",
     "player_name":"Roger Federer",
-    "player_points":5590,
+    "player_points":5770,
     "prev_rank":4
     },
     {
-    "current_rank":5,
-    "player_country":"Austria",
-    "player_name":"Dominic Thiem",
-    "player_points":4765,
-    "prev_rank":5
+      "current_rank":4,
+      "player_country":"Austria",
+      "player_name":"Dominic Thiem",
+      "player_points":4845,
+      "prev_rank":5
+    },
+    {
+      "current_rank":5,
+      "player_country":"Germany",
+      "player_name":"Alexander Zverev",
+      "player_points":4745,
+      "prev_rank":3
     },
     {
     "current_rank":6,
