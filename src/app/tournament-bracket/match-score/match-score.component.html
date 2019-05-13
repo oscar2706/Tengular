@@ -1,4 +1,4 @@
-<mat-card appMaterialElevation class="p-0 m-0" (mouseenter)="onInside()" (mouseleave)="onOutside()">
+<mat-card appMaterialElevation defaultElevation=1 class="p-0 m-0" (mouseenter)="onInside()" (mouseleave)="onOutside()">
   <mat-card-content class="m-0 p-0">
     <table class="matchResult" *ngIf="match.played || match.player.length >= 1; else pendiente">
       <tr>
@@ -38,12 +38,12 @@
     <ng-template #pendiente>
       <div class="p-4">
         <h5>Pendiente</h5>
-        <p>Se juega el: {{this.match.date}}</p>
+        <p *ngIf="match.date != ''">Se juega el: {{this.match.date}}</p>
       </div>
     </ng-template>
     <p *ngIf="match.player.length == 1">Se juega el: {{this.match.date}}</p>
   </mat-card-content>
   <button mat-stroked-button color="accent" class="mb-2"
-          *ngIf="this.match.played == false && this.match.player.length == 2"
+          *ngIf="this.match.played == false && this.match.player.length == 2 && !this.match.suspended"
           (click)="openDialog()">Ingresar Marcador</button>
 </mat-card>

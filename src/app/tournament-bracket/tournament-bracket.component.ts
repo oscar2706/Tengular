@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TournamentService } from "../services/tournament.service";
 import { Tournament } from '../models/tournament.model'
+import { MatchService } from "../services/match-single.service";
 import { Match } from '../models/match-single.model'
 
 @Component({
@@ -8,21 +10,13 @@ import { Match } from '../models/match-single.model'
   templateUrl: './tournament-bracket.component.html',
   styleUrls: ['./tournament-bracket.component.scss']
 })
-export class TournamentBracketComponent implements OnInit {
-  constructor (private route: ActivatedRoute) { }
-  tournament = <Tournament>{
-    id: '',
-    name: 'Primavera 2019',
-    modality: 'Individual',
-    category: 'Varonil',
-    announcementStatus: 'Cerrada',
-    tournamentStatus: 'Dispotandose',
-    beginDate: '01/02/2019',
-    endDate: '01/04/2019',
-    numberOfPlayers: 16,
-    enrolledPlayers: ['Ana', 'Pablo'],
-    playedRounds: [true, true, false, false]
-  }
+export class TournamentBracketComponent implements OnInit, OnChanges {
+  constructor (
+    private route: ActivatedRoute,
+    private tournamentService: TournamentService,
+    private matchService: MatchService
+  ) { }
+  tournament: Tournament = {}
 
   winners16: string[] = [];
   winners8: string[] = [];
@@ -358,15 +352,23 @@ export class TournamentBracketComponent implements OnInit {
   ]
 
   ngOnInit () {
-    //Se podria obtener solo el numero de participantes y el nombre del torneo
-    this.tournament.id = this.route.snapshot.params['idTorneoSeleccionado'];
-    this.matches16 = this.matches.filter(element => element.round == '1/16');
-    this.matches8 = this.matches.filter(element => element.round == '1/8');
-    this.matches4 = this.matches.filter(element => element.round == '1/4');
-    this.matches2 = this.matches.filter(element => element.round == '1/2');
-    this.matches1 = this.matches.filter(element => element.round == '1');
-    console.log(this.tournament);
+    let tournamentId = this.route.snapshot.params['idTorneoSeleccionado'];
+    this.tournamentService.getTournamentFromId(tournamentId).subscribe(tournament => {
+      this.tournament = tournament;
+      console.log('En suscripción', this.tournament);
+      this.matchService.getMatchesFromTournament(this.tournament).subscribe(matches => {
+        this.matches = matches;
+        console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
+        this.matches16 = this.matches.filter(element => element.round == '1/16');
+        this.matches8 = this.matches.filter(element => element.round == '1/8');
+        this.matches4 = this.matches.filter(element => element.round == '1/4');
+        this.matches2 = this.matches.filter(element => element.round == '1/2');
+        this.matches1 = this.matches.filter(element => element.round == '1');
+      });
+    });
   }
+
+  ngOnChanges () { }
 
   inside = false;
 

@@ -186,22 +186,38 @@
     <button mat-raised-button class="ml-2" (click)="close()">Canelar</button>
   </div>
 </div>
+
 <ng-template #secondDialog>
-  <h2 matDialogTitle>{{playerQuited.playerName}} abandonó</h2>
-  <mat-dialog-content>
+  <h2 matDialogTitle class="text-center">{{playerQuited.playerName}} abandonó</h2>
+  <div mat-dialog-content>
     <div class="row justify-content-center">
-      <mat-form-field color="accent">
-        <textarea matInput
-                  placeholder="Motivo"
-                  cdkTextareaAutosize
-                  #autosize="cdkTextareaAutosize"
-                  cdkAutosizeMinRows="2"
-                  cdkAutosizeMaxRows="5"
-                  [value]="playerQuited.reason"
-                  (change)="onReasonChange($event)"></textarea>
-      </mat-form-field>
+      <div class="justifiedForm">
+        <mat-form-field color="accent">
+          <mat-label>Motivo de abandono</mat-label>
+          <mat-select name="motivo" (valueChange)="onReasonChanged($event)" ([value])="selectedReason">
+            <mat-option value="option1">Lesión</mat-option>
+            <mat-option value="option2">Familiar</mat-option>
+            <mat-option value="option3">Enfermedad</mat-option>
+            <mat-option value="option4">Ataque cardíaco</mat-option>
+            <mat-option value="option5">Se murió</mat-option>
+            <mat-option value="option6">Acepto la derrota</mat-option>
+            <mat-option value="option7">Otro</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field color="accent" *ngIf="selectedReason == 'option7'">
+          <textarea matInput
+                    placeholder="Escribe motivo"
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="2"
+                    cdkAutosizeMaxRows="5"
+                    [value]="playerQuited.reason"
+                    (change)="onReasonChange($event)"></textarea>
+        </mat-form-field>
+      </div>
     </div>
-  </mat-dialog-content>
+  </div>
   <mat-dialog-actions align="end">
     <button mat-stroked-button color="accent" (click)="saveAbandonDialog()">Aceptar</button>
     <div class="m-1"></div>

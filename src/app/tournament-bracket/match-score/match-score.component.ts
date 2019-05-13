@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Inject, OnChanges, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { MatchService } from "../../services/match-single.service";
 import { Match } from '../../models/match-single.model'
 import { ScoreDialogComponent } from "../score-dialog/score-dialog.component";
 
@@ -34,7 +35,11 @@ export class MatchScoreComponent implements OnInit, OnChanges {
     }
   }
 
-  constructor (public dialog: MatDialog, private snackBar: MatSnackBar) { }
+  constructor (
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private matchService: MatchService
+  ) { }
 
   openDialog (): void {
     const dialogConfig = new MatDialogConfig();
@@ -68,6 +73,7 @@ export class MatchScoreComponent implements OnInit, OnChanges {
     });
     snackBarRef.afterDismissed().subscribe(() => {
       this.winnerSelected.emit(this.match.winner);
+      this.matchService.updateMatch(this.match);
     })
   }
 

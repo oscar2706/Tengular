@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { MatchService } from "../../services/match-single.service";
 import { Match } from '../../models/match-single.model'
 import { FormControl } from '@angular/forms';
 
@@ -28,7 +29,12 @@ export class MatchScoreAdminComponent implements OnInit {
 
   openedDialogRef: any;
 
-  constructor (private dialog: MatDialog) { }
+  constructor (
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private matchService: MatchService,
+
+  ) { }
 
   // playersDialog
   openPlayersDialog (player: number) {
@@ -37,10 +43,24 @@ export class MatchScoreAdminComponent implements OnInit {
     dialogConfig.height = '16.5rem';
     dialogConfig.width = '40rem';
     this.openedDialogRef = this.dialog.open(this.playersDialog, dialogConfig);
-    this.openedDialogRef.afterClosed().subscribe(
-      data => {
-      }
+    this.openedDialogRef.afterClosed().subscribe(() => {
+      if (this.match.date != '')
+        this.openSnackBar('Partido rolado!', '↩ Deshacer');
+    }
     );
+  }
+
+  openSnackBar (message: string, action: string) {
+    let snackBarRef = this.snackBar.open(message, action, {
+      duration: 5000,
+    });
+    snackBarRef.onAction().subscribe(() => {
+      this.resetMatchRole();
+    });
+    snackBarRef.afterDismissed().subscribe(() => {
+      this.matchService.updateMatch(this.match);
+      this.playersAssigned.emit(this.selectedPlayer);
+    })
   }
 
   savePlayersDialog () {
@@ -51,7 +71,6 @@ export class MatchScoreAdminComponent implements OnInit {
     this.tournamentPlayers.filter(player => player != this.selectedPlayer[0] || player != this.selectedPlayer[1]);
     console.log('Fecha: ', this.selectedDate);
     console.log(this.selectedPlayer);
-    this.playersAssigned.emit(this.selectedPlayer);
   }
 
   closePlayersDialog () {
@@ -70,7 +89,8 @@ export class MatchScoreAdminComponent implements OnInit {
     dialogConfig.width = '30rem';
     this.openedDialogRef = this.dialog.open(this.dateDialog, dialogConfig);
     this.openedDialogRef.afterClosed().subscribe(
-      data => {
+      () => {
+        this.matchService.updateMatch(this.match);
       }
     );
   }
@@ -79,6 +99,7 @@ export class MatchScoreAdminComponent implements OnInit {
     this.match.date = this.selectedDate.toString();
     this.openedDialogRef.close();
     this.selectedDate = '';
+    this.matchService.updateMatch(this.match);
     console.log('feccha dateDialog = ' + this.match.date);
   }
 
@@ -95,7 +116,8 @@ export class MatchScoreAdminComponent implements OnInit {
     dialogConfig.width = '36rem';
     this.openedDialogRef = this.dialog.open(this.suspendDialog, dialogConfig);
     this.openedDialogRef.afterClosed().subscribe(
-      data => {
+      () => {
+        this.matchService.updateMatch(this.match);
       }
     );
   }
@@ -103,6 +125,7 @@ export class MatchScoreAdminComponent implements OnInit {
   savesuspendDialog () {
     this.match.suspended ? this.match.suspended = false : this.match.suspended = true;
     this.openedDialogRef.close();
+    this.matchService.updateMatch(this.match);
   }
 
   closesuspendDialog () {
@@ -126,7 +149,14 @@ export class MatchScoreAdminComponent implements OnInit {
       console.log('Opciones para jugador 1: ' + this.availablePlayers1);
     }
   }
-  //TODO: Funcion para checar los jugadores asignados de la primera ronda e ingresarlos en asignados
+
+  resetMatchRole () {
+    this.selectedPlayer.pop();
+    this.selectedPlayer.pop();
+    this.match.player.pop();
+    this.match.player.pop();
+    this.match.date = '';
+  }
 
   ngOnInit () {
     this.availablePlayers1 = this.tournamentPlayers;
