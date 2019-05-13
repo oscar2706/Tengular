@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatInputModule, MatDialog} from '@angular/material';
 import { TournamentService } from '../../services/tournament.service';
+import { MatchService } from '../../services/match-single.service';
 import { Tournament } from '../../models/tournament.model';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -34,7 +35,7 @@ export class TournamentRegistrationComponent implements OnInit {
     playedRounds: [false, false, false],
     imageT: ''
   } 
-  constructor(private tournamentService: TournamentService, private storage: AngularFireStorage, private dialog: MatDialog) { }
+  constructor(private tournamentService: TournamentService, private matchService: MatchService, private storage: AngularFireStorage, private dialog: MatDialog) { }
  //private storage: AngularFireStorage
  uploadPercent: Observable<number>;
  urlImage: Observable<string>;
@@ -54,7 +55,10 @@ export class TournamentRegistrationComponent implements OnInit {
     this.tournamentIn.imageT = imgUrl;
     this.tournamentIn.beginDate = this.selectedDateBegin.toString();
     this.tournamentIn.endDate = this.selectedDateEnd.toString();
+    let y = +this.tournamentIn.numberOfPlayers;
+    this.tournamentIn.numberOfPlayers = y;
     this.tournamentService.addTournament(this.tournamentIn);
+    this.matchService.addTournamentMatches(this.tournamentIn);
       myForm.resetForm();
       this.dialog.closeAll();
     }
