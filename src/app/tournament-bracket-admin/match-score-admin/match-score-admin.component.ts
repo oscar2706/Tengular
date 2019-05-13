@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter, OnChanges } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MatchService } from "../../services/match-single.service";
-import { Match } from '../../models/match-single.model'
+import { Match } from '../../models/match-single.model';
 import { FormControl } from '@angular/forms';
 
 @Component({

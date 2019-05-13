@@ -67,13 +67,13 @@
     </div>
     <div class="col-sm-12 col-lg-8">
       <mat-tab-group color="accent" data-aos="fade-left">
-        <mat-tab label="Próximos partidos">
+        <mat-tab label="Historial">
           <div class="m-3">
-            <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">
+            <mat-table [dataSource]="MATCHES" class="mat-elevation-z2">
               <!-- Position Column -->
-              <ng-container matColumnDef="opponentName">
+              <ng-container matColumnDef="player">
                 <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Contrincante </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.opponentName}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.player[1]}} </mat-cell>
               </ng-container>
 
               <!-- Name Column -->
@@ -83,15 +83,15 @@
               </ng-container>
 
               <!-- Weight Column -->
-              <ng-container matColumnDef="tournament">
+              <ng-container matColumnDef="tournamentName">
                 <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Torneo </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.tournament}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.tournamentName}} </mat-cell>
               </ng-container>
 
               <!-- Symbol Column -->
-              <ng-container matColumnDef="matchDate">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha - Hora </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.matchDate}} </mat-cell>
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
               </ng-container>
 
               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -100,45 +100,39 @@
           </div>
         </mat-tab>
         
-        <mat-tab label="Historial">
-          <div class="m-3">
-            <mat-table [dataSource]="sourceMatches" class="mat-elevation-z2">
+        <mat-tab label="Proximos partidos">
+            <div class="m-3">
+              <mat-table [dataSource]="NEXTMATCHES" class="mat-elevation-z2">
+                <!-- Position Column -->
+                <ng-container matColumnDef="player">
+                  <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Contrincante </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.player[1]}} </mat-cell>
+                </ng-container>
+  
+                <!-- Name Column -->
+                <ng-container matColumnDef="round">
+                  <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Vuelta </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.round}} </mat-cell>
+                </ng-container>
+  
+                <!-- Weight Column -->
+                <ng-container matColumnDef="tournamentName">
+                  <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Torneo </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.tournamentName}} </mat-cell>
+                </ng-container>
+  
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="date">
+                  <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+          </mat-tab>
 
-              <!-- Position Column -->
-              <ng-container matColumnDef="result">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Resultado </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.result | matchResult}} </mat-cell>
-              </ng-container>
-
-              <!-- Position Column -->
-              <ng-container matColumnDef="opponentName">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Contrincante </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.opponentName}} </mat-cell>
-              </ng-container>
-
-              <!-- Name Column -->
-              <ng-container matColumnDef="round">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Vuelta </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.round}} </mat-cell>
-              </ng-container>
-
-              <!-- Weight Column -->
-              <ng-container matColumnDef="tournament">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Torneo </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.tournament}} </mat-cell>
-              </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="matchDate">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Fecha - Hora </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.matchDate}} </mat-cell>
-              </ng-container>
-
-              <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
-            </mat-table>
-          </div>
-        </mat-tab>
       </mat-tab-group>
     </div>
   </div>
