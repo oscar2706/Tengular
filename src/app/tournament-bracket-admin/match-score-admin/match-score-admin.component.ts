@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter, OnChanges } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { MatchService } from "../../services/match-single.service";
 import { Match } from '../../models/match-single.model'
@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './match-score-admin.component.html',
   styleUrls: ['./match-score-admin.component.css'],
 })
-export class MatchScoreAdminComponent implements OnInit {
+export class MatchScoreAdminComponent implements OnInit, OnChanges {
   @ViewChild('playersDialog') playersDialog: TemplateRef<any>;
   @ViewChild('dateDialog') dateDialog: TemplateRef<any>;
   @ViewChild('suspendDialog') suspendDialog: TemplateRef<any>;
@@ -52,7 +52,7 @@ export class MatchScoreAdminComponent implements OnInit {
 
   openSnackBar (message: string, action: string) {
     let snackBarRef = this.snackBar.open(message, action, {
-      duration: 5000,
+      duration: 3000,
     });
     snackBarRef.onAction().subscribe(() => {
       this.resetMatchRole();
@@ -68,7 +68,7 @@ export class MatchScoreAdminComponent implements OnInit {
     this.match.player.push(this.selectedPlayer[0]);
     this.match.player.push(this.selectedPlayer[1]);
     this.match.date = this.selectedDate;
-    this.tournamentPlayers.filter(player => player != this.selectedPlayer[0] || player != this.selectedPlayer[1]);
+    this.tournamentPlayers = this.tournamentPlayers.filter(player => player != this.selectedPlayer[0] || player != this.selectedPlayer[1]);
     console.log('Fecha: ', this.selectedDate);
     console.log(this.selectedPlayer);
   }
@@ -159,6 +159,11 @@ export class MatchScoreAdminComponent implements OnInit {
   }
 
   ngOnInit () {
+    // this.availablePlayers1 = this.tournamentPlayers;
+    // this.availablePlayers2 = this.tournamentPlayers;
+  }
+
+  ngOnChanges () {
     this.availablePlayers1 = this.tournamentPlayers;
     this.availablePlayers2 = this.tournamentPlayers;
   }

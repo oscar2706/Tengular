@@ -91,35 +91,35 @@
     <div class="tournament-brackets">
       <ul class="bracket bracket-1">
         <li class="team-item" *ngFor="let match of matches16">
-          <app-match-score-admin [match]="match" [tournamentPlayers]="availablePlayers"
+          <app-match-score-admin [match]="match" [tournamentPlayers]="getAvailablePlayers()"
                                  (playersAssigned)="onPlayersAssigned($event)">
           </app-match-score-admin>
         </li>
       </ul>
       <ul class="bracket bracket-2">
         <li class="team-item" *ngFor="let match of matches8">
-          <app-match-score-admin [match]="match" [tournamentPlayers]="availablePlayers"
+          <app-match-score-admin [match]="match" [tournamentPlayers]="getAvailablePlayers()"
                                  (playersAssigned)="onPlayersAssigned($event)">
           </app-match-score-admin>
         </li>
       </ul>
       <ul class="bracket bracket-3">
         <li class="team-item" *ngFor="let match of matches4">
-          <app-match-score-admin [match]="match" [tournamentPlayers]="availablePlayers"
+          <app-match-score-admin [match]="match" [tournamentPlayers]="getAvailablePlayers()"
                                  (playersAssigned)="onPlayersAssigned($event)">
           </app-match-score-admin>
         </li>
       </ul>
       <ul class="bracket bracket-4">
         <li class="team-item" *ngFor="let match of matches2">
-          <app-match-score-admin [match]="match" [tournamentPlayers]="availablePlayers"
+          <app-match-score-admin [match]="match" [tournamentPlayers]="getAvailablePlayers()"
                                  (playersAssigned)="onPlayersAssigned($event)">
           </app-match-score-admin>
         </li>
       </ul>
       <ul class="bracket bracket-5">
         <li class="team-item" *ngFor="let match of matches1">
-          <app-match-score-admin [match]="match" [tournamentPlayers]="availablePlayers"
+          <app-match-score-admin [match]="match" [tournamentPlayers]="getAvailablePlayers()"
                                  (playersAssigned)="onPlayersAssigned($event)">
           </app-match-score-admin>
         </li>
