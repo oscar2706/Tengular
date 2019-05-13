@@ -2,28 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tournament } from '../models/tournament.model';
 import { TournamentService } from '../services/tournament.service';
-
-export interface Tile {
-  id: boolean;
-  color: string;
-  cols: number;
-  rows: number;
-}
-
-export interface Match {
-  name: string;
-  lastname: string;
-  position: string;
-
-}
-
-const NEXT_MATCHES: Match[] = [
-  { name: "Rafael ", lastname: 'Nadal', position: "2" },
-  { name: "Novak ", lastname: 'Djokovic', position: "1"},
-  { name: "Alexander ", lastname: 'Zverev', position: "5"},
-  { name: "Alexander ", lastname: 'Zverev', position: "9"},
-  { name: "Alexander ", lastname: 'Zverev', position: "3"},
-];
+import { Player } from '../models/player.model';
 
 @Component({
   selector: 'app-selected-tournament',
@@ -32,20 +11,40 @@ const NEXT_MATCHES: Match[] = [
 })
 export class SelectedTournamentComponent implements OnInit {
   tournaments: Tournament[];
-  displayedColumns: string[] = ['name', 'lastname', 'position'];
-  sourceNextMatches = NEXT_MATCHES;
+  selectedTournament: Tournament;
+  tournamentId: string;
+  players: Player[];
+  playersSelect: Player[];
+  displayedColumns: string[] = ['name'];
+  sourcePlayersTeams: string[];
 
   checked = false;
   indeterminate = false;
   labelPosition = 'after';
   disabled = false;
-  constructor(private _route: ActivatedRoute, private tournamentService: TournamentService) { }
+  double: boolean;
+  constructor (private _route: ActivatedRoute, private tournamentService: TournamentService) { }
 
-  ngOnInit() {
+  ngOnInit () {
     let nameT = this._route.snapshot.paramMap.get('imageT');
     this.tournamentService.getTournamentSelect(nameT).subscribe(tournaments => {
       this.tournaments = tournaments;
-      console.log(this.tournaments);
+      this.tournamentId = this.tournaments[0].id;
+      this.selectedTournament = this.tournaments[0];
+      if (this.tournaments[0].modality == 'sencillo') {
+        this.double = false;
+        this.sourcePlayersTeams = this.tournaments[0].enrolledPlayers;
+      }
+      else {
+        if (this.tournaments[0].modality == 'doble') {
+          this.double = true;
+          this.sourcePlayersTeams = [];
+          for (let i = 0; i < this.tournaments[0].enrolledPlayers.length; i = i + 2) {
+            let team = this.tournaments[0].enrolledPlayers[i] + ' - ' + this.tournaments[0].enrolledPlayers[i + 1]
+            this.sourcePlayersTeams.push(team);
+          }
+        }
+      }
     });
   }
 
