@@ -49,8 +49,8 @@
             <p class="m-0 p-0">{{match.player[1]}}</p>
           </div>
         </td>
-        <div class="pt-2" *ngIf="this.match.played">
-          <td
+        <div *ngIf="this.match.played">
+          <td class="pt-2"
               [ngClass]="{setTop: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
               *ngFor="let set of match.score.team1; index as i;">
             {{set.points | points: match.score.team2[i].points}}
@@ -71,7 +71,7 @@
           </div>
         </td>
         <div class="pb-2" *ngIf="this.match.played">
-          <td
+          <td class="pb-4"
               [ngClass]="{setBottom: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
               *ngFor="let set of match.score.team2; index as i;">
             {{set.points | points: match.score.team1[i].points}}
