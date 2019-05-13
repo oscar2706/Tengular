@@ -252,7 +252,18 @@ export class ScoreDialogComponent implements OnInit {
       let winner = this.calculateWinner();
       this.calculatedWinner = winner;
       if (winner != 0) {
-        winner == 1 ? this.match.winner.push(this.match.player[0]) : this.match.winner.push(this.match.player[1]);
+        if (this.match.player.length > 2) {
+          if (winner == 1) {
+            this.match.winner.push(this.match.player[0]);
+            this.match.winner.push(this.match.player[1]);
+          }
+          else {
+            this.match.winner.push(this.match.player[2]);
+            this.match.winner.push(this.match.player[3]);
+          }
+        }
+        else
+          winner == 1 ? this.match.winner.push(this.match.player[0]) : this.match.winner.push(this.match.player[1]);
         this.dialogRef.close(this.match);
       }
     }

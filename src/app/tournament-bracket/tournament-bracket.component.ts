@@ -358,12 +358,16 @@ export class TournamentBracketComponent implements OnInit, OnChanges {
       console.log('En suscripción', this.tournament);
       this.matchService.getMatchesFromTournament(this.tournament).subscribe(matches => {
         this.matches = matches;
-        console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
+        // console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
         this.matches16 = this.matches.filter(element => element.round == '1/16');
         this.matches8 = this.matches.filter(element => element.round == '1/8');
         this.matches4 = this.matches.filter(element => element.round == '1/4');
         this.matches2 = this.matches.filter(element => element.round == '1/2');
         this.matches1 = this.matches.filter(element => element.round == '1');
+        console.log('Partidos 16' + this.tournament.name, this.matches16);
+        console.log('Partidos 8' + this.tournament.name, this.matches8);
+        console.log('Partidos 4' + this.tournament.name, this.matches4);
+        console.log('Partidos 2' + this.tournament.name, this.matches2);
       });
     });
   }
@@ -542,6 +546,21 @@ export class TournamentBracketComponent implements OnInit, OnChanges {
       default:
         break;
     }
+    this.matches16.forEach(match => {
+      this.matchService.updateMatch(match);
+    })
+    this.matches8.forEach(match => {
+      this.matchService.updateMatch(match);
+    })
+    this.matches4.forEach(match => {
+      this.matchService.updateMatch(match);
+    })
+    this.matches2.forEach(match => {
+      this.matchService.updateMatch(match);
+    })
+    this.matches1.forEach(match => {
+      this.matchService.updateMatch(match);
+    })
   }
 
   autoRoleMatch () {

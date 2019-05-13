@@ -56,26 +56,44 @@ export class TournamentBracketAdminComponent implements OnInit, OnChanges {
     if (this.tournament != undefined) {
       this.matchService.getMatchesFromTournament(this.tournament).subscribe(matches => {
         this.matches = matches;
-        console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
+        // console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
         this.matches16 = this.matches.filter(element => element.round == '1/16');
         this.matches8 = this.matches.filter(element => element.round == '1/8');
         this.matches4 = this.matches.filter(element => element.round == '1/4');
         this.matches2 = this.matches.filter(element => element.round == '1/2');
         this.matches1 = this.matches.filter(element => element.round == '1');
+        console.log('Partidos 16' + this.tournament.name, this.matches16);
+        console.log('Partidos 8' + this.tournament.name, this.matches8);
+        console.log('Partidos 4' + this.tournament.name, this.matches4);
+        console.log('Partidos 2' + this.tournament.name, this.matches2);
 
-        this.availablePlayers = this.tournament.enrolledPlayers;
-        // console.log('Jugadores inscritos', this.availablePlayers);
-
-        let rolledPlayers: string[] = [];
-        this.matches.forEach(match => {
-          match.player.forEach(rolledPlayer => {
-            rolledPlayers.push(rolledPlayer);
+        if (this.tournament.modality == 'sencillo') {
+          let rolledPlayers: string[] = [];
+          this.matches.forEach(match => {
+            match.player.forEach(rolledPlayer => {
+              rolledPlayers.push(rolledPlayer);
+            })
           })
-        })
-        // console.log('Jugadores rolados', rolledPlayers);
-
-        this.availablePlayers = this.availablePlayers.filter(element => !rolledPlayers.includes(element));
-        // console.log('Jugadores sin rolar', this.availablePlayers);
+          this.availablePlayers = this.tournament.enrolledPlayers;
+          this.availablePlayers = this.availablePlayers.filter(element => !rolledPlayers.includes(element));
+        }
+        else {
+          for (let i = 0; i < this.tournament.enrolledPlayers.length; i = i + 2) {
+            let team = this.tournament.enrolledPlayers[i] + ' - ' + this.tournament.enrolledPlayers[i + 1]
+            this.availablePlayers.push(team);
+          }
+          console.log('Equipos inscritos', this.availablePlayers);
+          let rolledTeams: string[] = [];
+          this.matches.forEach(match => {
+            if (match.player.length > 2) {
+              rolledTeams.push(match.player[0] + ' - ' + match.player[1]);
+              rolledTeams.push(match.player[2] + ' - ' + match.player[3]);
+            }
+          })
+          console.log('Equipos rolados', rolledTeams);
+          this.availablePlayers = this.availablePlayers.filter(element => !rolledTeams.includes(element));
+          console.log('Equipos pendientes', this.availablePlayers);
+        }
       });
     }
   }

@@ -24,7 +24,7 @@ export class SelectedTournamentAdminComponent implements OnInit {
   players: Player[];
   playersSelect: Player[];
   displayedColumns: string[] = ['name'];
-  sourceNextMatches: string[];
+  sourcePlayersTeams: string[];
 
   checked = false;
   indeterminate = false;
@@ -45,15 +45,20 @@ export class SelectedTournamentAdminComponent implements OnInit {
     let nameT = this._route.snapshot.paramMap.get('imageT');
     this.tournamentService.getTournamentSelect(nameT).subscribe(tournaments => {
       this.tournaments = tournaments;
-      this.sourceNextMatches = this.tournaments[0].enrolledPlayers;
       this.tournamentId = this.tournaments[0].id;
       this.selectedTournament = this.tournaments[0];
       if (this.tournaments[0].modality == 'sencillo') {
         this.double = false;
+        this.sourcePlayersTeams = this.tournaments[0].enrolledPlayers;
       }
       else {
         if (this.tournaments[0].modality == 'doble') {
           this.double = true;
+          this.sourcePlayersTeams = [];
+          for (let i = 0; i < this.tournaments[0].enrolledPlayers.length; i = i + 2) {
+            let team = this.tournaments[0].enrolledPlayers[i] + ' - ' + this.tournaments[0].enrolledPlayers[i + 1]
+            this.sourcePlayersTeams.push(team);
+          }
         }
       }
     });

@@ -2,12 +2,18 @@
   <mat-card-content class="m-0 p-0">
     <table class="matchResult" *ngIf="match.played || match.player.length >= 1; else pendiente">
       <tr>
-        <td class="player"
-            [ngClass]="{winner: match.winner == match.player[0] && match.round != '1', champion:match.winner == match.player[0] && match.round == '1'}">
+        <td class="player justify-content-center align-content-center">
           <mat-icon class="d-inline float-left pr-2"
                     *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[0]">looks_one
           </mat-icon>
-          {{match.player[0]}}
+          <p class="pt-3" [ngClass]="{winner: match.winner.includes(match.player[0]) && match.round !='1' ,
+                                champion:match.winner==match.player[0] && match.round=='1' }"
+             *ngIf="match.player.length <= 2">{{match.player[0]}}</p>
+          <div [ngClass]="{winner: match.winner.includes(match.player[0]) && match.round != '1', champion:match.winner == match.player[0] && match.round == '1'}"
+               class="flex-column" *ngIf="match.player.length > 2">
+            <p class="m-0 p-0">{{match.player[0]}}</p>
+            <p class="m-0 p-0">{{match.player[1]}}</p>
+          </div>
         </td>
         <div class="pt-2" *ngIf="this.match.played">
           <td
@@ -19,11 +25,17 @@
         </div>
       </tr>
       <tr>
-        <td class="player"
-            [ngClass]="{winner: match.winner == match.player[1] && match.round != '1', champion:match.winner == match.player[1] && match.round == '1'}">
+        <td class="player">
           <mat-icon class="d-inline float-left pr-2"
                     *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[1]">looks_one
-          </mat-icon>{{match.player[1]}}
+          </mat-icon>
+          <p [ngClass]="{winner: match.winner.includes(match.player[1]) && match.round != '1', champion:match.winner == match.player[1] && match.round == '1'}"
+             *ngIf="match.player.length <= 2">{{match.player[1]}}</p>
+          <div [ngClass]="{winner: match.winner.includes(match.player[2]) && match.round != '1', champion:match.winner == match.player[1] && match.round == '1'}"
+               class="flex-column" *ngIf="match.player.length > 2">
+            <p class="m-0 p-0">{{match.player[2]}}</p>
+            <p class="m-0 p-0">{{match.player[3]}}</p>
+          </div>
         </td>
         <div class="pb-2" *ngIf="this.match.played">
           <td
@@ -44,6 +56,6 @@
     <p *ngIf="match.player.length == 1">Se juega el: {{this.match.date}}</p>
   </mat-card-content>
   <button mat-stroked-button color="accent" class="mb-2"
-          *ngIf="this.match.played == false && this.match.player.length == 2 && !this.match.suspended"
+          *ngIf="this.match.played == false && this.match.player.length >= 2 && !this.match.suspended"
           (click)="openDialog()">Ingresar Marcador</button>
 </mat-card>

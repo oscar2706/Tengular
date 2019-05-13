@@ -55,3 +55,9 @@
 	top     : 2px;
 	right   : 2px;
 }
+
+.team {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+}

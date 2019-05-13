@@ -4,7 +4,11 @@
     <table class="matchResult">
       <tr class="m-4 p-2">
         <td class="player pt-4">
-          <h6 class="d-inline">{{match.player[0]}}</h6>
+          <h6 *ngIf="match.player.length <= 2">{{match.player[0]}}</h6>
+          <div class="flex-column" *ngIf="match.player.length > 2">
+            <h6 class="m-0 p-0">{{match.player[0]}}</h6>
+            <h6 class="m-0 p-0">{{match.player[1]}}</h6>
+          </div>
           <p *ngIf="playerQuited.filled && playerQuited.playerName == match.player[0]"
              class="text-black-50 text-center">(Abandonó)</p>
         </td>
@@ -91,7 +95,11 @@
 
       <tr class="m-4 p-2">
         <td class=" player pt-2">
-          <h6 class="d-inline">{{match.player[1]}}</h6>
+          <h6 *ngIf="match.player.length <= 2">{{match.player[1]}}</h6>
+          <div class="flex-column" *ngIf="match.player.length > 2">
+            <h6 class="m-0 p-0">{{match.player[2]}}</h6>
+            <h6 class="m-0 p-0">{{match.player[3]}}</h6>
+          </div>
           <p *ngIf="playerQuited.filled && playerQuited.playerName == match.player[1]"
              class="text-black-50 text-center">(Abandonó)</p>
         </td>

@@ -43,7 +43,11 @@
           <mat-icon class="d-inline float-left pr-2"
                     *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[0]">looks_one
           </mat-icon>
-          {{match.player[0]}}
+          <p *ngIf="match.player.length <= 2">{{match.player[0]}}</p>
+          <div class="flex-column" *ngIf="match.player.length > 2">
+            <p class="m-0 p-0">{{match.player[0]}}</p>
+            <p class="m-0 p-0">{{match.player[1]}}</p>
+          </div>
         </td>
         <div class="pt-2" *ngIf="this.match.played">
           <td
@@ -59,7 +63,12 @@
             [ngClass]="{winner: match.winner == match.player[1] && match.round != '1', champion:match.winner == match.player[1] && match.round == '1'}">
           <mat-icon class="d-inline float-left pr-2"
                     *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[1]">looks_one
-          </mat-icon>{{match.player[1]}}
+          </mat-icon>
+          <p *ngIf="match.player.length <= 2">{{match.player[1]}}</p>
+          <div class="flex-column" *ngIf="match.player.length > 2">
+            <p class="m-0 p-0">{{match.player[2]}}</p>
+            <p class="m-0 p-0">{{match.player[3]}}</p>
+          </div>
         </td>
         <div class="pb-2" *ngIf="this.match.played">
           <td

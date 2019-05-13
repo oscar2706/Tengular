@@ -25,11 +25,15 @@
         </div>
         <div class="col-sm-12 col-lg-8">
           <div class="m-3">
-            <h4 class="">Jugadores inscritos</h4>
-            <mat-table [dataSource]="sourceNextMatches" class="mat-elevation-z2">
+
+            <div *ngFor="let tournament of tournaments">
+              <h4 *ngIf=" tournament.modality=='sencillo'">Jugadores inscritos</h4>
+              <h4 *ngIf=" tournament.modality=='doble'">Equipos inscritos</h4>
+            </div>
+            <mat-table [dataSource]=" sourcePlayersTeams" class="mat-elevation-z2">
               <!-- Name Column -->
               <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Nombre </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef [style.color]="'#EE8134'"> Jugadores </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
               </ng-container>
 

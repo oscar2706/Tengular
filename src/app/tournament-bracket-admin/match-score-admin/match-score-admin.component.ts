@@ -65,8 +65,26 @@ export class MatchScoreAdminComponent implements OnInit, OnChanges {
 
   savePlayersDialog () {
     this.openedDialogRef.close();
-    this.match.player.push(this.selectedPlayer[0]);
-    this.match.player.push(this.selectedPlayer[1]);
+    if (this.selectedPlayer[0].includes(' - ')) {
+      // this.selectedPlayer.pop();
+      // this.selectedPlayer.pop();
+      let playersTeam1 = this.selectedPlayer[0].split(" - ", 2);
+      let playersTeam2 = this.selectedPlayer[1].split(" - ", 2);
+      console.log('Equipo 1', playersTeam1);
+      console.log('Equipo 2', playersTeam2);
+      this.match.player.push(playersTeam1[0]);
+      this.match.player.push(playersTeam1[1]);
+      this.match.player.push(playersTeam2[0]);
+      this.match.player.push(playersTeam2[1]);
+      // this.selectedPlayer.push(playersTeam1[0]);
+      // this.selectedPlayer.push(playersTeam1[1]);
+      // this.selectedPlayer.push(playersTeam2[0]);
+      // this.selectedPlayer.push(playersTeam2[1]);
+    }
+    else {
+      this.match.player.push(this.selectedPlayer[0]);
+      this.match.player.push(this.selectedPlayer[1]);
+    }
     this.match.date = this.selectedDate;
     this.tournamentPlayers = this.tournamentPlayers.filter(player => player != this.selectedPlayer[0] || player != this.selectedPlayer[1]);
     console.log('Fecha: ', this.selectedDate);
