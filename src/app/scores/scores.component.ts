@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Match } from '../models/match-single.model'
 import { Tournament } from '../models/tournament.model'
 import {MatchService} from '../services/match-single.service';
@@ -15,7 +15,33 @@ export interface More {
 })
 
 export class ScoresComponent implements OnInit {
-  matches:Match[];
+  @Output() winnerSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
+
+  @Input() match = <Match>{
+    id: '',
+    tournamentId: '',
+    player: ['Roger Federer', 'Rafael Nadal'],
+    winner: ['Roger Federer'],
+    round: '1/4',
+    played: true,
+    date: '01/01/2020',
+    suspended: false,
+    score: {
+      team1: [
+        { points: 6, tiebreakPoints: 0 },
+        { points: 4, tiebreakPoints: 0 },
+        { points: 6, tiebreakPoints: 0 }
+      ],
+      team2: [
+        { points: 4, tiebreakPoints: 0 },
+        { points: 6, tiebreakPoints: 0 },
+        { points: 4, tiebreakPoints: 0 }
+      ],
+    }
+  }
+
+  
+
   modalitySelected = 'option1';
   categorySelected = 'option1';
 
@@ -28,12 +54,18 @@ export class ScoresComponent implements OnInit {
   onClick2(){
     this.more2.value=this.more2.value+3;
   }
-  
+
   ngOnInit () {
-    this.matchService.getPlayedMatches().subscribe(matches => {
-      this.matches = matches;
-      console.log(this.matches);
-    });
+
+  }
+  inside = false;
+
+  onInside () {
+    this.match.played == false && this.match.player.length != 0 ? this.inside = true : this.inside = false;
+  }
+
+  onOutside () {
+    this.inside = false;
   }
 
 }

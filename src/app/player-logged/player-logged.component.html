@@ -1,7 +1,7 @@
 <div class="container mt-5 pt-4">
   <div class="row justify-content-start">
     <div class="col-sm-12 col-lg-4">
-      <mat-card *ngFor="let player of players" data-aos="fade-right">
+      <mat-card *ngFor="let player of players|slice:0:1" data-aos="fade-right">
         <mat-card-header>
           <mat-card-title style="color:#EE8134;">Información personal</mat-card-title>
         </mat-card-header>
@@ -37,26 +37,30 @@
               <h6 class="d-inline">Lugar de Nacimiento:</h6>
               <p class="d-inline pl-2">{{player.playerCountry}}</p>
             </div>
-          </div>
+     </div>
 
-          <div class="d-block m-2">
-              <h6 class="d-inline">Actualizar imagen del perfil:</h6>
-            <input matInputFile type="file" accept=".png, .jpg, .jpge" (change)="onUpload($event)">
-            <section class="example-section">
-            </section>
-          </div>
+          <form (ngSubmit)="onGuardarP(formNew)" #formNew="ngForm" class="example-form">
 
-            <label #imagenP id="imagenP" style="visibility: hidden; font-size: 0px">{{urlImage | async}}</label>
+              <div class="d-block m-2">
+                  <h6 class="d-inline">Actualizar imagen del perfil:</h6>
+                <input matInputFile type="file" accept=".png, .jpg, .jpge" (change)="onUpload($event)">
+                <section class="example-section">
+                </section>
+              </div>
 
-        <div class="d-block m-2">
-          <div class="example-button-row">
-            <button *ngIf="urlImage | async; else btnDisabled" mat-stroked-button type="submit" color="accent" class="botones">Aceptar</button>
-            <ng-template #btnDisabled>
-              <button mat-stroked-button type="submit" disabled=true color="accent" class="botones">Aceptar</button>
-              </ng-template>
-            <button mat-stroked-button color="accent" type="button" class="botones" (click)="closeDialog()">Cancelar</button>
-          </div>
-        </div>
+                <label #imagenP id="imagenP" style="visibility: hidden; font-size: 0px">{{urlImage | async}}</label>
+
+            <div class="d-block m-2">
+              <div class="example-button-row">
+                <button *ngIf="urlImage | async; else btnDisabled" mat-stroked-button type="submit" color="accent" class="botones">Aceptar</button>
+                <ng-template #btnDisabled>
+                  <button mat-stroked-button type="submit" disabled=true color="accent" class="botones">Aceptar</button>
+                  </ng-template>
+                <button mat-stroked-button color="accent" type="button" class="botones" (click)="closeDialog()">Cancelar</button>
+              </div>
+            </div>
+
+        </form>
 
         </mat-card-content>
       </mat-card>

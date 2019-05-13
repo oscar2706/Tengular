@@ -38,6 +38,7 @@ const MATCHES: Match[] = [
 export class PlayerLoggedComponent implements OnInit {
   
   playerIn: Player = {
+    id:'',
     imageP: '',
   }
   players: Player[];
@@ -50,16 +51,12 @@ export class PlayerLoggedComponent implements OnInit {
   constructor (private route: ActivatedRoute, private playerService: PlayerService, private storage: AngularFireStorage) { }
   urlImage: Observable<string>;
   ngOnInit () {
-
-    this.playerService.getPlayer().subscribe(players => {
-      this.players = players;
-      console.log(this.players);
-    });
     
     let license = this.route.snapshot.paramMap.get('password');
     console.log(license);
     this.playerService.getPlayerSelectLicense(license).subscribe(players => {
       this.players = players;
+      
       console.log(this.players);
     });
   
@@ -68,8 +65,11 @@ export class PlayerLoggedComponent implements OnInit {
     if(myForm.valid == true)
     {
     let imgUrl : string = document.getElementById("imagenP").innerHTML.toString();
+    console.log(imgUrl);
+    this.playerIn=this.players[0];
     this.playerIn.imageP = imgUrl;
-    this.playerService.addPlayer(this.playerIn);
+  
+    this.playerService.updatePlayer(this.playerIn);
     }
     else{
       console.log("Formulario no valido");

@@ -93,16 +93,16 @@
 
           <mat-form-field>
             <mat-label>Genero</mat-label>
-            <mat-select>
-              <!-- <mat-option *ngFor="let gen of gens" [value]="gen.value">
-                {{gen.viewValue}}
-              </mat-option> -->
-            </mat-select>
+              <mat-select [(value)]="gen" (selectionChange)="onFilterPlayer()">
+                  <mat-option value="todas">Ambos</mat-option>
+                  <mat-option value="Masculino">Masculino</mat-option>
+                  <mat-option value="Femenino">Femenino</mat-option>
+                </mat-select>
           </mat-form-field>
 
           <div class="container">
             <div class="row">
-              <div *ngFor="let player of players | slice:0:more2.value" class="col-4" style="padding: 20px">
+              <div *ngFor="let player of playersFilter | slice:0:more2.value" class="col-4" style="padding: 20px">
                 <mat-card [routerLink]="['/jugador-seleccionado', player.imageP]" appMaterialElevation class="addBorder"
                           class="example-card">
                   <mat-card-header>

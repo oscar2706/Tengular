@@ -92,10 +92,10 @@ export class PlayerService {
   public getWtaRanking (): Observable<any> {
     return this.http.get(this.urlWTA).pipe(map(this.extractData));
   }
-/*
-  updateCurso(url){
-    console.log('Actualizar Imagen');
-    this.cursoDoc = this.afs.doc(`cursos/${curso.id}`);
-    this.cursoDoc.update(curso);
-  }*/
+
+  updatePlayer (player: Player) {
+    this.playerDoc = this.afs.doc(`Player/${player.id}`);
+    this.playerDoc.update(player);
+  }
+  
 }

@@ -43,6 +43,10 @@ tamFilter: number = 0;
 
 cat: string = "todas";
 mod: string = "todas";
+gen: string = "todas";
+
+playersFilter: Player[];
+tamFilterPlayer: number = 0;
 
 more:More={
   value:3
@@ -91,6 +95,9 @@ more2:More={
 
     this.playerService.getPlayer().subscribe(players => {
       this.players = players;
+      if(this.gen == "todas"){
+        this.playersFilter = players;
+        }
       console.log(this.players);
     });
   }
@@ -138,6 +145,28 @@ more2:More={
 
   if(this.mod == "todas" && this.cat == "todas"){
     this.tournamentsFilter = this.tournaments;
+  }
+  }
+
+  onFilterPlayer()
+  {
+  //  console.log("modalidad: "+this.mod)
+  this.playersFilter = [];
+  this.tamFilterPlayer = 0;
+  if(this.gen != "todas"){
+    for(let i = 0; i<this.players.length; i++)
+    {
+      if(this.players[i].gender == this.gen)
+      {
+        this.playersFilter[this.tamFilterPlayer] = this.players[i];
+        this.tamFilterPlayer++;
+        console.log(this.playersFilter[0]);
+      }
+    }
+  }
+
+  if(this.gen == "todas"){
+    this.playersFilter = this.players;
   }
   }
 
