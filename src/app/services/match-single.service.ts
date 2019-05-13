@@ -193,7 +193,7 @@ export class MatchService {
   }
 
   getPlayedMatches (): Observable<Match[]> {
-    this.MatchCollection = this.afs.collection<Match>('Match', ref => ref.where("played", "==", false));
+    this.MatchCollection = this.afs.collection<Match>('Match', ref => ref.where("played", "==", true));
     this.matchObservable = this.MatchCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Match;
