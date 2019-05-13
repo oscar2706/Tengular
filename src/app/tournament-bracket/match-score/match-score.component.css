@@ -48,3 +48,9 @@
 .text-accent {
 	color: #EE8133;
 }
+
+.team {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+}

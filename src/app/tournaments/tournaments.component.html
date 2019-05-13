@@ -7,38 +7,38 @@
 
             <div class="example-small-box" align="center">
             <mat-form-field color="accent">
-              <mat-label>Modalidades</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let mod of mods" [value]="mod.value">
-                  {{mod.viewValue}}
-                </mat-option>
-              </mat-select>
+                <mat-label>Modalidades</mat-label>
+                <mat-select [(value)]="mod" (selectionChange)="onFilter()">
+                    <mat-option value="todas">Ambas</mat-option>
+                    <mat-option value="sencillo">Individual</mat-option>
+                    <mat-option value="doble">Dobles</mat-option>
+                  </mat-select>
             </mat-form-field>
             
       
             <mat-form-field color="accent">
               <mat-label>Categorias</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let cat of cats" [value]="cat.value">
-                  {{cat.viewValue}}
-                </mat-option>
-              </mat-select>
+              <mat-select [(value)]="cat" (selectionChange)="onFilter()">
+                  <mat-option value="todas">Todas</mat-option>
+                  <mat-option value="varonil">Masculino</mat-option>
+                  <mat-option value="femenil">Femenino</mat-option>
+                  <mat-option value="mixto">Mixto</mat-option>
+                </mat-select>
             </mat-form-field>
             <br>
       
-            <div class="container">
+            <div *ngIf="tournamentsFilter?.length > 0; else noTournaments" class="container">
                 <div class="row">
-                <div *ngFor="let tournament of tournaments | slice:0:more.value" class="col-4" style="padding: 20px">
-                <mat-card [routerLink]="['/torneo-seleccionado', tournament.imageT]" appMaterialElevation class="addBorder" class="example-card">
+                <div *ngFor="let tournament of tournamentsFilter | slice:0:more.value" class="col-4" style="padding: 20px">
+                <mat-card [routerLink]="['/torneo-seleccionado', tournament.imageT]" appMaterialElevation class="addBorder" class="example-card" data-aos="fade-down">
                   <mat-card-header>
                     <div mat-card-avatar class="example-header-image-single"></div>
                     <mat-card-title>{{tournament.name}}</mat-card-title>
-                    <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
+                    <mat-card-subtitle></mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image
-                    [src]="tournament.imageT" style="padding: 10px">
+                    [src]="tournament.imageT" style="padding: 10px" data-aos="fade-down">
                   <mat-card-content>
-                    <h2 style="text-align: center"><strong>{{tournament.name}}</strong></h2>
                     <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
                     <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
                     <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
@@ -51,6 +51,10 @@
                 </div>
                 <button mat-raised-button color="accent" class ="whiteText" (click)="onClick()">Mostrar más</button>
         </div>
+        <ng-template #noTournaments>
+            <br>
+            <h5>No existen Torneos</h5>
+        </ng-template>
           </div>
           
 
@@ -62,25 +66,25 @@
     
               <mat-form-field>
                 <mat-label>Genero</mat-label>
-                <mat-select>
-                  <!-- <mat-option *ngFor="let gen of gens" [value]="gen.value">
-                    {{gen.viewValue}}
-                  </mat-option> -->
-                </mat-select>
+                    <mat-select [(value)]="gen" (selectionChange)="onFilterPlayer()">
+                        <mat-option value="todas">Ambos</mat-option>
+                        <mat-option value="Masculino">Masculino</mat-option>
+                        <mat-option value="Femenino">Femenino</mat-option>
+                      </mat-select>
               </mat-form-field>
     
-              <div class="container">
+              <div *ngIf="playersFilter?.length > 0; else noPlayers" class="container">
                 <div class="row">
-                  <div *ngFor="let player of players | slice:0:more2.value" class="col-4" style="padding: 20px">
+                  <div *ngFor="let player of playersFilter | slice:0:more2.value" class="col-4" style="padding: 20px">
                     <mat-card [routerLink]="['/jugador-seleccionado', player.imageP]" appMaterialElevation class="addBorder"
-                              class="example-card">
+                    data-aos="fade-down" class="example-card">
                       <mat-card-header>
                         <div mat-card-avatar class="example-header-image-singleP"></div>
                         <mat-card-title>{{player.name}}</mat-card-title>
                         <mat-card-subtitle>({{player.gender}})</mat-card-subtitle>
                       </mat-card-header>
                       <img mat-card-image
-                           [src]="player.imageP" style="padding: 5px; height: 225px; width: 300px">
+                           [src]="player.imageP" style="padding: 5px; height: 225px; width: 300px"  data-aos="fade-down">
                       <mat-card-content>
                         <h2 style="text-align: center"><strong>{{player.name}}</strong></h2>
                         <br><label><strong>Ranking: </strong>{{player.currentRank}}°</label>
@@ -96,6 +100,10 @@
                 </div>
                 <button mat-raised-button color="accent" class ="whiteText" (click)="onClick2()">Mostrar más</button>
               </div>
+              <ng-template #noPlayers>
+                  <br>
+                  <h5>No existen Jugadores</h5>
+              </ng-template>
             </div>
           </mat-tab>
       </mat-tab-group>

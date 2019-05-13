@@ -1,222 +1,39 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TournamentService } from "../services/tournament.service";
 import { Tournament } from '../models/tournament.model'
 import { Match } from '../models/match-single.model'
 import { MatchService } from "../services/match-single.service";
+import { element } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-tournament-bracket-admin',
   templateUrl: './tournament-bracket-admin.component.html',
   styleUrls: ['./tournament-bracket-admin.component.scss']
 })
-export class TournamentBracketAdminComponent implements OnInit {
+export class TournamentBracketAdminComponent implements OnInit, OnChanges {
 
-  constructor (private route: ActivatedRoute, private matchService: MatchService) { }
-  @Input() tournamentName: string;
+  constructor (
+    private route: ActivatedRoute,
+    private matchService: MatchService,
+    private tournamentService: TournamentService
+  ) { }
+  // @Input() tournamentId: string;
 
-  tournament = <Tournament>{
-    name: 'Primavera 2019',
-    modality: 'Individual',
-    category: 'Varonil',
-    announcementStatus: 'Cerrada',
-    tournamentStatus: 'Disputándose',
-    beginDate: '01/02/2019',
-    endDate: '01/04/2019',
-    numberOfPlayers: 8,
-    enrolledPlayers: [
-      'Lilias	Benninger',
-      'Manon	Didsbury',
-      'Constantine	Steeden',
-      'Clari	Newlove',
-      'Justine	Di Bartolommeo',
-      'Tanya	Segot',
-      'Germain	Croxley',
-      'Gilberta	Northam'],
-    playedRounds: [true, true, false, false]
+  @Input() tournament: Tournament;
+
+  availablePlayers = [];
+
+  matches16: Match[];
+  matches8: Match[];
+  matches4: Match[];
+  matches2: Match[];
+  matches1: Match[];
+  matches: Match[];
+
+  getAvailablePlayers (): string[] {
+    return this.availablePlayers;
   }
-
-  availablePlayers = [
-    'Lilias	Benninger',
-    'Manon	Didsbury',
-    'Constantine	Steeden',
-    'Clari	Newlove',
-    'Justine	Di Bartolommeo',
-    'Tanya	Segot',
-    'Germain	Croxley',
-    'Gilberta	Northam'];
-
-  matches: Array<Match> = [
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: ['Lilias	Benninger', 'Manon	Didsbury'],
-      winner: [],
-      round: '1/4',
-      firstRound: true,
-      played: false,
-      date: '01/01/2019',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1/4',
-      firstRound: true,
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1/4',
-      firstRound: true,
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1/4',
-      firstRound: true,
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1/2',
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1/2',
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 }
-        ],
-      }
-    },
-    {
-      id: '',
-      tournamentId: this.tournament.id,
-      tournamentName: '',
-      player: [],
-      winner: [],
-      round: '1',
-      played: false,
-      date: '',
-      suspended: false,
-      score: {
-        team1: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-        ],
-        team2: [
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-          { points: 0, tiebreakPoints: 0 },
-        ],
-      }
-    },
-
-  ]
 
   onPlayersAssigned (selectedPlayers: string[]) {
     console.log('Se escucho el evento: assignedPlayers');
@@ -228,21 +45,57 @@ export class TournamentBracketAdminComponent implements OnInit {
   }
 
   addMatchesToFirebase () {
-    let matchesFirebase: Match[];
-
-    let matchId: any;
-    // console.log(this.tournament);
-    this.matchService.getMatch('0ctS8xXUJiz3JCmDgMhM').subscribe(match => {
-      matchId = match;
-      console.log(matchId);
-    })
+    this.matchService.addTournamentMatches(this.tournament);
   }
 
   ngOnInit () {
-    // this.tournament.id = this.route.snapshot.params['idTorneoSeleccionado'];
-    // this.rolledPlayers = this.tournament.enrolledPlayers;
-    // console.log(this.rolledPlayers);    
-    console.log(this.tournamentName);
+
+  }
+
+  ngOnChanges () {
+    if (this.tournament != undefined) {
+      this.matchService.getMatchesFromTournament(this.tournament).subscribe(matches => {
+        this.matches = matches;
+        // console.log('Partidos del torneo: ' + this.tournament.name, this.matches);
+        this.matches16 = this.matches.filter(element => element.round == '1/16');
+        this.matches8 = this.matches.filter(element => element.round == '1/8');
+        this.matches4 = this.matches.filter(element => element.round == '1/4');
+        this.matches2 = this.matches.filter(element => element.round == '1/2');
+        this.matches1 = this.matches.filter(element => element.round == '1');
+        console.log('Partidos 16' + this.tournament.name, this.matches16);
+        console.log('Partidos 8' + this.tournament.name, this.matches8);
+        console.log('Partidos 4' + this.tournament.name, this.matches4);
+        console.log('Partidos 2' + this.tournament.name, this.matches2);
+
+        if (this.tournament.modality == 'sencillo') {
+          let rolledPlayers: string[] = [];
+          this.matches.forEach(match => {
+            match.player.forEach(rolledPlayer => {
+              rolledPlayers.push(rolledPlayer);
+            })
+          })
+          this.availablePlayers = this.tournament.enrolledPlayers;
+          this.availablePlayers = this.availablePlayers.filter(element => !rolledPlayers.includes(element));
+        }
+        else {
+          for (let i = 0; i < this.tournament.enrolledPlayers.length; i = i + 2) {
+            let team = this.tournament.enrolledPlayers[i] + ' - ' + this.tournament.enrolledPlayers[i + 1]
+            this.availablePlayers.push(team);
+          }
+          console.log('Equipos inscritos', this.availablePlayers);
+          let rolledTeams: string[] = [];
+          this.matches.forEach(match => {
+            if (match.player.length > 2) {
+              rolledTeams.push(match.player[0] + ' - ' + match.player[1]);
+              rolledTeams.push(match.player[2] + ' - ' + match.player[3]);
+            }
+          })
+          console.log('Equipos rolados', rolledTeams);
+          this.availablePlayers = this.availablePlayers.filter(element => !rolledTeams.includes(element));
+          console.log('Equipos pendientes', this.availablePlayers);
+        }
+      });
+    }
   }
 
 }

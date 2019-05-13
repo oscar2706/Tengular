@@ -16,32 +16,10 @@ export class ScoreDialogComponent implements OnInit {
 
   abandonDialogRef: any;
 
-  match = <Match>{
-    id: '',
-    tournamentId: '',
-    player: [],
-    winner: [],
-    round: '',
-    played: false,
-    date: '',
-    suspended: false,
-    score: {
-      team1: [
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-      ],
-      team2: [
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-        { points: 0, tiebreakPoints: 0 },
-      ],
-    }
-  }
+  quitReason: string[] = ['Lesión', 'Motivo personal', 'Clima', 'Le dio miedo', 'Por nena', 'Otro'];
+  selectedReason: string = '';
+
+  match: Match;
 
   playerQuited = {
     playerName: '',
@@ -61,9 +39,10 @@ export class ScoreDialogComponent implements OnInit {
   openAbandonDialog (player: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
-    dialogConfig.height = '15rem';
+    // dialogConfig.height = '25rem';
+    dialogConfig.width = '20rem';
     this.playerQuited.reason = '';
-    this.abandonDialogRef = this.dialog.open(this.abandonDialog);
+    this.abandonDialogRef = this.dialog.open(this.abandonDialog, dialogConfig);
     this.abandonDialogRef.afterClosed().subscribe(
       data => {
         // this.playerQuited.playerName = '';
@@ -266,14 +245,25 @@ export class ScoreDialogComponent implements OnInit {
 
   save () {
     if (this.playerQuited.filled) {
-      this.playerQuited.playerName == this.match.player[0] ? this.match.winner.push(this.match.player[0]) : this.match.winner.push(this.match.player[1]);
+      this.playerQuited.playerName == this.match.player[0] ? this.match.winner.push(this.match.player[1]) : this.match.winner.push(this.match.player[0]);
       this.dialogRef.close(this.match);
     }
     else {
       let winner = this.calculateWinner();
       this.calculatedWinner = winner;
       if (winner != 0) {
-        winner == 1 ? this.match.winner.push(this.match.player[0]) : this.match.winner.push(this.match.player[1]);
+        if (this.match.player.length > 2) {
+          if (winner == 1) {
+            this.match.winner.push(this.match.player[0]);
+            this.match.winner.push(this.match.player[1]);
+          }
+          else {
+            this.match.winner.push(this.match.player[2]);
+            this.match.winner.push(this.match.player[3]);
+          }
+        }
+        else
+          winner == 1 ? this.match.winner.push(this.match.player[0]) : this.match.winner.push(this.match.player[1]);
         this.dialogRef.close(this.match);
       }
     }
@@ -281,6 +271,13 @@ export class ScoreDialogComponent implements OnInit {
   close (): void {
     // this.clearScore();
     this.dialogRef.close();
+  }
+
+  onReasonChanged (event) {
+    this.playerQuited.filled = true;
+    this.playerQuited.reason = event;
+    this.selectedReason = event;
+    console.log(this.selectedReason);
   }
 
   ngOnInit () {

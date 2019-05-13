@@ -7,3 +7,13 @@
   .whiteText {
    color: white;
 }
+
+.example-header-image-singleP{
+   background-image: url('/assets/icons/atp.png');
+   background-size: cover;
+ }
+
+ .example-header-image-single{
+   background-image: url('/assets/icons/torneo.svg');
+   background-size: cover;
+ }
