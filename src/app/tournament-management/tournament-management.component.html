@@ -1,8 +1,11 @@
 <div class="container-12 mt-5 pt-4 bgColor-light">
   <div class="container bg-white">
 
-    <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent">
-      <mat-tab label="Torneos" mat-align->
+    <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent" class="py-2">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <h5>Torneos</h5>
+        </ng-template>
         <br>
         <div class="example-small-box " align="left">
 
@@ -14,16 +17,16 @@
         <div class="example-small-box" align="center">
           <mat-form-field color="accent">
             <mat-label>Modalidades</mat-label>
-            <mat-select [(value)]="mod" (selectionChange)="onFilter()"> 
-                <mat-option value="todas">
-                    Todas
-                </mat-option>
+            <mat-select [(value)]="mod" (selectionChange)="onFilter()">
+              <mat-option value="todas">
+                Todas
+              </mat-option>
               <mat-option value="sencillo">
-               Sencillo
+                Sencillo
               </mat-option>
               <mat-option value="doble">
-                  Doble
-                 </mat-option>
+                Doble
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -31,18 +34,18 @@
           <mat-form-field color="accent">
             <mat-label>Categorias</mat-label>
             <mat-select [(value)]="cat" (selectionChange)="onFilter()">
-                <mat-option value="todas">
-                    Todas
-                </mat-option>
-                <mat-option value="varonil">
-                   Varonil
-                   </mat-option>
-                   <mat-option value="femenil">
-                    Femenil
-                    </mat-option>
-                    <mat-option value="mixto">
-                      Mixto
-                    </mat-option>
+              <mat-option value="todas">
+                Todas
+              </mat-option>
+              <mat-option value="varonil">
+                Varonil
+              </mat-option>
+              <mat-option value="femenil">
+                Femenil
+              </mat-option>
+              <mat-option value="mixto">
+                Mixto
+              </mat-option>
             </mat-select>
           </mat-form-field>
           <br>
@@ -50,7 +53,7 @@
           <div *ngIf="tournamentsFilter?.length > 0; else noTournaments" class="container">
             <div class="row">
               <div *ngFor="let tournament of tournamentsFilter" class="col-4" style="padding: 20px">
-         <!--     <div *ngFor="let tournament of tournaments| slice:0:more.value" class="col-4" style="padding: 20px"> -->
+                <!--     <div *ngFor="let tournament of tournaments| slice:0:more.value" class="col-4" style="padding: 20px"> -->
                 <mat-card [routerLink]="['/admin-torneo', tournament.imageT]" appMaterialElevation
                           class="addBorder" class="example-card">
                   <mat-card-header>
@@ -66,21 +69,25 @@
                     <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
                     <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
                     <br><label><strong>Modalidad: </strong>{{tournament.modality}}</label>
-                    <br><label><strong>Categoria: </strong>{{tournament.category}}</label>
+                    <br><label><strong>Categoría: </strong>{{tournament.category}}</label>
+                    <br><label><strong>Participantes: </strong>{{tournament.numberOfPlayers}}</label>
                   </mat-card-content>
                 </mat-card>
               </div>
             </div>
-    <!--        <button mat-raised-button color="accent" class ="whiteText" (click)="onClick()">Mostrar más</button> -->
+            <!--        <button mat-raised-button color="accent" class ="whiteText" (click)="onClick()">Mostrar más</button> -->
           </div>
           <ng-template #noTournaments>
-              <br>
-              <h5>No existen Torneos</h5>
-            </ng-template>
+            <br>
+            <h5>No existen Torneos</h5>
+          </ng-template>
         </div>
       </mat-tab>
 
-      <mat-tab label="Jugadores">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <h5>Jugadores</h5>
+        </ng-template>
         <br>
         <div class="example-small-box " align="left">
 
@@ -93,11 +100,11 @@
 
           <mat-form-field>
             <mat-label>Genero</mat-label>
-              <mat-select [(value)]="gen" (selectionChange)="onFilterPlayer()">
-                  <mat-option value="todas">Ambos</mat-option>
-                  <mat-option value="Masculino">Masculino</mat-option>
-                  <mat-option value="Femenino">Femenino</mat-option>
-                </mat-select>
+            <mat-select [(value)]="gen" (selectionChange)="onFilterPlayer()">
+              <mat-option value="todas">Ambos</mat-option>
+              <mat-option value="Masculino">Masculino</mat-option>
+              <mat-option value="Femenino">Femenino</mat-option>
+            </mat-select>
           </mat-form-field>
 
           <div class="container">
@@ -125,7 +132,7 @@
                 </mat-card>
               </div>
             </div>
-            <button mat-raised-button color="accent" class ="whiteText" (click)="onClick2()">Mostrar más</button>
+            <button mat-raised-button color="accent" class="whiteText" (click)="onClick2()">Mostrar más</button>
           </div>
         </div>
       </mat-tab>

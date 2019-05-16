@@ -45,12 +45,12 @@
           </mat-icon>
           <p *ngIf="match.player.length <= 2">{{match.player[0]}}</p>
           <div class="flex-column" *ngIf="match.player.length > 2">
-            <p class="m-0 p-0">{{match.player[0]}}</p>
-            <p class="m-0 p-0">{{match.player[1]}}</p>
+            <p app-match-score-info>{{match.player[0]}}</p>
+            <p app-match-score-info>{{match.player[1]}}</p>
           </div>
         </td>
         <div *ngIf="this.match.played">
-          <td class="pt-2"
+          <td
               [ngClass]="{setTop: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
               *ngFor="let set of match.score.team1; index as i;">
             {{set.points | points: match.score.team2[i].points}}
@@ -66,12 +66,12 @@
           </mat-icon>
           <p *ngIf="match.player.length <= 2">{{match.player[1]}}</p>
           <div class="flex-column" *ngIf="match.player.length > 2">
-            <p class="m-0 p-0">{{match.player[2]}}</p>
-            <p class="m-0 p-0">{{match.player[3]}}</p>
+            <p app-match-score-info>{{match.player[2]}}</p>
+            <p app-match-score-info>{{match.player[3]}}</p>
           </div>
         </td>
-        <div class="pb-2" *ngIf="this.match.played">
-          <td class="pb-4"
+        <div *ngIf="this.match.played">
+          <td
               [ngClass]="{setBottom: match.score.team1[i].points > 0 || match.score.team2[i].points > 0 }"
               *ngFor="let set of match.score.team2; index as i;">
             {{set.points | points: match.score.team1[i].points}}

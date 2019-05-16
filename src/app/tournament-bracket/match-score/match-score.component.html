@@ -53,7 +53,7 @@
         <p *ngIf="match.date != ''">Se juega el: {{this.match.date}}</p>
       </div>
     </ng-template>
-    <p *ngIf="match.player.length == 1">Se juega el: {{this.match.date}}</p>
+    <!-- <p *ngIf="match.player.length >=2 && !match.played && match.date != ''">Se juega el: {{this.match.date}}</p> -->
   </mat-card-content>
   <button mat-stroked-button color="accent" class="mb-2"
           *ngIf="this.match.played == false && this.match.player.length >= 2 && !this.match.suspended"

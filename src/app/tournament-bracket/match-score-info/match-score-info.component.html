@@ -3,9 +3,6 @@
     <table class="matchResult" *ngIf="match.played || match.player.length >= 1; else pendiente">
       <tr>
         <td class="player justify-content-center align-content-center">
-          <mat-icon class="d-inline float-left pr-2"
-                    *ngIf="this.match.played && this.match.round == '1' && match.winner == match.player[0]">looks_one
-          </mat-icon>
           <p class="pt-3" [ngClass]="{winner: match.winner.includes(match.player[0]) && match.round !='1' ,
                                 champion:match.winner==match.player[0] && match.round=='1' }"
              *ngIf="match.player.length <= 2">{{match.player[0]}}</p>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter, OnChanges } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter, OnChanges, ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MatchService } from "../../services/match-single.service";
 import { Match } from '../../models/match-single.model';
 import { FormControl } from '@angular/forms';
@@ -45,15 +45,19 @@ export class MatchScoreAdminComponent implements OnInit, OnChanges {
     this.openedDialogRef = this.dialog.open(this.playersDialog, dialogConfig);
     this.openedDialogRef.afterClosed().subscribe(() => {
       if (this.match.date != '')
-        this.openSnackBar('Partido rolado!', '↩ Deshacer');
+        this.openSnackBar('Partido rolado!', 'Deshacer ↩️');
     }
     );
   }
 
   openSnackBar (message: string, action: string) {
-    let snackBarRef = this.snackBar.open(message, action, {
-      duration: 3000,
-    });
+    const snackBarConfig = new MatSnackBarConfig();
+    snackBarConfig.horizontalPosition = 'right';
+    snackBarConfig.verticalPosition = 'top';
+    snackBarConfig.panelClass = ['snackBar-m6', 'text-white'];
+    snackBarConfig.duration = 3500;
+
+    let snackBarRef = this.snackBar.open(message, action, snackBarConfig);
     snackBarRef.onAction().subscribe(() => {
       this.resetMatchRole();
     });

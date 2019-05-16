@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Inject, OnChanges, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MatchService } from "../../services/match-single.service";
 import { Match } from '../../models/match-single.model'
 import { ScoreDialogComponent } from "../score-dialog/score-dialog.component";
@@ -53,7 +53,7 @@ export class MatchScoreComponent implements OnInit, OnChanges {
       data => {
         if (data != undefined) {
           this.match.played = true;
-          this.openSnackBar('Marcador guardado!', 'Deshacer');
+          this.openSnackBar('Marcador guardado!', 'Deshacer ↩️');
         }
         else {
           console.log('Dialogo cerrado sin guardar');
@@ -63,9 +63,12 @@ export class MatchScoreComponent implements OnInit, OnChanges {
   }
 
   openSnackBar (message: string, action: string) {
-    let snackBarRef = this.snackBar.open(message, action, {
-      duration: 5000,
-    });
+    const snackBarConfig = new MatSnackBarConfig();
+    snackBarConfig.horizontalPosition = 'right';
+    snackBarConfig.verticalPosition = 'top';
+    snackBarConfig.panelClass = ['snackBar-m6', 'text-white'];
+    snackBarConfig.duration = 3500;
+    let snackBarRef = this.snackBar.open(message, action, snackBarConfig);
     snackBarRef.onAction().subscribe(() => {
       this.resetScore();
       // console.log('Deshacer Called!');

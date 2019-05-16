@@ -505,7 +505,8 @@ export class TournamentBracketComponent implements OnInit, OnChanges {
         }
 
 
-        if (this.matches4.length > 0) {
+        // if (this.matches4.length > 0) {
+        else {
           let eights1Played = false;
           if (this.matches8[2].played || this.matches8[3].played)
             eights1Played = true;
