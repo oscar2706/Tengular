@@ -69,7 +69,7 @@ more2:More={
   onCreateTournament(){
     const dialogConfig1= new MatDialogConfig();
     dialogConfig1.disableClose=false;
-    dialogConfig1.width="40%";
+    dialogConfig1.width = '40rem';
     this.dialog.open(TournamentRegistrationComponent,dialogConfig1 );
   }
 
