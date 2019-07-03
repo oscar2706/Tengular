@@ -13,14 +13,6 @@
             aria-label="Clear" (click)="value=''">
             <mat-icon>close</mat-icon>
           </button>
-          <!-- <div *ngIf="name.touched && !name.valid">
-            <small *ngIf="name.errors.required" style="color: red;">
-              Nombre es requerido
-            </small>
-            <small *ngIf="name.errors.minlength" style="color: red;">
-              Nombre muy corto
-            </small>
-          </div> -->
         </mat-form-field>
       </div>
 
@@ -33,11 +25,6 @@
             <mat-option value="doble">Dobles</mat-option>
           </mat-select>
         </mat-form-field>
-        <!-- <div *ngIf="modality.touched && !modality.valid">
-          <div *ngIf="modality.errors.required" style="color: red;">
-            Modalidad es requerido
-          </div>
-        </div> -->
 
         <mat-form-field color="accent">
           <mat-label>Categoria</mat-label>
@@ -48,11 +35,6 @@
             <mat-option value="mixto">Mixto</mat-option>
           </mat-select>
         </mat-form-field>
-        <!-- <div *ngIf="category.touched && !category.valid">
-          <div *ngIf="category.errors.required" style="color: red;">
-            Categoria es requerido
-          </div>
-        </div> -->
 
         <mat-form-field color="accent">
           <mat-label>Competidores</mat-label>
@@ -64,11 +46,6 @@
             <mat-option value="16">16</mat-option>
             <mat-option value="32">32</mat-option>
           </mat-select>
-          <!-- <div *ngIf="numberOfPlayers.touched && !numberOfPlayers.valid">
-            <div *ngIf="numberOfPlayers.errors.required" style="color: red;">
-              Competidores es requerido
-            </div>
-          </div> -->
         </mat-form-field>
       </div>
 
@@ -104,8 +81,9 @@
       </label>
 
       <div class="row justify-content-end mr-1 mb-1">
-        <button mat-raised-button color="accent" class="text-white" *ngIf="urlImage | async; else btnDisabled"
-          type="submit" color="accent">
+        <button mat-raised-button color="accent" class="text-white"
+          *ngIf="urlImage | async; else btnDisabled" type="submit"
+          color="accent">
           Aceptar
         </button>
         <ng-template #btnDisabled>

@@ -1,7 +1,8 @@
 <div class="container-12 mt-5 pt-4 bgColor-light">
   <div class="container bg-white">
 
-    <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent" class="py-2">
+    <mat-tab-group dynamicHeight mat-align-tabs="center" color="accent"
+      class="py-2">
       <mat-tab>
         <ng-template mat-tab-label>
           <h5>Torneos</h5>
@@ -9,7 +10,8 @@
         <br>
         <div class="example-small-box " align="left">
 
-          <button mat-raised-button (click)="onCreateTournament()" color="accent">
+          <button mat-raised-button (click)="onCreateTournament()"
+            color="accent">
             <mat-icon>add</mat-icon>Nuevo
           </button>
 
@@ -30,7 +32,6 @@
             </mat-select>
           </mat-form-field>
 
-
           <mat-form-field color="accent">
             <mat-label>Categorias</mat-label>
             <mat-select [(value)]="cat" (selectionChange)="onFilter()">
@@ -50,27 +51,38 @@
           </mat-form-field>
           <br>
 
-          <div *ngIf="tournamentsFilter?.length > 0; else noTournaments" class="container">
+          <div *ngIf="tournamentsFilter?.length > 0; else noTournaments"
+            class="container">
             <div class="row">
-              <div *ngFor="let tournament of tournamentsFilter" class="col-4" style="padding: 20px">
+              <div *ngFor="let tournament of tournamentsFilter" class="col-4"
+                style="padding: 20px">
                 <!--     <div *ngFor="let tournament of tournaments| slice:0:more.value" class="col-4" style="padding: 20px"> -->
-                <mat-card [routerLink]="['/admin-torneo', tournament.imageT]" appMaterialElevation
-                          class="addBorder" class="example-card">
+                <mat-card [routerLink]="['/admin-torneo', tournament.imageT]"
+                  appMaterialElevation class="addBorder" class="example-card">
                   <mat-card-header>
-                    <div mat-card-avatar class="example-header-image-single"></div>
+                    <div mat-card-avatar class="example-header-image-single">
+                    </div>
                     <mat-card-title>{{tournament.name}}</mat-card-title>
-                    <mat-card-subtitle>({{tournament.category}})</mat-card-subtitle>
+                    <mat-card-subtitle>({{tournament.category}})
+                    </mat-card-subtitle>
                   </mat-card-header>
-                  <img mat-card-image
-                       [src]="tournament.imageT" style="padding: 10px; height: 225px; width: 315px">
+                  <img mat-card-image [src]="tournament.imageT"
+                    style="padding: 10px; height: 225px; width: 315px">
                   <mat-card-content>
-                    <h2 style="text-align: center"><strong>{{tournament.name}}</strong></h2>
-                    <br><label><strong>Inicio: </strong>{{tournament.beginDate}}</label>
-                    <br><label><strong>Fin: </strong>{{tournament.endDate}}</label>
-                    <br><label><strong>Estado: </strong>{{tournament.announcementStatus}}</label>
-                    <br><label><strong>Modalidad: </strong>{{tournament.modality}}</label>
-                    <br><label><strong>Categoría: </strong>{{tournament.category}}</label>
-                    <br><label><strong>Participantes: </strong>{{tournament.numberOfPlayers}}</label>
+                    <h2 style="text-align: center">
+                      <strong>{{tournament.name}}</strong></h2>
+                    <br><label><strong>Inicio:
+                      </strong>{{tournament.beginDate}}</label>
+                    <br><label><strong>Fin:
+                      </strong>{{tournament.endDate}}</label>
+                    <br><label><strong>Estado:
+                      </strong>{{tournament.announcementStatus}}</label>
+                    <br><label><strong>Modalidad:
+                      </strong>{{tournament.modality}}</label>
+                    <br><label><strong>Categoría:
+                      </strong>{{tournament.category}}</label>
+                    <br><label><strong>Participantes:
+                      </strong>{{tournament.numberOfPlayers}}</label>
                   </mat-card-content>
                 </mat-card>
               </div>
@@ -109,26 +121,34 @@
 
           <div class="container">
             <div class="row">
-              <div *ngFor="let player of playersFilter | slice:0:more2.value" class="col-4" style="padding: 20px">
-                <mat-card [routerLink]="['/jugador-seleccionado', player.imageP]" appMaterialElevation class="addBorder"
-                          class="example-card">
+              <div *ngFor="let player of playersFilter | slice:0:more2.value"
+                class="col-4" style="padding: 20px">
+                <mat-card
+                  [routerLink]="['/jugador-seleccionado', player.imageP]"
+                  appMaterialElevation class="addBorder" class="example-card">
                   <mat-card-header>
-                    <div mat-card-avatar class="example-header-image-singleP"></div>
+                    <div mat-card-avatar class="example-header-image-singleP">
+                    </div>
                     <mat-card-title>{{player.name}}</mat-card-title>
                     <mat-card-subtitle>({{player.gender}})</mat-card-subtitle>
                   </mat-card-header>
-                  <img mat-card-image
-                       [src]="player.imageP" style="padding: 5px; height: 225px; width: 300px">
+                  <img mat-card-image [src]="player.imageP"
+                    style="padding: 5px; height: 225px; width: 300px">
                   <mat-card-content>
-                    <h2 style="text-align: center"><strong>{{player.name}}</strong></h2>
-                    <br><label><strong>Ranking: </strong>{{player.currentRank}}°</label>
-                    <br><label><strong>Puntos: </strong>{{player.playerPoints}}</label>
-                    <br><label><strong>Edad: </strong>{{player.age}} años</label>
+                    <h2 style="text-align: center">
+                      <strong>{{player.name}}</strong></h2>
+                    <br><label><strong>Ranking:
+                      </strong>{{player.currentRank}}°</label>
+                    <br><label><strong>Puntos:
+                      </strong>{{player.playerPoints}}</label>
+                    <br><label><strong>Edad: </strong>{{player.age}}
+                      años</label>
                   </mat-card-content>
                 </mat-card>
               </div>
             </div>
-            <button mat-raised-button color="accent" class="whiteText" (click)="onClick2()">Mostrar más</button>
+            <button mat-raised-button color="accent" class="whiteText"
+              (click)="onClick2()">Mostrar más</button>
           </div>
         </div>
       </mat-tab>

@@ -36,6 +36,7 @@ import { PlayerRegistrationComponent } from './tournament-management/player-regi
 import { ScoreDialogComponent } from './tournament-bracket/score-dialog/score-dialog.component';
 
 // Material components
+import { MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -143,6 +144,7 @@ const APP_ROUTES: Routes = [
     MatTooltipModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatRadioModule,
     CdkTableModule,
     RouterModule,
     NgbModule.forRoot(),
